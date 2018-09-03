@@ -1,0 +1,120 @@
+.body {
+    background-color: rgb(251,251,249);
+}
+
+.topbar {
+    background-color: rgb(140,21,21);
+    padding-right: 50px;
+    padding-top: 1px;
+    padding-bottom: 10px;
+    text-align: right;
+}
+
+.topbar a{
+    color:#fff;
+}
+
+.name h1 {text-align: center}
+
+.whatis p {
+align-text: center;
+}
+
+.topbar h3 {
+    color:#fff;
+    padding-top: 8px;
+}
+
+.topbar h2 {
+    color:#fff;
+    text-align: left;
+    padding-top: 8px;
+}
+
+.tobpar h1 {text-align: center}
+
+.seal {
+    background-color: rgb(140,21,21);
+}
+
+.name {
+    background-color: rgb(140,21,21);
+}
+
+.name h1 {
+    color: #fff;
+    text-align: right;
+    padding: 7px;
+}
+
+.name h3 a {
+    color: #fff;
+}
+
+.topbar table {
+    border: "1";
+    padding: 20px;
+    border-color: #fff;
+    border-radius: 5px;
+}
+
+.jumbotron a {
+    color:darkblue;
+}
+
+.image {
+    padding-left: 20px; 
+    background-color: rgb(140,21,21);
+}
+
+.address{
+    padding-left: 72px;
+    padding-top: 9px;
+}
+
+.address p {
+font-size:16px;
+}
+
+.address a {
+    font-size:16px;
+    color:darkblue;
+}
+.jumbotron {
+  background-color: rgb(213, 208, 192);
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom:0;
+}
+
+.jumbotext {
+    margin-top: 30px;
+}
+
+.jumbotext p a{
+    color:darkblue;
+}
+.jumbotron h1 {
+  color: #fff;
+  font-size: 40px;  
+  font-family: sans-serif;
+}
+
+.footer {
+    min-width: 100%;
+    min-height: 100%;
+  background-color: rgb(251,251,249);
+}
+
+td { 
+    padding: 5px;
+}
+
+body {
+  font-family: sans-serif;
+  font-size: 15px;
+}
+
+.masoud_pic {
+    max-width: 30%;
+}
