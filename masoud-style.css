@@ -1,75 +1,36 @@
-.body {
+body {
     background-color: rgb(251,251,249);
+    font-family: sans-serif;
+    font-size: 15px;
+    padding-top: 80px;
 }
 
-.topbar {
-    background-color: rgb(140,21,21);
-    padding-right: 50px;
-    padding-top: 1px;
-    padding-bottom: 10px;
-    text-align: right;
+.carousel {
+    border-radius: 30px 30px 30px 30px;
+    overflow: hidden;
 }
 
-.topbar a{
+.carousel-caption {
+    top: 50%;
+    bottom: initial;
+    transform: translateY(-50%);
+}
+
+.nav {
+    background: rgb(140,21,21);
+}
+
+.nav text{
     color:#fff;
 }
 
-.name h1 {text-align: center}
-
-.whatis p {
-align-text: center;
+.jumbotron {
+    background-color: rgb(213, 208, 192);
+    padding: 15px;
 }
-
-.topbar h3 {
-    color:#fff;
-    padding-top: 8px;
-}
-
-.topbar h2 {
-    color:#fff;
-    text-align: left;
-    padding-top: 8px;
-}
-
-.tobpar h1 {text-align: center}
 
 .seal {
     background-color: rgb(140,21,21);
-}
-
-.name {
-    background-color: rgb(140,21,21);
-}
-
-.name h1 {
-    color: #fff;
-    text-align: right;
-    padding: 7px;
-}
-
-.name h3 a {
-    color: #fff;
-}
-
-.topbar table {
-    border: "1";
-    padding: 20px;
-    border-color: #fff;
-    border-radius: 5px;
-}
-
-.jumbotron a {
-    color:darkblue;
-}
-
-.image {
-    padding-left: 20px; 
-    background-color: rgb(140,21,21);
-}
-
-.address{
-    padding-left: 72px;
-    padding-top: 9px;
 }
 
 .address p {
@@ -80,41 +41,57 @@ font-size:16px;
     font-size:16px;
     color:darkblue;
 }
-.jumbotron {
-  background-color: rgb(213, 208, 192);
-    margin-bottom: 0;
-    padding-top: 0;
-    padding-bottom:0;
-}
 
-.jumbotext {
-    margin-top: 30px;
-}
-
-.jumbotext p a{
-    color:darkblue;
-}
-.jumbotron h1 {
-  color: #fff;
-  font-size: 40px;  
-  font-family: sans-serif;
+.icon td {
+  padding: 20px;
 }
 
 .footer {
     min-width: 100%;
     min-height: 100%;
-  background-color: rgb(251,251,249);
+    background-color: rgb(251,251,249);
 }
 
 td { 
     padding: 5px;
 }
 
-body {
-  font-family: sans-serif;
-  font-size: 15px;
+/* hierarchical list*/
+
+ul, #hierarchy {
+    list-style-type: none;
 }
 
-.masoud_pic {
-    max-width: 30%;
+#hierarchy {
+  margin: 0;
+  padding: 0;
+}
+
+.caret {
+  cursor: pointer;
+  -webkit-user-select: none; /* Safari 3.1+ */
+  -moz-user-select: none; /* Firefox 2+ */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none;
+}
+
+.caret::before {
+  content: "\25B6";
+  color: black;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.caret-down::before {
+  -ms-transform: rotate(90deg); /* IE 9 */
+  -webkit-transform: rotate(90deg); /* Safari */'
+  transform: rotate(90deg);  
+}
+
+.nested {
+  display: none;
+}
+
+.active {
+  display: block;
 }

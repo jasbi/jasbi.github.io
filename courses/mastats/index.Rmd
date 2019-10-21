@@ -1,0 +1,142 @@
+--- 
+title: "Bayesian Statistics for Linguists"
+author: "Masoud Jasbi"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+description: "This is a set of statistical tools and code that I have found useful in my research."
+---
+
+# Introduction
+
+## What is the difference between Bayesian and Frequentist regression?
+
+From MIT class by Orloff and Bloom.
+
+Bayesian inference:
+
+  * uses probabilities for both hypotheses and data.
+  * depends on the prior and likelihood of observed data.
+  * requires one to know or construct a ‘subjective prior’.
+  * dominated statistical practice before the 20th century.
+  * may be computationally intensive due to integration over many parameters.
+
+Frequentist inference (NHST):
+
+  * never uses or gives the probability of a hypothesis (no prior or posterior).
+  * depends on the likelihood $P(D|H)$ for both observed and unobserved data.
+  * does not require a prior.
+  * dominated statistical practice during the 20th century.
+  * tends to be less computationally intensive.
+
+## Guidlines for Random Effects Structure
+
+From Barr, et al (2013):
+
+* If a factor is between-unit, then a random intercept is usually sufficient. 
+
+* If a factor is within-unit and there are multiple observations per treatment level per unit, then you need a by-unit random slope for that factor. 
+
+* The only exception to this rule is when you only have a single observation for every treatment level of every unit; in this case, the random slope variance would be completely confounded with trial-level error. It follows that a model with a random slope would be unidentifiable, and so a random intercept would be sufficient to meet the conditional independence assumption.
+
+<!--
+
+## Gibson and Wu (2013)
+
+* Subject Relative Clause: *The senator who interrogated the journalist resigned*
+* Object Relative Clause: *The senator who the journalist interrogated resigned*
+
+Research Question: Are object relative clauses easier to process than subject relative clauses?
+
+```{r import_dataa, eval=FALSE}
+gibson_wu_data <- read.table("data/gibsonwu2012data.txt", header=TRUE)
+
+summary(gibson_wu_data)
+```
+
+```{r RT_plot, eval=FALSE}
+ggplot(gibson_wu_data, aes(rt)) +
+  geom_histogram() + 
+  labs(x="Reaction Time", y="Frequency") +
+  theme_classic()
+```
+
+Let's log transform the data:
+
+```{r log_rt_variable, eval=FALSE}
+gibson_wu_data <-
+  gibson_wu_data %>%
+  mutate(log_rt = log(rt))
+```
+
+Now let's plot `log_rt`:
+
+```{r logRT_plot, eval=FALSE}
+ggplot(gibson_wu_data, aes(log_rt)) +
+  geom_histogram() + 
+  labs(x="Log Reaction Time", y="Frequency") +
+  theme_classic()
+```
+
+Reaction time data is often log_transformed to fit the assumption of normality in linear models.
+
+## Continuous DV
+
+```{r reaction_time_plot, eval=FALSE}
+ggplot(gibson_wu_data, aes(log_rt)) +
+  geom_histogram() + 
+  labs(x="Log Reaction Time", y="Frequency") +
+  theme_classic()
+```
+
+
+```{r, eval=FALSE}
+ggplot(gibson_wu_data, aes(type2, log_rt)) +
+  geom_boxplot() + 
+  geom_jitter(color="grey") + 
+  theme_classic()
+```
+
+```{r, eval=FALSE}
+ggplot(gibson_wu_data, aes(type2, log_rt)) +
+  geom_boxplot() + 
+  facet_wrap(.~subj) +
+  theme_classic()
+```
+
+
+Let's test the maximal mixed model.
+
+```{r, eval=FALSE}
+lmer_model <- lmer(log_rt ~ type2 + (type2|subj) + (type2|item), data=gibson_wu_data)
+summary(lmer_model)
+```
+
+```{r, eval=FALSE}
+brms_model <- brm(log_rt ~ type2 + (type2|subj) + (type2|item), data=gibson_wu_data, family = "normal")
+summary(brms_model)
+```
+
+### Checking Model Convergence
+
+First $\{R}$
+
+Tract Plots
+
+```{r, eval=FALSE}
+plot(lmer_model)
+```
+
+
+-->
+
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```
