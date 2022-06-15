@@ -1,3 +1,4 @@
 [submodule "projects/asymmetric_disagreement"]
 	path = projects/asymmetric_disagreement
 	url = https://github.com/ucdavis/asymmetric_disagreement.git
+	branch = main
