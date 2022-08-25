@@ -2,3 +2,6 @@
 	path = projects/asymmetric_disagreement
 	url = https://github.com/ucdavis/asymmetric_disagreement.git
 	branch = main
+[submodule "projects/disjunction_junction_html"]
+	path = projects/disjunction_junction_html
+	url = https://github.com/cdfelton/disjunction_junction_html
