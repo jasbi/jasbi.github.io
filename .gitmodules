@@ -5,3 +5,4 @@
 [submodule "projects/disjunction_junction_html"]
 	path = projects/disjunction_junction_html
 	url = https://github.com/cdfelton/disjunction_junction_html
+	branch = main
