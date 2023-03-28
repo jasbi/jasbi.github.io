@@ -9,3 +9,4 @@
 [submodule "projects/syntactic_disjunction_html"]
 	path = projects/syntactic_disjunction_html
 	url = https://github.com/cdfelton/syntactic_disjunction_html.git
+	branch = main
