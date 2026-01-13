@@ -1,0 +1,9 @@
+# Child Language Data
+
+This is a book created from markdown and executable code.
+
+```{python}
+x =  3 + 1
+```
+
+See @knuth84 for additional discussion of literate programming.

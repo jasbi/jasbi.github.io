@@ -1,0 +1,25 @@
+project:
+  type: book
+
+book:
+  title: "Language Learning in Humans and Machines"
+  author: "Norah Jones"
+  date: "1/7/2026"
+  chapters:
+    - index.qmd
+    - childLanguageData.qmd
+    - summary.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+  pdf:
+    documentclass: scrreprt
+
+
+
