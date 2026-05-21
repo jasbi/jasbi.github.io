@@ -10,6 +10,83 @@
     <link rel="shortcut icon" href="image/ucdfavicon.png">
     <meta name="keywords" content="Masoud, Jasbi, Masoud Jasbi, Masoud Jafarali Jasbi, Masoud Jasbi linguistics, Masoud Jasbi stanford, Masoud Jasbi Stanford linguistics, Persian, language acquisition, semantics, pragmatics"/>
     <title>Masoud Jasbi</title>
+    <style>
+        .intro-box {
+            background: #e8e8e8; border: 1.5px solid #ccc; border-radius: 8px;
+            padding: 20px 22px 32px; margin-bottom: 0;
+            display: flex; align-items: center; gap: 20px;
+        }
+        .intro-content  { flex: 1; }
+        .intro-title    { font-weight: 700; font-size: 18px; margin-bottom: 4px; }
+        .intro-subtitle { font-weight: 600; color: #555; font-size: 16px; margin-bottom: 10px; }
+        .intro-text     { font-size: 15px; color: #444; margin: 0; line-height: 1.6; }
+
+        .filter-section {
+            display: flex; justify-content: center;
+            position: relative; z-index: 2;
+            margin-top: -22px; margin-bottom: 24px;
+        }
+        .filter-grid {
+            display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
+        }
+        .filter-btn {
+            padding: 9px 14px; border-radius: 6px; cursor: pointer;
+            font-weight: 700; font-size: 14px; border: 2px solid var(--color);
+            background: var(--bg); color: var(--color); transition: background 0.15s, color 0.15s;
+        }
+        .filter-btn:hover  { opacity: 0.85; }
+        .filter-btn.active { background: var(--color); color: #fff; }
+        .filter-btn[data-topic="cogsci"]        { --bg: #E6F1FB; --color: #0C447C; }
+        .filter-btn[data-topic="learning"]      { --bg: #E1F5EE; --color: #085041; }
+        .filter-btn[data-topic="computational"] { --bg: #e7dddd; --color: #be0303; }
+        .filter-btn[data-topic="semantics"]     { --bg: #FAEEDA; --color: #633806; }
+        .filter-btn[data-topic="syntax"]        { --bg: #FAEEDA; --color: #633806; }
+
+        .course-card {
+            display: block; background: #fff; border: 1.5px solid #d0d0d0; border-radius: 8px;
+            padding: 14px 16px; margin-bottom: 10px; transition: border-color 0.15s;
+            text-decoration: none; color: inherit;
+        }
+        .course-card:hover { border-color: #888; text-decoration: none; color: inherit; }
+        .course-card-body  { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+        .course-card-left  { flex: 1; }
+        .course-title      { font-weight: 700; font-size: 18px; line-height: 1.4; color: #111; }
+        .course-year       { font-size: 16px; color: #666; margin-top: 4px; }
+        .course-desc       { font-size: 14px; color: #444; margin-top: 6px; line-height: 1.55; }
+        .course-logo       { flex-shrink: 0; display: flex; align-items: center; }
+        .course-card-footer {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-top: 10px; padding-top: 8px; border-top: 1px solid #eee;
+        }
+        .course-tags { display: flex; gap: 5px; flex-wrap: wrap; }
+        .course-students {
+            font-size: 12px; font-weight: 600; color: #555;
+            background: #f0f0f0; border: 1px solid #ccc; border-radius: 4px;
+            padding: 3px 10px; white-space: nowrap; flex-shrink: 0;
+        }
+        .intro-stats { display: flex; flex-direction: column; gap: 10px; flex-shrink: 0; }
+        .intro-stat {
+            background: #d4d4d4; border-radius: 6px; padding: 8px 16px;
+            text-align: center; min-width: 90px;
+        }
+        .stat-num   { display: block; font-weight: 700; font-size: 20px; color: #222; }
+        .stat-label { display: block; font-size: 11px; color: #555; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 2px; }
+        .topic-tag {
+            padding: 2px 9px; border-radius: 20px; font-size: 11px;
+            font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; display: inline-block;
+        }
+        .topic-tag.cogsci        { background: #E6F1FB; color: #0C447C; }
+        .topic-tag.learning      { background: #E1F5EE; color: #085041; }
+        .topic-tag.computational { background: #e7dddd; color: #be0303; }
+        .topic-tag.semantics     { background: #FAEEDA; color: #633806; }
+        .topic-tag.syntax        { background: #FAEEDA; color: #633806; }
+        .course-section { margin-bottom: 0; }
+        .course-section-title {
+            background: #f5dc90; border-radius: 6px; padding: 7px 14px;
+            font-weight: 700; font-size: 16px; margin-bottom: 12px; margin-top: 16px;
+            display: inline-block;
+        }
+    </style>
 </head>
 
 <body>
@@ -43,234 +120,249 @@
             </nav>
 
 
-        <table id="main-content" border="1" width="100%" style="table-layout: fixed">
-            <colgroup>
-                <col style="width: 5%">
-                <col style="width: 8%">
-                <col style="width: 14%">
-                <col>
-                <col style="width: 130px">
-            </colgroup>
-            <tr bgcolor="#f5dc90" align="center">
-                <td>Year</td>
-                <td>Code</td>
-                <td>Title</td>
-                <td>Description</td>
-                <td>Institution</td>
-            </tr>
-            <tr>
-                <td>2026</td>
-                <td>LIN 103B</td>
-                <td><a href="courses/lin103B_2026.html">Linguistic Analysis II</a></td>
-                <td>This course introduces students to the basic theoretical and mathematic foundations of natural language syntax. It covers the formal language theory and the Chomsky Hierarchy. Then we use the NLTK package in Python to create feature-based phrase structure grammars. The course only assumes some introductory background in linguistics. </td>
-                <td style="text-align:center"><img width="90" src="image/UCDavis.png" alt="UC Davis logo"></td>
-            </tr>
-            <tr>
-                <td>2026</td>
-                <td>LIN 205</td>
-                <td><a href="courses/lin205_2026.html">Language Learning in Humans and Machines</a></td>
-                <td>This course provides a basic intro into computational models of language learning. We briefly review some known facts regarding child language development. We introduce three classes of models for language learning: rulep-based symbolic models, Bayesian probabilistic models, and Neural Networks. We discuss prior and current research applying these models to better understand human language learning.</td>
-                <td style="text-align:center"><img width="90" src="image/UCDavis.png" alt="UC Davis logo"></td>
-            </tr>
-           <tr>
-                <td>2025</td>
-                <td>LIN 2</td>
-                <td><a href="courses/lin002_2025.html">Language, the Mind, and Computers</a></td>
-                <td>An introduction to the computational theory of the mind and major computational models that contribute to the study of language. An introduction to the basics of neural network models, information theory, and symbolic rule-based computation and their application to the study of language.</td>
-                <td style="text-align:center"><img width="90" src="image/UCDavis.png" alt="UC Davis logo"></td>
-            </tr>
-            <tr>
-                <td>2025</td>
-                <td>LIN 141</td>
-                <td><a href="courses/lin141_2025F.html">Semantics</a></td>
-                <td>In this course we study how language conveys meaning and build models that mimic this process for better understanding its nature. We look at the meaning of sentences and how they are made from the contribution of individual words that make up the sentence. We also study how meaning is born in converation and how each speaker's assumptions and coversational moves creates novel meaning. The course ends by discussing the role of social knowledge in creating meaning.</td>
-                <td style="text-align:center"><img width="90" src="image/UCDavis.png" alt="UC Davis logo"></td>
-            </tr>
-            <tr>
-                <td>2025</td>
-                <td>LIN 241</td>
-                <td><a href="courses/lin241_2025.html">Advanced Semantics</a></td>
-                <td>Advanced critical exploration of contemporary theories of linguistic semantics.</td>
-                <td style="text-align:center"><img width="90" src="image/UCDavis.png" alt="UC Davis logo"></td>
-            </tr>
-            <tr>
-                <td>2025</td>
-                <td>LIN 001</td>
-                <td><a href="courses/lin001_2025.html">Introduction to Linguistics</a></td>
-                <td>What is human language and why is it the way it is? The first half of the course introduces the classic subfileds of linguistics addressing the question of what language is. The second half discusses subfields such as psycholinguistics, language, acquisition, historical linguistics, and language varuation that explain why human language is the way it is. Emphasis on developing analytic skills and critical thinking related to language.</td>
-                <td style="text-align:center"><img width="90" src="image/UCDavis.png" alt="UC Davis logo"></td>
-            </tr>
-            <tr>
-                <td>2025</td>
-                <td>LIN 141</td>
-                <td><a href="courses/lin141_2025.html">Semantics</a></td>
-                <td>In this course we study how language conveys meaning and build models that mimic this process for better understanding its nature. We look at the meaning of sentences and how they are made from the contribution of individual words that make up the sentence. We also study how meaning is born in converation and how each speaker's assumptions and coversational moves creates novel meaning. The course ends by discussing the role of social knowledge in creating meaning.</td>
-                <td style="text-align:center"><img width="90" src="image/UCDavis.png" alt="UC Davis logo"></td>
-            </tr>
-            <tr>
-                <td>2024</td>
-                <td>LIN 200</td>
-                <td><a href="courses/lin200_2024.html">Foundations of Linguistics</a></td>
-                <td>Graduate course discussing foundational topics in linguistics including philosophy of science for linguists, the role of data and theory, history of linguistics, and current debates regarding the nature of langauge.</td>
-                <td style="text-align:center"><img width="90" src="image/UCDavis.png" alt="UC Davis logo"></td>
-            </tr>
-            <tr>
-                <td>2024</td>
-                <td>LIN 105</td>
-                <td><a href="courses/lin105_2024.html">Language Learning in Humans and Machines</a></td>
-                <td>This course provides a basic intro into computational models of language learning. We briefly review some known facts regarding child language development. We introduce three classes of models for language learning: rulep-based symbolic models, Bayesian probabilistic models, and Neural Networks. We discuss prior and current research applying these models to better understand human language learning.</td>
-                <td style="text-align:center"><img width="90" src="image/UCDavis.png" alt="UC Davis logo"></td>
-            </tr>
-            <tr>
-                <td>2024</td>
-                <td>LIN 231</td>
-                <td><a href="courses/lin231_2024.html">Advanced Syntax</a></td>
-                <td>This course provides a comprehensive and critical survey of contemporary theories of syntax. We start by discussing the foundations of theoretical syntax and specifically the role of linguistic evidence and data in theory building. We cover the following syntactic frameworks: minimalism, GPSG, LFG, CCG, HPSG, Construction Grammar, and Dependency Grammar.</td>
-                <td style="text-align:center"><img width="90" src="image/UCDavis.png" alt="UC Davis logo"></td>
-            </tr>
-            <tr>
-                <td>2023</td>
-                <td>LIN 103B</td>
-                <td><a href="courses/lin103B_2023.html">Linguistic Analysis II</a></td>
-                <td>This course introduces students to the basic theoretical and mathematic foundations of natural language syntax. It covers the formal language theory and the Chomsky Hierarchy. Then introduces Combinatory Categorial Grammar (CCG) as a mildly context sensitive grammar that is useful for the analysis of natural language syntax. The second half of the course uses CCG to analyze some crosslinguistic examples. The course only assumes some introductory background in linguistics. </td>
-                <td style="text-align:center"><img width="90" src="image/UCDavis.png" alt="UC Davis logo"></td>
-            </tr>
-            <tr>
-                <td>2024</td>
-                <td>LIN 141</td>
-                <td><a href="courses/lin141_2024.html">Semantics</a></td>
-                <td>In this course we study how language conveys meaning and build models that mimic this process for better understanding its nature. We look at the meaning of sentences and how they are made from the contribution of individual words that make up the sentence. We also study how meaning is born in converation and how each speaker's assumptions and coversational moves creates novel meaning. The course ends by discussing the role of social knowledge in creating meaning.</td>
-                <td style="text-align:center"><img width="90" src="image/UCDavis.png" alt="UC Davis logo"></td>
-            </tr>
-            <tr>
-                <td>2023</td>
-                <td>LIN 001</td>
-                <td><a href="courses/lin001_2023.html">Introduction to Linguistics</a></td>
-                <td>What is human language and why is it the way it is? The first half of the course introduces the classic subfileds of linguistics addressing the question of what language is. The second half discusses subfields such as psycholinguistics, language, acquisition, historical linguistics, and language varuation that explain why human language is the way it is. Emphasis on developing analytic skills and critical thinking related to language.</td>
-                <td style="text-align:center"><img width="90" src="image/UCDavis.png" alt="UC Davis logo"></td>
-            </tr>
-            <tr>
-                <td>2023</td>
-                <td>LIN 241</td>
-                <td><a href="courses/lin241_2023.html">Advanced Semantics</a></td>
-                <td>Advanced critical exploration of contemporary theories of linguistic semantics.</td>
-                <td style="text-align:center"><img width="90" src="image/UCDavis.png" alt="UC Davis logo"></td>
-            </tr>
-            <tr>
-                <td>2023</td>
-                <td>LIN 141</td>
-                <td><a href="courses/lin141_2023.html">Semantics</a></td>
-                <td>In this course we study how language conveys meaning and build models that mimic this process for better understanding its nature. We look at the meaning of sentences and how they are made from the contribution of individual words that make up the sentence. We also study how meaning is born in converation and how each speaker's assumptions and coversational moves creates novel meaning. The course ends by discussing the role of social knowledge in creating meaning.</td>
-                <td style="text-align:center"><img width="90" src="image/UCDavis.png" alt="UC Davis logo"></td>
-            </tr>
-            <tr>
-                <td>2022</td>
-                <td>LIN 200</td>
-                <td><a href="courses/lin200_2022.html">Foundations of Linguistics</a></td>
-                <td>Graduate course discussing foundational topics in linguistics including philosophy of science for linguists, the role of data and theory, history of linguistics, and current debates regarding the nature of langauge.</td>
-                <td style="text-align:center"><img width="90" src="image/UCDavis.png" alt="UC Davis logo"></td>
-            </tr>
-            <tr>
-                <td>2022</td>
-                <td>LIN 001</td>
-                <td><a href="courses/lin001_2022.html">Introduction to Linguistics</a></td>
-                <td>What is human language and why is it the way it is? The first half of the course introduces the classic subfileds of linguistics addressing the question of what language is. The second half discusses subfields such as psycholinguistics, language, acquisition, historical linguistics, and language varuation that explain why human language is the way it is. Emphasis on developing analytic skills and critical thinking related to language.</td>
-                <td style="text-align:center"><img width="90" src="image/UCDavis.png" alt="UC Davis logo"></td>
-            </tr>
-            <tr>
-                <td>2022</td>
-                <td>LIN 131</td>
-                <td><a href="courses/lin131_2022.html">Introduction to Syntactic Theory</a></td>
-                <td>Why is it that you can easily understand this sentence, but not the following: "one this not but sentence this understand easily can you that it is why"? What determines the way we order words to convey our thoughts? How do world languages differ in this respect? This courses introduces the basic concepts of syntactic theory; a theory that explains how languages structure and order their elements. We start with linguistic evidence and what counts as data for a syntactic theory. We cover mathematical formalisms that have been developed for modeling language structure and we look at different languages to understand how a syntactic theory can explain linguistic phenomena in languages around the world.</td>
-                <td style="text-align:center"><img width="90" src="image/UCDavis.png" alt="UC Davis logo"></td>
-            </tr>
-            <tr>
-                <td>2022</td>
-                <td>LIN 141</td>
-                <td><a href="courses/lin141_2022.html">Semantics</a></td>
-                <td>Linguistic study of meanings of words and phrases. Meanings expressed by lexical items and derivational and inflectional morphology. Contribution of argument structure, quantification, and coordination to meaning.</td>
-                <td style="text-align:center"><img width="90" src="image/UCDavis.png" alt="UC Davis logo"></td>
-            </tr>
-            <tr>
-                <td>2022</td>
-                <td>LIN 241</td>
-                <td><a href="courses/lin241_2022.html">Advanced Semantics</a></td>
-                <td>Advanced critical exploration of contemporary theories of linguistic semantics.</td>
-                <td style="text-align:center"><img width="90" src="image/UCDavis.png" alt="UC Davis logo"></td>
-            </tr>
-            <tr>
-                <td>2021</td>
-                <td>LIN 141</td>
-                <td><a href="courses/lin141_2021.html">Semantics</a></td>
-                <td>Linguistic study of meanings of words and phrases. Meanings expressed by lexical items and derivational and inflectional morphology. Contribution of argument structure, quantification, and coordination to meaning.</td>
-                <td style="text-align:center"><img width="90" src="image/UCDavis.png" alt="UC Davis logo"></td>
-            </tr>
-            <tr>
-                <td>2021</td>
-                <td>LIN 231</td>
-                <td><a href="courses/lin231_2021.html">Advanced Syntax</a></td>
-                <td>This course provides a comprehensive and critical survey of contemporary theories of syntax. We start by discussing the foundations of theoretical syntax and specifically the role of linguistic evidence and data in theory building. We cover formal language theory and the theory of government and binding. We then survey the following current syntactic frameworks: minimalism, GPSG, LFG, CCG, HPSG, Construction Grammar, and Dependency Grammar. The course also discusses computational and psycholinguistic applications of these frameworks.</td>
-                <td style="text-align:center"><img width="90" src="image/UCDavis.png" alt="UC Davis logo"></td>
-            </tr>
-            <tr>
-                <td>2021</td>
-                <td>LIN 131</td>
-                <td><a href="courses/lin131_2021.html">Introduction to Syntactic Theory</a></td>
-                <td>Why is it that you can easily understand this sentence, but not the following: "one this not but sentence this understand easily can you that it is why"? What determines the way we order words to convey our thoughts? How do world languages differ in this respect? This courses introduces the basic concepts of syntactic theory; a theory that explains how languages structure and order their elements. We start with linguistic evidence and what counts as data for a syntactic theory. We cover mathematical formalisms that have been developed for modeling language structure and we look at different languages to understand how a syntactic theory can explain linguistic phenomena in languages around the world.</td>
-                <td style="text-align:center"><img width="90" src="image/UCDavis.png" alt="UC Davis logo"></td>
-            </tr>
-            <tr>
-                <td>2020</td>
-                <td>LING 132</td>
-                <td>Psychosemantics (with Kathryn Davidson)</td>
-                <td>Explores issues at the interface of linguistic semantics, pragmatics and psychology. Introduces how the analysis of meaning has been pursued by linguists and psychologists. Focuses on topics that are both of central interest to theoretical linguistics and the target of experimental research.</td>
-                <td style="text-align:center"><img width="80" src="image/harvard_seal.png" alt="Harvard University seal"></td>
-            </tr>
-            <tr>
-                <td>2019</td>
-                <td>LING 106</td>
-                <td><a href="courses/ling106.html">The Knowledge of Meaning</a></td>
-                <td>An introduction to formal semantics and pragmatics. The course covers the basics of predicate logic, lambda calculus, possible worlds, Gricean pragmatics, speech acts, and social meaning.</td>
-                <td style="text-align:center"><img width="80" src="image/harvard_seal.png" alt="Harvard University seal"></td>
-            </tr>
-            <tr>
-                <td>2018</td>
-                <td>LING 111</td>
-                <td><a href="courses/ling111.html">First Language Acquisition</a></td>
-                <td>An introduction to language development in infants and preschool children. Topics include development of sound perception and production, syntactic and semantic development, pragmatic development, bilingualism, and sign language acquisiton. Emphasis on developing a research project while paying attention to best practices at different stages of scientific research.</td>
-                <td style="text-align:center"><img width="80" src="image/harvard_seal.png" alt="Harvard University seal"></td>
-            </tr>
-            <tr>
-                <td>2018</td>
-                <td>LING 83</td>
-                <td><a href="courses/ling83.html">Language, Structure, and Cognition</a></td>
-                <td>Introduction to linguistics with emphasis on cognition and computation. The first half of the course introduces the classic subfileds of linguistics while the second half surveys applications of linguistic theory to problems in cognitive science. Emphasis on developing analytic skills and critical thinking.</td>
-                <td style="text-align:center"><img width="80" src="image/harvard_seal.png" alt="Harvard University seal"></td>
-            </tr>
-            <tr>
-                <td>2018</td>
-                <td>LING 140</td>
-                <td><a href="courses/ling140.html">Learning to Speak: Introduction to Language Acquisition</a></td>
-                <td>An introduction to language development in infants and preschool children. Topics include development of sound perception and production, syntactic and semantic development, pragmatic development, bilingualism, and sign language acquisiton. Emphasis on developing a research project while paying attention to best practices at different stages of scientific research.</td>
-                <td style="text-align:center"><img width="120" src="image/stanford.png" alt="Stanford University logo"></td>
-            </tr>
-            <tr>
-                <td>2017</td>
-                <td>LING 196</td>
-                <td><a href="courses/ling196.html">Introduction to Research for Undergraduates</a></td>
-                <td>A course that introduced subfields of linguistics to undergraduates with guest lectures from the faculty at Stanford linguistics in each subfield.</td>
-                <td style="text-align:center"><img width="120" src="image/stanford.png" alt="Stanford University logo"></td>
-            </tr>
-            <tr>
-                <td>2017</td>
-                <td>LING 40S</td>
-                <td><a href="courses/ling40s.html">Lab in Critical and Scientific Thinking</a></td>
-                <td>A summer course suitable for beginning college and finishing highschool students interested in using language as a topic to develop their analytic, critical, and scientific skills.</td>
-                <td style="text-align:center"><img width="120" src="image/stanford.png" alt="Stanford University logo"></td>
-            </tr>
-        </table>
+        <div id="main-content" class="intro-box">
+            <div class="intro-content">
+                <div class="intro-title">Teaching Philosophy</div>
+                <div class="intro-subtitle">Subtitle</div>
+                <p class="intro-text">Your text here.</p>
+            </div>
+            <div class="intro-stats">
+                <div class="intro-stat">
+                    <span class="stat-num" id="total-classes">0</span>
+                    <span class="stat-label">Courses</span>
+                </div>
+                <div class="intro-stat">
+                    <span class="stat-num" id="total-students">0</span>
+                    <span class="stat-label">Students</span>
+                </div>
+            </div>
+        </div><!-- /.intro-box -->
+        <div class="filter-section">
+            <div class="filter-grid">
+                <button class="filter-btn" data-topic="learning">Language Learning and Acquisition</button>
+                <button class="filter-btn" data-topic="computational">Computational Models and Machine Learning</button>
+                <button class="filter-btn" data-topic="cogsci">Intro Linguistics and Cognitive Science</button>
+                <button class="filter-btn" data-topic="semantics">Semantics</button>
+                <button class="filter-btn" data-topic="syntax">Syntax</button>
+            </div>
+        </div>
+
+        <div id="courses-container"></div>
 
         </div>
+
+  <script>
+  var courses = [
+    { section: '2025-26', year: 2026, quarter: 'Winter', code: 'LIN 103B', title: 'Linguistic Analysis II',
+      link: 'courses/lin103B_2026.html', topics: ['syntax'],
+      desc: 'This course introduces students to the basic theoretical and mathematic foundations of natural language syntax. It covers the formal language theory and the Chomsky Hierarchy. Then we use the NLTK package in Python to create feature-based phrase structure grammars. The course only assumes some introductory background in linguistics.',
+      logo: 'image/UCDavis.png', logoAlt: 'UC Davis logo', logoWidth: 90, students: 79 },
+    { section: '2025-26', year: 2026, quarter: 'Winter', code: 'LIN 205', title: 'Language Learning in Humans and Machines',
+      link: 'courses/lin205_2026.html', topics: ['learning', 'computational'],
+      desc: 'This course provides a basic intro into computational models of language learning. We briefly review some known facts regarding child language development. We introduce three classes of models for language learning: rule-based symbolic models, Bayesian probabilistic models, and Neural Networks. We discuss prior and current research applying these models to better understand human language learning.',
+      logo: 'image/UCDavis.png', logoAlt: 'UC Davis logo', logoWidth: 90, students: 7 },
+    { section: '2025-26', year: 2025, quarter: 'Fall', code: 'LIN 2', title: 'Language, the Mind, and Computers',
+      link: 'courses/lin002_2025.html', topics: ['cogsci', 'computational'],
+      desc: 'An introduction to the computational theory of the mind and major computational models that contribute to the study of language. An introduction to the basics of neural network models, information theory, and symbolic rule-based computation and their application to the study of language.',
+      logo: 'image/UCDavis.png', logoAlt: 'UC Davis logo', logoWidth: 90, students: 241 },
+    { section: '2025-26', year: 2025, quarter: 'Fall', code: 'LIN 141', title: 'Semantics',
+      link: 'courses/lin141_2025F.html', topics: ['semantics'],
+      desc: 'In this course we study how language conveys meaning and build models that mimic this process for better understanding its nature. We look at the meaning of sentences and how they are made from the contribution of individual words that make up the sentence. We also study how meaning is born in conversation and how each speaker\'s assumptions and conversational moves creates novel meaning. The course ends by discussing the role of social knowledge in creating meaning.',
+      logo: 'image/UCDavis.png', logoAlt: 'UC Davis logo', logoWidth: 90, students: 38 },
+    { section: '2024-25', year: 2025, quarter: 'Spring', code: 'LIN 241', title: 'Advanced Semantics',
+      link: 'courses/lin241_2025.html', topics: ['semantics'],
+      desc: 'Advanced critical exploration of contemporary theories of linguistic semantics.',
+      logo: 'image/UCDavis.png', logoAlt: 'UC Davis logo', logoWidth: 90, students: 8 },
+    { section: '2024-25', year: 2025, quarter: 'Spring', code: 'LIN 001', title: 'Introduction to Linguistics',
+      link: 'courses/lin001_2025.html', topics: ['cogsci'],
+      desc: 'What is human language and why is it the way it is? The first half of the course introduces the classic subfields of linguistics addressing the question of what language is. The second half discusses subfields such as psycholinguistics, language acquisition, historical linguistics, and language variation that explain why human language is the way it is. Emphasis on developing analytic skills and critical thinking related to language.',
+      logo: 'image/UCDavis.png', logoAlt: 'UC Davis logo', logoWidth: 90, students: 241 },
+    { section: '2024-25', year: 2025, quarter: 'Winter', code: 'LIN 141', title: 'Semantics',
+      link: 'courses/lin141_2025.html', topics: ['semantics'],
+      desc: 'In this course we study how language conveys meaning and build models that mimic this process for better understanding its nature. We look at the meaning of sentences and how they are made from the contribution of individual words that make up the sentence. We also study how meaning is born in conversation and how each speaker\'s assumptions and conversational moves creates novel meaning. The course ends by discussing the role of social knowledge in creating meaning.',
+      logo: 'image/UCDavis.png', logoAlt: 'UC Davis logo', logoWidth: 90, students: 71 },
+    { section: '2024-25', year: 2024, quarter: 'Fall', code: 'LIN 200', title: 'Foundations of Linguistics',
+      link: 'courses/lin200_2024.html', topics: ['cogsci'],
+      desc: 'Graduate course discussing foundational topics in linguistics including philosophy of science for linguists, the role of data and theory, history of linguistics, and current debates regarding the nature of language.',
+      logo: 'image/UCDavis.png', logoAlt: 'UC Davis logo', logoWidth: 90, students: 5 },
+    { section: '2023-24', year: 2024, quarter: 'Spring', code: 'LIN 105', title: 'Language Learning in Humans and Machines',
+      link: 'courses/lin105_2024.html', topics: ['learning', 'computational'],
+      desc: 'This course provides a basic intro into computational models of language learning. We briefly review some known facts regarding child language development. We introduce three classes of models for language learning: rule-based symbolic models, Bayesian probabilistic models, and Neural Networks. We discuss prior and current research applying these models to better understand human language learning.',
+      logo: 'image/UCDavis.png', logoAlt: 'UC Davis logo', logoWidth: 90, students: 43 },
+    { section: '2023-24', year: 2024, quarter: 'Spring', code: 'LIN 231', title: 'Advanced Syntax',
+      link: 'courses/lin231_2024.html', topics: ['syntax'],
+      desc: 'This course provides a comprehensive and critical survey of contemporary theories of syntax. We start by discussing the foundations of theoretical syntax and specifically the role of linguistic evidence and data in theory building. We cover the following syntactic frameworks: minimalism, GPSG, LFG, CCG, HPSG, Construction Grammar, and Dependency Grammar.',
+      logo: 'image/UCDavis.png', logoAlt: 'UC Davis logo', logoWidth: 90, students: 11 },
+    { section: '2023-24', year: 2023, quarter: 'Fall', code: 'LIN 141', title: 'Semantics',
+      link: 'courses/lin141_2024.html', topics: ['semantics'],
+      desc: 'In this course we study how language conveys meaning and build models that mimic this process for better understanding its nature. We look at the meaning of sentences and how they are made from the contribution of individual words that make up the sentence. We also study how meaning is born in conversation and how each speaker\'s assumptions and conversational moves creates novel meaning. The course ends by discussing the role of social knowledge in creating meaning.',
+      logo: 'image/UCDavis.png', logoAlt: 'UC Davis logo', logoWidth: 90, students: 53 },
+    { section: '2023-24', year: 2023, quarter: 'Fall', code: 'LIN 103B', title: 'Linguistic Analysis II',
+      link: 'courses/lin103B_2023.html', topics: ['syntax'],
+      desc: 'This course introduces students to the basic theoretical and mathematic foundations of natural language syntax. It covers the formal language theory and the Chomsky Hierarchy. Then introduces Combinatory Categorial Grammar (CCG) as a mildly context sensitive grammar that is useful for the analysis of natural language syntax. The second half of the course uses CCG to analyze some crosslinguistic examples. The course only assumes some introductory background in linguistics.',
+      logo: 'image/UCDavis.png', logoAlt: 'UC Davis logo', logoWidth: 90, students: 92 },
+    { section: '2022-23', year: 2023, quarter: 'Spring', code: 'LIN 001', title: 'Introduction to Linguistics',
+      link: 'courses/lin001_2023.html', topics: ['cogsci'],
+      desc: 'What is human language and why is it the way it is? The first half of the course introduces the classic subfields of linguistics addressing the question of what language is. The second half discusses subfields such as psycholinguistics, language acquisition, historical linguistics, and language variation that explain why human language is the way it is. Emphasis on developing analytic skills and critical thinking related to language.',
+      logo: 'image/UCDavis.png', logoAlt: 'UC Davis logo', logoWidth: 90, students: 243 },
+    { section: '2022-23', year: 2023, quarter: 'Spring', code: 'LIN 241', title: 'Advanced Semantics',
+      link: 'courses/lin241_2023.html', topics: ['semantics'],
+      desc: 'Advanced critical exploration of contemporary theories of linguistic semantics.',
+      logo: 'image/UCDavis.png', logoAlt: 'UC Davis logo', logoWidth: 90, students: 5 },
+    { section: '2022-23', year: 2022, quarter: 'Fall', code: 'LIN 141', title: 'Semantics',
+      link: 'courses/lin141_2023.html', topics: ['semantics'],
+      desc: 'In this course we study how language conveys meaning and build models that mimic this process for better understanding its nature. We look at the meaning of sentences and how they are made from the contribution of individual words that make up the sentence. We also study how meaning is born in conversation and how each speaker\'s assumptions and conversational moves creates novel meaning. The course ends by discussing the role of social knowledge in creating meaning.',
+      logo: 'image/UCDavis.png', logoAlt: 'UC Davis logo', logoWidth: 90, students: 70 },
+    { section: '2022-23', year: 2022, quarter: 'Fall', code: 'LIN 200', title: 'Foundations of Linguistics',
+      link: 'courses/lin200_2022.html', topics: ['cogsci'],
+      desc: 'Graduate course discussing foundational topics in linguistics including philosophy of science for linguists, the role of data and theory, history of linguistics, and current debates regarding the nature of language.',
+      logo: 'image/UCDavis.png', logoAlt: 'UC Davis logo', logoWidth: 90, students: 9 },
+    { section: '2021-22', year: 2022, quarter: 'Spring', code: 'LIN 001', title: 'Introduction to Linguistics',
+      link: 'courses/lin001_2022.html', topics: ['cogsci'],
+      desc: 'What is human language and why is it the way it is? The first half of the course introduces the classic subfields of linguistics addressing the question of what language is. The second half discusses subfields such as psycholinguistics, language acquisition, historical linguistics, and language variation that explain why human language is the way it is. Emphasis on developing analytic skills and critical thinking related to language.',
+      logo: 'image/UCDavis.png', logoAlt: 'UC Davis logo', logoWidth: 90, students: 226 },
+    { section: '2021-22', year: 2022, quarter: 'Fall', code: 'LIN 131', title: 'Introduction to Syntactic Theory',
+      link: 'courses/lin131_2022.html', topics: ['syntax'],
+      desc: 'Why is it that you can easily understand this sentence, but not the following: "one this not but sentence this understand easily can you that it is why"? What determines the way we order words to convey our thoughts? How do world languages differ in this respect? This course introduces the basic concepts of syntactic theory; a theory that explains how languages structure and order their elements. We start with linguistic evidence and what counts as data for a syntactic theory. We cover mathematical formalisms that have been developed for modeling language structure and we look at different languages to understand how a syntactic theory can explain linguistic phenomena in languages around the world.',
+      logo: 'image/UCDavis.png', logoAlt: 'UC Davis logo', logoWidth: 90, students: 84 },
+    { section: '2021-22', year: 2022, quarter: 'Fall', code: 'LIN 141', title: 'Semantics',
+      link: 'courses/lin141_2022.html', topics: ['semantics'],
+      desc: 'Linguistic study of meanings of words and phrases. Meanings expressed by lexical items and derivational and inflectional morphology. Contribution of argument structure, quantification, and coordination to meaning.',
+      logo: 'image/UCDavis.png', logoAlt: 'UC Davis logo', logoWidth: 90, students: 56 },
+    { section: '2021-22', year: 2022, quarter: 'Spring', code: 'LIN 241', title: 'Advanced Semantics',
+      link: 'courses/lin241_2022.html', topics: ['semantics'],
+      desc: 'Advanced critical exploration of contemporary theories of linguistic semantics.',
+      logo: 'image/UCDavis.png', logoAlt: 'UC Davis logo', logoWidth: 90, students: 11 },
+    { section: '2020-21', year: 2021, quarter: 'Spring', code: 'LIN 141', title: 'Semantics',
+      link: 'courses/lin141_2021.html', topics: ['semantics'],
+      desc: 'Linguistic study of meanings of words and phrases. Meanings expressed by lexical items and derivational and inflectional morphology. Contribution of argument structure, quantification, and coordination to meaning.',
+      logo: 'image/UCDavis.png', logoAlt: 'UC Davis logo', logoWidth: 90, students: 61 },
+    { section: '2020-21', year: 2021, quarter: 'Winter', code: 'LIN 231', title: 'Advanced Syntax',
+      link: 'courses/lin231_2021.html', topics: ['syntax'],
+      desc: 'This course provides a comprehensive and critical survey of contemporary theories of syntax. We start by discussing the foundations of theoretical syntax and specifically the role of linguistic evidence and data in theory building. We cover formal language theory and the theory of government and binding. We then survey the following current syntactic frameworks: minimalism, GPSG, LFG, CCG, HPSG, Construction Grammar, and Dependency Grammar. The course also discusses computational and psycholinguistic applications of these frameworks.',
+      logo: 'image/UCDavis.png', logoAlt: 'UC Davis logo', logoWidth: 90, students: 16 },
+    { section: '2020-21', year: 2021, quarter: 'Winter', code: 'LIN 131', title: 'Introduction to Syntactic Theory',
+      link: 'courses/lin131_2021.html', topics: ['syntax'],
+      desc: 'Why is it that you can easily understand this sentence, but not the following: "one this not but sentence this understand easily can you that it is why"? What determines the way we order words to convey our thoughts? How do world languages differ in this respect? This course introduces the basic concepts of syntactic theory; a theory that explains how languages structure and order their elements. We start with linguistic evidence and what counts as data for a syntactic theory. We cover mathematical formalisms that have been developed for modeling language structure and we look at different languages to understand how a syntactic theory can explain linguistic phenomena in languages around the world.',
+      logo: 'image/UCDavis.png', logoAlt: 'UC Davis logo', logoWidth: 90, students: 47 },
+    { section: '2019-20', year: 2020, quarter: 'Spring', code: 'LING 132', title: 'Psychosemantics (with Kathryn Davidson)',
+      link: '', topics: ['cogsci', 'semantics'],
+      desc: 'Explores issues at the interface of linguistic semantics, pragmatics and psychology. Introduces how the analysis of meaning has been pursued by linguists and psychologists. Focuses on topics that are both of central interest to theoretical linguistics and the target of experimental research.',
+      logo: 'image/harvard_seal.png', logoAlt: 'Harvard University seal', logoWidth: 80, students: 10 },
+    { section: '2019-20', year: 2019, quarter: 'Fall', code: 'LING 106', title: 'The Knowledge of Meaning',
+      link: 'courses/ling106.html', topics: ['semantics'],
+      desc: 'An introduction to formal semantics and pragmatics. The course covers the basics of predicate logic, lambda calculus, possible worlds, Gricean pragmatics, speech acts, and social meaning.',
+      logo: 'image/harvard_seal.png', logoAlt: 'Harvard University seal', logoWidth: 80, students: 40 },
+    { section: '2018-19', year: 2018, quarter: 'Spring', code: 'LING 111', title: 'First Language Acquisition',
+      link: 'courses/ling111.html', topics: ['learning'],
+      desc: 'An introduction to language development in infants and preschool children. Topics include development of sound perception and production, syntactic and semantic development, pragmatic development, bilingualism, and sign language acquisition. Emphasis on developing a research project while paying attention to best practices at different stages of scientific research.',
+      logo: 'image/harvard_seal.png', logoAlt: 'Harvard University seal', logoWidth: 80, students: 80 },
+    { section: '2018-19', year: 2018, quarter: 'Fall', code: 'LING 83', title: 'Language, Structure, and Cognition',
+      link: 'courses/ling83.html', topics: ['cogsci'],
+      desc: 'Introduction to linguistics with emphasis on cognition and computation. The first half of the course introduces the classic subfields of linguistics while the second half surveys applications of linguistic theory to problems in cognitive science. Emphasis on developing analytic skills and critical thinking.',
+      logo: 'image/harvard_seal.png', logoAlt: 'Harvard University seal', logoWidth: 80, students: 14 },
+    { section: '2017-18', year: 2018, quarter: 'Spring', code: 'LING 140', title: 'Learning to Speak: Introduction to Language Acquisition',
+      link: 'courses/ling140.html', topics: ['learning'],
+      desc: 'An introduction to language development in infants and preschool children. Topics include development of sound perception and production, syntactic and semantic development, pragmatic development, bilingualism, and sign language acquisition. Emphasis on developing a research project while paying attention to best practices at different stages of scientific research.',
+      logo: 'image/stanford.png', logoAlt: 'Stanford University logo', logoWidth: 120, students: 15 },
+    { section: '2017-18', year: 2017, quarter: 'Fall', code: 'LING 196', title: 'Introduction to Research for Undergraduates',
+      link: 'courses/ling196.html', topics: [],
+      desc: 'A course that introduced subfields of linguistics to undergraduates with guest lectures from the faculty at Stanford linguistics in each subfield.',
+      logo: 'image/stanford.png', logoAlt: 'Stanford University logo', logoWidth: 120, students: 12 },
+    { section: '2016-2017', year: 2017, quarter: 'Summer', code: 'LING 40S', title: 'Lab in Critical and Scientific Thinking',
+      link: 'courses/ling40s.html', topics: [],
+      desc: 'A summer course suitable for beginning college and finishing high school students interested in using language as a topic to develop their analytic, critical, and scientific skills.',
+      logo: 'image/stanford.png', logoAlt: 'Stanford University logo', logoWidth: 120, students: 10 }
+  ];
+
+  var topicLabels = {
+    cogsci: 'Ling &amp; Cog Sci',
+    learning: 'Language Learning',
+    computational: 'Computational',
+    semantics: 'Semantics',
+    syntax: 'Syntax'
+  };
+
+  function esc(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function buildCard(c) {
+    var topicsAttr = c.topics.join(' ');
+    var tagsHtml = c.topics.map(function(t) {
+      return '<span class="topic-tag ' + t + '">' + (topicLabels[t] || t) + '</span>';
+    }).join('');
+    var yearLine = c.year + (c.quarter ? ' ' + c.quarter : '');
+    var inner = [
+      '  <div class="course-card-body">',
+      '    <div class="course-card-left">',
+      '      <div class="course-title">' + esc(c.code) + ': ' + esc(c.title) + '</div>',
+      '      <div class="course-year">' + yearLine + '</div>',
+      '      <div class="course-desc">'  + esc(c.desc)  + '</div>',
+      '    </div>',
+      '    <div class="course-logo"><img src="' + esc(c.logo) + '" width="' + c.logoWidth + '" alt="' + esc(c.logoAlt) + '"></div>',
+      '  </div>',
+      '  <div class="course-card-footer">',
+      '    <div class="course-tags">' + tagsHtml + '</div>',
+      '    <div class="course-students">' + (c.students || 0) + ' students</div>',
+      '  </div>'
+    ].join('\n');
+    if (c.link) {
+      return '<a href="' + esc(c.link) + '" class="course-card" data-topics="' + topicsAttr + '">\n' + inner + '\n</a>';
+    } else {
+      return '<div class="course-card" data-topics="' + topicsAttr + '">\n' + inner + '\n</div>';
+    }
+  }
+
+  function render() {
+    var sections = [];
+    var sectionMap = {};
+    courses.forEach(function(c) {
+      var sec = c.section || 'Other';
+      if (!sectionMap[sec]) { sectionMap[sec] = []; sections.push(sec); }
+      sectionMap[sec].push(c);
+    });
+    var html = '';
+    sections.forEach(function(sec) {
+      html += '<div class="course-section" data-section="' + esc(sec) + '">';
+      html += '<div class="course-section-title">' + esc(sec) + '</div>';
+      sectionMap[sec].forEach(function(c) { html += buildCard(c); });
+      html += '</div>';
+    });
+    document.getElementById('courses-container').innerHTML = html;
+    document.getElementById('total-classes').textContent = courses.length;
+    document.getElementById('total-students').textContent = courses.reduce(function(s, c) { return s + (c.students || 0); }, 0);
+    attachFilters();
+  }
+
+  function attachFilters() {
+    document.querySelectorAll('.filter-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        btn.classList.toggle('active');
+        applyFilter();
+      });
+    });
+  }
+
+  function applyFilter() {
+    var active = [];
+    document.querySelectorAll('.filter-btn.active').forEach(function(b) { active.push(b.dataset.topic); });
+    document.querySelectorAll('.course-card').forEach(function(card) {
+      var cardTopics = card.dataset.topics ? card.dataset.topics.split(' ').filter(Boolean) : [];
+      var show = active.length === 0 || active.every(function(t) { return cardTopics.indexOf(t) !== -1; });
+      card.style.display = show ? '' : 'none';
+    });
+    document.querySelectorAll('.course-section').forEach(function(sec) {
+      var allHidden = true;
+      sec.querySelectorAll('.course-card').forEach(function(card) {
+        if (card.style.display !== 'none') allHidden = false;
+      });
+      sec.style.display = allHidden ? 'none' : '';
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', render);
+  </script>
         
 <!-- JavaScript: placed at the end of the document so the pages load faster -->
     

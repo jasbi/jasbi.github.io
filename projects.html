@@ -6,14 +6,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="masoud-style.css">
-    <link rel="shortcut icon" href="image/harvard_favicon.jpg">
+    <link rel="shortcut icon" href="image/ucdfavicon.png">
     <meta name="keywords" content="Masoud, Jasbi, Masoud Jasbi, Masoud Jafarali Jasbi, Masoud Jasbi linguistics, Masoud Jasbi stanford, Masoud Jasbi Stanford linguistics, Persian, language acquisition, semantics, pragmatics"/>
     <title>Masoud Jasbi</title>
+    <style>
+        .intro-box {
+            background: #e8e8e8; border: 1.5px solid #ccc; border-radius: 8px;
+            padding: 20px 22px 32px; margin-bottom: 0;
+        }
+        .intro-title    { font-weight: 700; font-size: 18px; margin-bottom: 4px; }
+        .intro-subtitle { font-weight: 600; color: #555; font-size: 16px; margin-bottom: 10px; }
+        .intro-text     { font-size: 15px; color: #444; margin: 0; line-height: 1.6; }
+
+        .filter-section {
+            display: flex; justify-content: center;
+            position: relative; z-index: 2;
+            margin-top: -22px; margin-bottom: 24px;
+        }
+        .filter-grid {
+            display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
+        }
+        .filter-btn {
+            padding: 9px 14px; border-radius: 6px; cursor: pointer;
+            font-weight: 700; font-size: 14px; border: 2px solid var(--color);
+            background: var(--bg); color: var(--color); transition: background 0.15s, color 0.15s;
+        }
+        .filter-btn:hover  { opacity: 0.85; }
+        .filter-btn.active { background: var(--color); color: #fff; }
+        .filter-btn[data-topic="undergrad"]  { --bg: #ebebeb; --color: #444; }
+        .filter-btn[data-topic="grad"]       { --bg: #ebebeb; --color: #444; }
+        .filter-btn[data-topic="department"] { --bg: #ebebeb; --color: #444; }
+        .filter-btn[data-topic="college"]    { --bg: #ebebeb; --color: #444; }
+
+        .service-card {
+            display: block; background: #fff; border: 1.5px solid #d0d0d0; border-radius: 8px;
+            padding: 14px 16px; margin-bottom: 10px; transition: border-color 0.15s;
+            text-decoration: none; color: inherit;
+        }
+        .service-card:hover { border-color: #888; text-decoration: none; color: inherit; }
+        .service-card-body  { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+        .service-card-left  { flex: 1; }
+        .service-title      { font-weight: 700; font-size: 18px; line-height: 1.4; color: #111; }
+        .service-years      { font-size: 15px; color: #666; margin-top: 4px; }
+        .service-desc       { font-size: 14px; color: #444; margin-top: 6px; line-height: 1.55; }
+        .service-logo       { flex-shrink: 0; display: flex; align-items: center; }
+        .service-card-footer {
+            display: flex; justify-content: flex-start; align-items: center;
+            margin-top: 10px; padding-top: 8px; border-top: 1px solid #eee;
+        }
+        .service-tags { display: flex; gap: 5px; flex-wrap: wrap; }
+        .topic-tag {
+            padding: 2px 9px; border-radius: 20px; font-size: 11px;
+            font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; display: inline-block;
+        }
+        .topic-tag.undergrad   { background: #ebebeb; color: #444; }
+        .topic-tag.grad        { background: #ebebeb; color: #444; }
+        .topic-tag.department  { background: #ebebeb; color: #444; }
+        .topic-tag.college     { background: #ebebeb; color: #444; }
+
+    </style>
 </head>
 
 <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <div class="container-fluid">
+
         <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-faded" style="background: rgb(2,40,81)">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -45,44 +102,150 @@
             </div>
         </nav>
 
-        <div id="main-content" class="table-responsive">
-            <table border="1" width="100%">
-                <tr bgcolor="#f5dc90" align="center">
-                    <td>Year</td>
-                    <td>Title</td>
-                    <td>Description</td>
-                    <td>Materials</td>
-                </tr>
-                <tr>
-                    <td>2022</td>
-                    <td>Disjunction and Syntax</td>
-                    <td>Investigating the role of syntax in generating exclusivity inferences</td>
-                    <td>
-                        <a href="projects/syntactic_disjunction_html/HTML_Synt/index.html">Link to the online Experiment</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2022</td>
-                    <td>Disjunction and Disjunct Incompatibility</td>
-                    <td>Investigating the role of disjunct incompatibility in judging a disjunction as exclusive</td>
-                    <td>
-                        <a href="projects/disjunction_junction_html/HTML/index.html">Link to the online Experiment 1</a>
-                        <br>
-                        <a href="projects/disjunction_junction_html/HTML_Part2/index.html">Link to the online Experiment 2</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2022</td>
-                    <td>Asymmetric Disagreement</td>
-                    <td>Investigating modal statements and the nature of disagreements.</td>
-                    <td>
-                        <a href="projects/asymmetric_disagreement/experiment/agreement_game.html">Link to the online experiment</a>
-                    </td>
-                </tr>
-            </table>
+        <div id="main-content" class="intro-box">
+            <div class="intro-title">Service Title</div>
+            <div class="intro-subtitle">Subtitle</div>
+            <p class="intro-text">Aligning the linguistics program with the future careers</p>
         </div>
+
+        <div class="filter-section">
+            <div class="filter-grid">
+                <button class="filter-btn" data-topic="undergrad">Undergraduate Education</button>
+                <button class="filter-btn" data-topic="grad">Graduate Education</button>
+                <button class="filter-btn" data-topic="department">Department</button>
+                <button class="filter-btn" data-topic="college">College</button>
+            </div>
+        </div>
+
+        <div id="services-container"></div>
+
     </div>
-    
+
+    <script>
+    var services = [
+        { title: 'B.S. in Language Science', years: '2023–2026',
+          topics: ['undergrad', 'department','college'],
+          desc: '',
+          logo: 'image/UCDavis.png', logoAlt: 'UC Davis logo', logoWidth: 90 },
+        { title: 'Artificial Intelligence Task Force, UC Davis College of Letters and Science', years: '2025–2026',
+          topics: ['college'],
+          desc: '',
+          logo: 'image/UCDavis.png', logoAlt: 'UC Davis logo', logoWidth: 90 },
+        { title: 'Budget and Revenue Workgroup, UC Davis College of Letters and Science', years: '2025–2026',
+          topics: ['college'],
+          desc: '',
+          logo: 'image/UCDavis.png', logoAlt: 'UC Davis logo', logoWidth: 90 },
+        { title: 'Undergraduate Advisor', years: '2020–2026',
+          topics: ['undergrad', 'department'],
+          desc: '',
+          logo: 'image/UCDavis.png', logoAlt: 'UC Davis logo', logoWidth: 90 },
+        { title: 'Colloquium Committee', years: '2020–2026',
+          topics: ['department'],
+          desc: '',
+          logo: 'image/UCDavis.png', logoAlt: 'UC Davis logo', logoWidth: 90 },
+        { title: 'Undergraduate Program Review Committee', years: '2023–2025',
+          topics: ['undergrad', 'department'],
+          desc: '',
+          logo: 'image/UCDavis.png', logoAlt: 'UC Davis logo', logoWidth: 90 },
+        { title: 'Hiring Committee, with the Department of Statistics and Data Science', years: '2024–2025',
+          topics: ['department', 'college'],
+          desc: '',
+          logo: 'image/UCDavis.png', logoAlt: 'UC Davis logo', logoWidth: 90 },
+        { title: 'Graduate Admissions Committee', years: '2020–2024',
+          topics: ['grad', 'department'],
+          desc: '',
+          logo: 'image/UCDavis.png', logoAlt: 'UC Davis logo', logoWidth: 90 },
+        { title: 'STEM Equity Learning Community (SELC Project)', years: '2023–2024',
+          topics: ['undergrad'],
+          desc: '',
+          logo: 'image/UCDavis.png', logoAlt: 'UC Davis logo', logoWidth: 90 },
+        { title: 'Graduate Studies Fellowship Review Committee', years: '2022–2023',
+          topics: ['grad', 'college'],
+          desc: '',
+          logo: 'image/UCDavis.png', logoAlt: 'UC Davis logo', logoWidth: 90 },
+        { title: 'Graduate Studies Fellowship Review Committee', years: '2020–2021',
+          topics: ['grad', 'college'],
+          desc: '',
+          logo: 'image/UCDavis.png', logoAlt: 'UC Davis logo', logoWidth: 90 },
+        { title: 'Undergraduate Mentor', years: '2016–2018',
+          topics: ['undergrad', 'department'],
+          desc: '',
+          logo: 'image/stanford.png', logoAlt: 'Stanford University logo', logoWidth: 120 },
+        { title: 'Undergraduate Studies Committee', years: '2016–2018',
+          topics: ['undergrad', 'department'],
+          desc: '',
+          logo: 'image/stanford.png', logoAlt: 'Stanford University logo', logoWidth: 120 },
+        { title: 'Graduate Student Representative', years: '2015–2016',
+          topics: ['grad', 'department'],
+          desc: '',
+          logo: 'image/stanford.png', logoAlt: 'Stanford University logo', logoWidth: 120 },
+        { title: 'Graduate Studies Committee', years: '2015–2016',
+          topics: ['grad', 'department'],
+          desc: '',
+          logo: 'image/stanford.png', logoAlt: 'Stanford University logo', logoWidth: 120 }
+    ];
+
+    var topicLabels = {
+        undergrad: 'Undergrad',
+        grad: 'Grad',
+        department: 'Department',
+        college: 'College'
+    };
+
+    function esc(s) {
+        return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    function buildCard(s) {
+        var topicsAttr = s.topics.join(' ');
+        var tagsHtml = s.topics.map(function(t) {
+            return '<span class="topic-tag ' + t + '">' + (topicLabels[t] || t) + '</span>';
+        }).join('');
+        var inner = [
+            '  <div class="service-card-body">',
+            '    <div class="service-card-left">',
+            '      <div class="service-title">' + esc(s.title) + '</div>',
+            '      <div class="service-years">' + esc(s.years) + '</div>',
+            '      <div class="service-desc">'  + esc(s.desc)  + '</div>',
+            '    </div>',
+            '    <div class="service-logo"><img src="' + esc(s.logo) + '" width="' + s.logoWidth + '" alt="' + esc(s.logoAlt) + '"></div>',
+            '  </div>',
+            '  <div class="service-card-footer">',
+            '    <div class="service-tags">' + tagsHtml + '</div>',
+            '  </div>'
+        ].join('\n');
+        return '<div class="service-card" data-topics="' + topicsAttr + '">\n' + inner + '\n</div>';
+    }
+
+    function render() {
+        var html = '';
+        services.forEach(function(s) { html += buildCard(s); });
+        document.getElementById('services-container').innerHTML = html;
+        attachFilters();
+    }
+
+    function attachFilters() {
+        document.querySelectorAll('.filter-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                btn.classList.toggle('active');
+                applyFilter();
+            });
+        });
+    }
+
+    function applyFilter() {
+        var active = [];
+        document.querySelectorAll('.filter-btn.active').forEach(function(b) { active.push(b.dataset.topic); });
+        document.querySelectorAll('.service-card').forEach(function(card) {
+            var cardTopics = card.dataset.topics ? card.dataset.topics.split(' ').filter(Boolean) : [];
+            var show = active.length === 0 || active.every(function(t) { return cardTopics.indexOf(t) !== -1; });
+            card.style.display = show ? '' : 'none';
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', render);
+    </script>
+
     <!-- JavaScript: placed at the end of the document so the pages load faster -->
     <!-- jQuery library -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
