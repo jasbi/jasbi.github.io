@@ -2,107 +2,152 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- Character encoding and responsive viewport -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap 4: grid system, navbar, and responsive layout -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- Custom website styles -->
+  <link rel="stylesheet" href="masoud-style.css">
+  <!-- Browser tab icon -->
+  <link rel="shortcut icon" href="image/ucdfavicon.png">
+  <!-- SEO keywords -->
+  <meta name="keywords" content="Masoud, Jasbi, Masoud Jasbi, Masoud Jafarali Jasbi, Masoud Jasbi linguistics, Masoud Jasbi stanford, Masoud Jasbi Stanford linguistics, Persian, language acquisition, semantics, pragmatics"/>
+  <title>Masoud Jasbi</title>
 
-    <link rel="stylesheet" href="masoud-style.css">
-    <link rel="shortcut icon" href="image/ucdfavicon.png">
-    <meta name="keywords" content="Masoud, Jasbi, Masoud Jasbi, Masoud Jafarali Jasbi, Masoud Jasbi linguistics, Masoud Jasbi stanford, Masoud Jasbi Stanford linguistics, Persian, language acquisition, semantics, pragmatics"/>
-    <title>Masoud Jasbi</title>
-    <style>
-        .intro-box {
-            background: #e8e8e8; border: 1.5px solid #ccc; border-radius: 8px;
-            padding: 20px 22px 32px; margin-bottom: 0;
-            display: flex; align-items: center; gap: 20px;
-        }
-        .intro-content  { flex: 1; }
-        .intro-title    { font-weight: 700; font-size: 18px; margin-bottom: 4px; }
-        .intro-subtitle { font-weight: 600; color: #555; font-size: 16px; margin-bottom: 10px; }
-        .intro-text     { font-size: 15px; color: #444; margin: 0; line-height: 1.6; }
+  <!-- Page-specific CSS styles -->
+  <style>
+    /* ── Intro box ──────────────────────────────────────────────── */
+    /* The gray rounded box at the top with teaching philosophy text and stats.
+       Uses flexbox so the text is on the left and the stat boxes are on the right. */
+    .intro-box {
+        background: #e8e8e8; border: 1.5px solid #ccc; border-radius: 8px;
+        padding: 20px 22px 32px; margin-bottom: 0;
+        display: flex; align-items: center; gap: 20px;
+    }
+    .intro-content  { flex: 1; }
+    .intro-title    { font-weight: 700; font-size: 18px; margin-bottom: 4px; }
+    .intro-subtitle { font-weight: 600; color: #555; font-size: 16px; margin-bottom: 10px; }
+    .intro-text     { font-size: 15px; color: #444; margin: 0; line-height: 1.6; }
 
-        .filter-section {
-            display: flex; justify-content: center;
-            position: relative; z-index: 2;
-            margin-top: -22px; margin-bottom: 24px;
-        }
-        .filter-grid {
-            display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
-        }
-        .filter-btn {
-            padding: 9px 14px; border-radius: 6px; cursor: pointer;
-            font-weight: 700; font-size: 14px; border: 2px solid var(--color);
-            background: var(--bg); color: var(--color); transition: background 0.15s, color 0.15s;
-        }
-        .filter-btn:hover  { opacity: 0.85; }
-        .filter-btn.active { background: var(--color); color: #fff; }
-        .filter-btn[data-topic="cogsci"]        { --bg: #E6F1FB; --color: #0C447C; }
-        .filter-btn[data-topic="learning"]      { --bg: #E1F5EE; --color: #085041; }
-        .filter-btn[data-topic="computational"] { --bg: #e7dddd; --color: #be0303; }
-        .filter-btn[data-topic="semantics"]     { --bg: #FAEEDA; --color: #633806; }
-        .filter-btn[data-topic="syntax"]        { --bg: #FAEEDA; --color: #633806; }
+    /* ── Filter buttons ─────────────────────────────────────────── */
+    /* Row of topic filter buttons — negative margin-top overlaps the intro box */
+    .filter-section {
+        display: flex; justify-content: center;
+        position: relative; z-index: 2;
+        margin-top: -22px; margin-bottom: 24px;
+    }
+    .filter-grid {
+        display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
+    }
+    /* Base style for filter buttons; colors are set per-topic using CSS custom properties */
+    .filter-btn {
+        padding: 9px 14px; border-radius: 6px; cursor: pointer;
+        font-weight: 700; font-size: 14px; border: 2px solid var(--color);
+        background: var(--bg); color: var(--color); transition: background 0.15s, color 0.15s;
+    }
+    .filter-btn:hover  { opacity: 0.85; }
+    /* Filled-in appearance when a filter is active */
+    .filter-btn.active { background: var(--color); color: #fff; }
+    /* Color definitions for each teaching topic */
+    .filter-btn[data-topic="cogsci"]        { --bg: #E6F1FB; --color: #0C447C; }
+    .filter-btn[data-topic="learning"]      { --bg: #E1F5EE; --color: #085041; }
+    .filter-btn[data-topic="computational"] { --bg: #e7dddd; --color: #be0303; }
+    .filter-btn[data-topic="semantics"]     { --bg: #FAEEDA; --color: #633806; }
+    .filter-btn[data-topic="syntax"]        { --bg: #FAEEDA; --color: #633806; }
 
-        .course-card {
-            display: block; background: #fff; border: 1.5px solid #d0d0d0; border-radius: 8px;
-            padding: 14px 16px; margin-bottom: 10px; transition: border-color 0.15s;
-            text-decoration: none; color: inherit;
-        }
-        .course-card:hover { border-color: #888; text-decoration: none; color: inherit; }
-        .course-card-body  { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
-        .course-card-left  { flex: 1; }
-        .course-title      { font-weight: 700; font-size: 18px; line-height: 1.4; color: #111; }
-        .course-year       { font-size: 16px; color: #666; margin-top: 4px; }
-        .course-desc       { font-size: 14px; color: #444; margin-top: 6px; line-height: 1.55; }
-        .course-logo       { flex-shrink: 0; display: flex; align-items: center; }
-        .course-card-footer {
-            display: flex; justify-content: space-between; align-items: center;
-            margin-top: 10px; padding-top: 8px; border-top: 1px solid #eee;
-        }
-        .course-tags { display: flex; gap: 5px; flex-wrap: wrap; }
-        .course-students {
-            font-size: 12px; font-weight: 600; color: #555;
-            background: #f0f0f0; border: 1px solid #ccc; border-radius: 4px;
-            padding: 3px 10px; white-space: nowrap; flex-shrink: 0;
-        }
-        .intro-stats { display: flex; flex-direction: column; gap: 10px; flex-shrink: 0; }
-        .intro-stat {
-            background: #d4d4d4; border-radius: 6px; padding: 8px 16px;
-            text-align: center; min-width: 90px;
-        }
-        .stat-num   { display: block; font-weight: 700; font-size: 20px; color: #222; }
-        .stat-label { display: block; font-size: 11px; color: #555; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 2px; }
-        .topic-tag {
-            padding: 2px 9px; border-radius: 20px; font-size: 11px;
-            font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; display: inline-block;
-        }
-        .topic-tag.cogsci        { background: #E6F1FB; color: #0C447C; }
-        .topic-tag.learning      { background: #E1F5EE; color: #085041; }
-        .topic-tag.computational { background: #e7dddd; color: #be0303; }
-        .topic-tag.semantics     { background: #FAEEDA; color: #633806; }
-        .topic-tag.syntax        { background: #FAEEDA; color: #633806; }
-        .course-section { margin-bottom: 0; }
-        .course-section-title {
-            background: #f5dc90; border-radius: 6px; padding: 7px 14px;
-            font-weight: 700; font-size: 16px; margin-bottom: 12px; margin-top: 16px;
-            display: inline-block;
-        }
-    </style>
+    /* ── Course cards ───────────────────────────────────────────── */
+    /* Course cards can be links (<a>) or plain divs, so we reset link styling */
+    .course-card {
+        display: block; background: #fff; border: 1.5px solid #d0d0d0; border-radius: 8px;
+        padding: 14px 16px; margin-bottom: 10px; transition: border-color 0.15s;
+        text-decoration: none; color: inherit;
+    }
+    .course-card:hover { border-color: #888; text-decoration: none; color: inherit; }
+    /* Inner layout: course info on the left, logo on the right */
+    .course-card-body  { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+    .course-card-left  { flex: 1; }
+    .course-title      { font-weight: 700; font-size: 18px; line-height: 1.4; color: #111; }
+    .course-year       { font-size: 16px; color: #666; margin-top: 4px; }
+    .course-desc       { font-size: 14px; color: #444; margin-top: 6px; line-height: 1.55; }
+    /* The logo image container on the right side of each card */
+    .course-logo       { flex-shrink: 0; display: flex; align-items: center; }
+    /* Bottom row of the card: topic tags and student count */
+    .course-card-footer {
+        display: flex; justify-content: space-between; align-items: center;
+        margin-top: 10px; padding-top: 8px; border-top: 1px solid #eee;
+    }
+    .course-tags { display: flex; gap: 5px; flex-wrap: wrap; }
+    /* The student count badge in the bottom-right of each card */
+    .course-students {
+        font-size: 12px; font-weight: 600; color: #555;
+        background: #f0f0f0; border: 1px solid #ccc; border-radius: 4px;
+        padding: 3px 10px; white-space: nowrap; flex-shrink: 0;
+    }
+    /* Stats boxes in the top-right of the intro box (total courses, total students) */
+    .intro-stats { display: flex; flex-direction: row; gap: 10px; flex-shrink: 0; align-items: center; }
+    .intro-stat {
+        background: #d4d4d4; border-radius: 6px; padding: 8px 16px;
+        text-align: center; min-width: 90px;
+    }
+    .stat-num   { display: block; font-weight: 700; font-size: 20px; color: #222; }
+    .stat-label { display: block; font-size: 11px; color: #555; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 2px; }
+    /* Topic tag pills */
+    .topic-tag {
+        padding: 2px 9px; border-radius: 20px; font-size: 11px;
+        font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; display: inline-block;
+    }
+    .topic-tag.cogsci        { background: #E6F1FB; color: #0C447C; }
+    .topic-tag.learning      { background: #E1F5EE; color: #085041; }
+    .topic-tag.computational { background: #e7dddd; color: #be0303; }
+    .topic-tag.semantics     { background: #FAEEDA; color: #633806; }
+    .topic-tag.syntax        { background: #FAEEDA; color: #633806; }
+    /* Section groupings (e.g. "2023–2024") */
+    .course-section { margin-bottom: 0; }
+    /* The yellow section header — display: block makes it span the full width */
+    .course-section-title {
+        background: #f5dc90; border-radius: 6px; padding: 7px 14px;
+        font-weight: 700; font-size: 16px; margin-bottom: 12px; margin-top: 16px;
+        display: block;
+    }
+  </style>
 </head>
 
 <body>
+    <!-- Skip link for keyboard/screen reader accessibility -->
     <a class="skip-link" href="#main-content">Skip to main content</a>
 
     <div class="container-fluid">
 
+        <!-- Inject the shared navigation bar -->
         <script src="nav.js"></script>
 
-
-        <div id="main-content" class="intro-box">
+        <!-- Intro box: shows only title+subtitle by default; click to expand full text.
+             Stats are also hidden when collapsed so they don't increase the box height. -->
+        <div id="main-content" class="intro-box" onclick="toggleIntro()" style="cursor:pointer">
             <div class="intro-content">
-                <div class="intro-title">Teaching Philosophy</div>
-                <div class="intro-subtitle">Subtitle</div>
-                <p class="intro-text">Your text here.</p>
+                <!-- Always-visible header row: title, subtitle, and ▾ expand caret -->
+                <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:12px;">
+                    <div style="flex:1;">
+                        <div class="intro-title">Teaching Philosophy</div>
+                        <div class="intro-subtitle">What are the goals of higher education, espeically in linguistics and cognitive science, and how can we achieve them?</div>
+                    </div>
+                    <span id="intro-caret" style="font-size:18px; color:#999; flex-shrink:0; margin-top:3px;" title="Click to expand">▾</span>
+                </div>
+                <!-- Expandable body: hidden until the box is clicked -->
+                <div id="intro-expandable" style="display:none; margin-top:10px;">
+                    <p class="intro-text">Higher education has two primary goals which I call academia's "dual mandate": the <i>intellectual</i> and the <i>societal</i>.
+                        <ol>
+                          <li><b>The Intellectual</b>: Higher education should maximize students' intellectual growth. It should strengthen students' independent learning and introduce the current state of knowledge in a field of study.</li>
+                          <li><b>The Societal</b>: Higher education should prepare students for their societal roles. It should introduce skills and knowledge relevant to their future careers and civic engagement.</li>
+                        </ol>
+                    These goals are not always in natural alignment. A curriculum or a course can cultivate deep intellectual growth while remaining disconnected from practical realities. It can efficiently prepare students for the job market without genuinely challenging them to think. The task of higher education is to strike a balance between these two goals.
+                    <br><br>
+                    I design my courses and curriculum in linguistics and cognitive science with this dual mandate in mind. The lectures, readings, and supplementary videos present current state of knowledge and common theories in a specific subfield. The assignments and class projects aim to cultivate intellectual and practical skills that prepare students for their future careers and postgraduation life.
+                    </p>
+                </div>
             </div>
+            <!-- Stats boxes: always visible, shown in a row to stay compact -->
             <div class="intro-stats">
                 <div class="intro-stat">
                     <span class="stat-num" id="total-classes">0</span>
@@ -114,6 +159,8 @@
                 </div>
             </div>
         </div><!-- /.intro-box -->
+
+        <!-- Filter buttons: clicking a topic filters the course cards below -->
         <div class="filter-section">
             <div class="filter-grid">
                 <button class="filter-btn" data-topic="learning">Language Learning and Acquisition</button>
@@ -124,13 +171,16 @@
             </div>
         </div>
 
+        <!-- Course cards are dynamically injected here by the render() function below -->
         <div id="courses-container"></div>
 
         </div>
 
+  <!-- Load the courses data array (var courses = [...]) from the external data file -->
   <script src="teaching-data.js"></script>
   <script>
 
+  // Human-readable display names for each topic key
   var topicLabels = {
     cogsci: 'Ling &amp; Cog Sci',
     learning: 'Language Learning',
@@ -139,16 +189,24 @@
     syntax: 'Syntax'
   };
 
+  // Safety function: escapes special HTML characters so data values can't break the layout
   function esc(s) {
     return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
   }
 
+  // Builds and returns the HTML string for one course card.
+  // c = one course object from teaching-data.js
   function buildCard(c) {
-    var topicsAttr = c.topics.join(' ');
+    var topicsAttr = c.topics.join(' ');  // stored as a data attribute for filter lookups
+
+    // Build the topic tag pills for the card footer
     var tagsHtml = c.topics.map(function(t) {
       return '<span class="topic-tag ' + t + '">' + (topicLabels[t] || t) + '</span>';
     }).join('');
+
+    // Combine year and quarter into one line (e.g. "2023 Fall")
     var yearLine = c.year + (c.quarter ? ' ' + c.quarter : '');
+
     var inner = [
       '  <div class="course-card-body">',
       '    <div class="course-card-left">',
@@ -163,6 +221,8 @@
       '    <div class="course-students">' + (c.students || 0) + ' students</div>',
       '  </div>'
     ].join('\n');
+
+    // If the course has a link, wrap the whole card in an <a> tag so it's clickable
     if (c.link) {
       return '<a href="' + esc(c.link) + '" class="course-card" data-topics="' + topicsAttr + '">\n' + inner + '\n</a>';
     } else {
@@ -170,14 +230,20 @@
     }
   }
 
+  // Groups courses by their "section" field (e.g. academic year),
+  // builds all card HTML, inserts it into the page, and updates the stats.
   function render() {
-    var sections = [];
-    var sectionMap = {};
+    var sections = [];     // ordered list of section names as they appear
+    var sectionMap = {};   // maps section name → array of course objects
+
     courses.forEach(function(c) {
       var sec = c.section || 'Other';
+      // Create a new section group the first time we see this section name
       if (!sectionMap[sec]) { sectionMap[sec] = []; sections.push(sec); }
       sectionMap[sec].push(c);
     });
+
+    // Build all the HTML as one string, section by section
     var html = '';
     sections.forEach(function(sec) {
       html += '<div class="course-section" data-section="' + esc(sec) + '">';
@@ -185,29 +251,41 @@
       sectionMap[sec].forEach(function(c) { html += buildCard(c); });
       html += '</div>';
     });
+
+    // Insert everything into the page at once
     document.getElementById('courses-container').innerHTML = html;
+
+    // Update the stat counters in the intro box
     document.getElementById('total-classes').textContent = courses.length;
     document.getElementById('total-students').textContent = courses.reduce(function(s, c) { return s + (c.students || 0); }, 0);
+
     attachFilters();
   }
 
+  // Wires up the click handlers for the filter buttons
   function attachFilters() {
     document.querySelectorAll('.filter-btn').forEach(function(btn) {
       btn.addEventListener('click', function() {
-        btn.classList.toggle('active');
+        btn.classList.toggle('active'); // Toggle the highlighted state
         applyFilter();
       });
     });
   }
 
+  // Shows or hides course cards based on which filter buttons are active.
+  // Also hides section headers when all their cards are filtered out.
   function applyFilter() {
     var active = [];
     document.querySelectorAll('.filter-btn.active').forEach(function(b) { active.push(b.dataset.topic); });
+
     document.querySelectorAll('.course-card').forEach(function(card) {
       var cardTopics = card.dataset.topics ? card.dataset.topics.split(' ').filter(Boolean) : [];
+      // Show if no filters active, or if card has ALL the active topics
       var show = active.length === 0 || active.every(function(t) { return cardTopics.indexOf(t) !== -1; });
       card.style.display = show ? '' : 'none';
     });
+
+    // Hide section headers whose cards are all hidden
     document.querySelectorAll('.course-section').forEach(function(sec) {
       var allHidden = true;
       sec.querySelectorAll('.course-card').forEach(function(card) {
@@ -217,19 +295,28 @@
     });
   }
 
+  // Toggles the intro box between collapsed (title+subtitle only) and expanded (full text)
+  function toggleIntro() {
+    var expandable = document.getElementById('intro-expandable');
+    var caret = document.getElementById('intro-caret');
+    var open = expandable.style.display !== 'none';
+    expandable.style.display = open ? 'none' : 'block';
+    caret.textContent = open ? '▾' : '▴';
+  }
+
+  // Wait for the page HTML to be ready before rendering cards into the DOM
   document.addEventListener('DOMContentLoaded', render);
   </script>
-        
-<!-- JavaScript: placed at the end of the document so the pages load faster -->
-    
-<!-- jQuery library -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 
-<!-- Popper -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <!-- JavaScript libraries: jQuery, Popper, and Bootstrap JS (required for the navbar toggle) -->
+  <!-- JavaScript: placed at the end of the document so the pages load faster -->
 
-<!-- Latest compiled and minified Bootstrap JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        
-  </body>
+  <!-- jQuery library -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <!-- Popper -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
 </html>

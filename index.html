@@ -2,24 +2,40 @@
 <html lang="en">
 
 <head>
+    <!-- Character encoding: tells the browser to use UTF-8 so special characters display correctly -->
     <meta charset="utf-8">
+    <!-- Responsive viewport: makes the page scale properly on phones and tablets -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- External CSS libraries loaded from the internet (CDN) -->
+    <!-- Bootstrap 4: provides the grid system, navbar, buttons, and responsive layout -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Font Awesome: icon library (used for email, book, and laptop icons in the sidebar) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Custom styles specific to this website -->
     <link rel="stylesheet" href="masoud-style.css">
+    <!-- Browser tab icon (the small UC Davis logo shown in the browser tab) -->
     <link rel="shortcut icon" href="image/ucdfavicon.png">
+
+    <!-- SEO keywords to help search engines find this page -->
     <meta name="keywords" content="Masoud, Jasbi, Masoud Jasbi, Masoud Jafarali Jasbi, Masoud Jasbi linguistics, Masoud Jasbi stanford, Masoud Jasbi Stanford linguistics, Persian, language acquisition, semantics, pragmatics"/>
     <title>Masoud Jasbi</title>
+
+    <!-- Page-specific CSS styles. Classes defined here only apply to this page. -->
     <style>
         /* ── Index section headers ────────────────────────────────── */
+        /* Wrapper for each card section (Research, Teaching, Service) */
         .index-section {
             margin-bottom: 28px;
         }
+        /* The yellow banner at the top of each section.
+           Uses flexbox so the title is on the left and the "More →" link is on the right. */
         .index-section-header {
             background: #f5dc90; padding: 7px 14px;
             font-weight: 700; border-radius: 5px; margin-bottom: 12px; font-size: 16px;
             display: flex; justify-content: space-between; align-items: center;
         }
+        /* The "More →" link on the right side of each section header */
         .section-more {
             font-size: 13px; font-weight: 600; color: #555;
             text-decoration: none;
@@ -27,26 +43,36 @@
         .section-more:hover { color: #222; text-decoration: none; }
 
         /* ── Publication cards ────────────────────────────────────── */
+        /* The white rounded box that holds each publication entry */
         .pub-card {
             background: #fff; border: 1.5px solid #d0d0d0; border-radius: 8px;
             padding: 14px 16px; margin-bottom: 10px; transition: border-color 0.15s;
         }
+        /* Darken the border when the mouse hovers over a card */
         .pub-card:hover { border-color: #888; }
+        /* Show a pointer cursor when hovering over a card that has an abstract to expand */
         .pub-card.has-abstract .pub-card-main { cursor: pointer; }
+        /* Top row of a pub card: title on the left, PDF/DOI/Cite buttons on the right */
         .pub-card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
         .pub-title { font-weight: 700; font-size: 16px; flex: 1; line-height: 1.4; }
+        /* Container for the action buttons (PDF, DOI, GitHub, Cite) */
         .pub-links { display: flex; gap: 5px; flex-shrink: 0; flex-wrap: wrap; justify-content: flex-end; }
+        /* Base style shared by all small action buttons on pub cards */
         .btn-pub {
             display: inline-block; padding: 2px 9px; border-radius: 4px;
             font-size: 12px; font-weight: 600; text-decoration: none;
             border: 1px solid; cursor: pointer; white-space: nowrap;
         }
         .btn-pub:hover { text-decoration: none; opacity: 0.8; }
+        /* Color variants for each button type */
         .btn-pdf    { background: #E6F1FB; color: #0C447C; border-color: #0C447C; }
         .btn-doi    { background: #f0f0f0; color: #444; border-color: #888; }
         .btn-github { background: #EEEDFE; color: #3C3489; border-color: #3C3489; }
+        /* Authors line below the title */
         .pub-authors { margin-top: 6px; font-size: 16px; color: #333; }
+        /* Journal/venue line */
         .pub-venue   { font-size: 14px; color: #555; margin-top: 2px; }
+        /* Expandable abstract panel (hidden by default, shown when card is clicked) */
         .pub-abstract {
             margin-top: 10px; font-size: 14px; line-height: 1.55;
             padding: 10px 12px; background: #f8f8f8;
@@ -57,25 +83,30 @@
             margin-top: 10px; padding-top: 8px; border-top: 1px solid #eee;
         }
         .pub-tags { display: flex; gap: 5px; flex-wrap: wrap; }
+        /* The "Cite" button that reveals the citation panel */
         .btn-cite {
             padding: 3px 11px; background: #f4f4f4; border: 1px solid #aaa;
             border-radius: 4px; font-size: 12px; font-weight: 600; cursor: pointer; color: #333;
         }
         .btn-cite:hover { background: #e8e8e8; }
+        /* The panel that appears when "Cite" is clicked, showing APA and BibTeX citations */
         .pub-cite-panel {
             margin-top: 10px; background: #f5f5f5; border-radius: 5px; padding: 12px 14px; font-size: 13px;
         }
+        /* Small uppercase label ("APA", "BIBTEX") inside the citation panel */
         .cite-label {
             font-weight: 700; color: #555; margin-bottom: 4px;
             font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em;
         }
         .cite-apa { margin-bottom: 12px; line-height: 1.5; }
+        /* Monospace code block for BibTeX text */
         .cite-bibtex {
             background: #eee; border-radius: 4px; padding: 10px; font-size: 12px;
             white-space: pre-wrap; font-family: monospace; margin: 0; overflow-x: auto;
         }
 
         /* ── Course cards ─────────────────────────────────────────── */
+        /* Course cards are links (<a> tags), so we reset link styling to look like normal cards */
         .course-card {
             display: block; background: #fff; border: 1.5px solid #d0d0d0; border-radius: 8px;
             padding: 14px 16px; margin-bottom: 10px; transition: border-color 0.15s;
@@ -118,11 +149,51 @@
         }
         .service-tags { display: flex; gap: 5px; flex-wrap: wrap; }
 
+        /* ── Career timeline ─────────────────────────────────────── */
+        /* Outer container with a fixed height so absolutely positioned children have room */
+        .tl-wrap {
+            position: relative; height: 145px;
+            margin: 18px 8px 4px;
+        }
+        /* The horizontal line running across the middle of the timeline */
+        .tl-line {
+            position: absolute; top: 92px; left: 0; right: 0;
+            height: 2px; background: #bbb;
+        }
+        /* Labels that appear ABOVE the line for specific milestone years */
+        /* transform: translateX(-50%) centers each label over its tick dot */
+        .tl-lbl-above, .tl-period {
+            position: absolute; top: 5px;
+            transform: translateX(-50%);
+            text-align: center; width: 200px;
+            font-size: 14px; color: #555; line-height: 1.45;
+        }
+        /* Period labels (e.g. postdoc) are slightly lighter since they span a range, not a point */
+        .tl-period { color: #666; }
+        /* Container for the dot + year number, positioned just below the line */
+        .tl-tick {
+            position: absolute; top: 85px;
+            transform: translateX(-50%);
+            text-align: center;
+        }
+        /* The circular dot that marks a year on the timeline */
+        .tl-dot {
+            width: 14px; height: 14px; background: #666;
+            border-radius: 50%; margin: 0 auto;
+            position: relative; z-index: 1;
+        }
+        /* The year number below each dot */
+        .tl-year {
+            font-weight: 700; font-size: 14px; color: #333; margin-top: 5px;
+        }
+
         /* ── Topic tags (all pages combined) ─────────────────────── */
+        /* Small colored pill-shaped labels that categorize publications, courses, and service entries */
         .topic-tag {
             padding: 2px 9px; border-radius: 20px; font-size: 11px;
             font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; display: inline-block;
         }
+        /* Each topic gets its own background and text color */
         .topic-tag.learning      { background: #E1F5EE; color: #085041; }
         .topic-tag.computational { background: #e7dddd; color: #be0303; }
         .topic-tag.experimental  { background: #E6F1FB; color: #0C447C; }
@@ -134,29 +205,33 @@
         .topic-tag.grad          { background: #ebebeb; color: #444; }
         .topic-tag.department    { background: #ebebeb; color: #444; }
         .topic-tag.college       { background: #ebebeb; color: #444; }
+        .topic-tag.profession    { background: #ebebeb; color: #444; }
     </style>
 </head>
 
 <body>
+    <!-- Skip link: hidden visually but accessible to screen readers.
+         Allows keyboard users to jump straight to the main content, bypassing the navbar. -->
     <a class="skip-link" href="#main-content">Skip to main content</a>
 
+    <!-- container-fluid: a full-width Bootstrap wrapper that adds consistent side padding -->
     <div class="container-fluid">
 
+        <!-- Inject the shared navigation bar from nav.js -->
         <script src="nav.js"></script>
 
+        <!-- ── Main two-column layout ───────────────────────────────
+             Bootstrap's grid divides the page into 12 columns.
+             col-md-9 = 9/12 (75%) wide on medium+ screens → card sections
+             col-md-3 = 3/12 (25%) wide on medium+ screens → sidebar
+             On small screens both columns stack vertically. -->
         <div id="main-content" class="row">
-            <div class="col-md-3">
-                <img width="90%" src="image/main_image.jpg" alt="Masoud Jasbi">
-                <p class="lead"><br>Assistant Professor,<br> Linguistics and Cognitive Science,<br> University of California, Davis<br></p>
-                <div class="address">
-                    <p><a href="mailto:jasbi@ucdavis.edu">&#x1f4e7; jasbi@ucdavis.edu</a></p>
-                    <p><a href="https://github.com/jasbi">&#x1f4bb; https://github.com/jasbi</a></p>
-                    <p><a href="https://scholar.google.com/citations?hl=en&user=cMjcFL4AAAAJ">&#x1f4da; https://scholar.google.com</a></p>
-                </div>
-                <p><br></p>
-            </div>
+
+            <!-- LEFT COLUMN: publication, teaching, and service card sections -->
             <div class="col-md-9">
 
+                <!-- Representative Publications section.
+                     The card HTML is injected here by JavaScript below. -->
                 <div id="research-section" class="index-section">
                     <div class="index-section-header">
                         Representative Publications
@@ -165,6 +240,7 @@
                     <div id="research-cards"></div>
                 </div>
 
+                <!-- Recent Teaching section -->
                 <div id="teaching-section" class="index-section">
                     <div class="index-section-header">
                         Recent Teaching
@@ -173,6 +249,7 @@
                     <div id="teaching-cards"></div>
                 </div>
 
+                <!-- Recent Service section -->
                 <div id="service-section" class="index-section">
                     <div class="index-section-header">
                         Recent Service
@@ -182,50 +259,111 @@
                 </div>
 
             </div>
+
+            <!-- RIGHT COLUMN: profile photo, title, and contact links -->
+            <div class="col-md-3 text-center">
+                <img width="80%" src="image/main_image.jpg" alt="Masoud Jasbi">
+                <p class="lead"><br>Assistant Professor,<br> Linguistics and Cognitive Science<br> University of California, Davis<br></p>
+                <!-- Contact and profile links with emoji icons -->
+                <div class="address">
+                    <p><a href="mailto:jasbi@ucdavis.edu">&#x1f4e7; jasbi@ucdavis.edu</a></p>
+                    <p><a href="https://scholar.google.com/citations?hl=en&user=cMjcFL4AAAAJ">&#x1f4da; Google Scholar</a></p>
+                    <p><a href="https://github.com/jasbi">&#x1f4bb; https://github.com/jasbi</a></p>
+                    <p><a href="https://l3lab.ucdavis.edu">&#128300; https://l3lab.ucdavis.edu</a></p>
+                    <p><a href="https://functionworddashboard.com/" target="_blank" rel="noopener">  The Function Word Dashboard</a></p>
+                </div>
+            </div>
         </div>
 
-        <div class="row">
-            <div class="footer">
-                <div class="row">
-                    <div class="col-md-3 text-right">
-                        <div class="seal">
-                            <img align="middle" src="image/UCDavis.png" width="60%" alt="UC Davis Seal">
-                        </div>
+        <!-- ── Footer row ────────────────────────────────────────────
+             Same 9/3 split: timeline on the left, UC Davis logo on the right. -->
+        <div class="row align-items-center footer">
+
+            <!-- Career timeline (left, 75% wide) -->
+            <div class="col-md-9 text-left">
+                <div class="tl-wrap">
+                    <!-- The horizontal line across the full width -->
+                    <div class="tl-line"></div>
+
+                    <!-- 2012 milestone: B.A. at Manchester -->
+                    <div class="tl-lbl-above" style="left:10%">B.A. in Linguistics <br>First Class Honours<br><b>University of Manchester</b></div>
+                    <div class="tl-tick" style="left:10%">
+                        <div class="tl-dot"></div>
+                        <div class="tl-year">2012</div>
                     </div>
-                    <div class="col-md-9 text-left"></div>
+
+                    <!-- 2018 milestone: Ph.D. at Stanford -->
+                    <div class="tl-lbl-above" style="left:50%">Ph.D. in Linguistics <br> Cognitive Science Designation<br><b>Stanford University</b></div>
+                    <div class="tl-tick" style="left:50%">
+                        <div class="tl-dot"></div>
+                        <div class="tl-year">2018</div>
+                    </div>
+
+                    <!-- Period label between 2018 and 2020: Postdoc at Harvard (no tick dot, just a label) -->
+                    <div class="tl-period" style="left:66%">Postdoctoral Fellow <br> Linguistics &amp; Psychology<br><b>Harvard University</b></div>
+
+                    <!-- 2020 milestone: Assistant Professor at UC Davis -->
+                    <div class="tl-lbl-above" style="left:79%">Assistant Professor <br> Linguistics<br><b>UC Davis</b></div>
+                    <div class="tl-tick" style="left:79%">
+                        <div class="tl-dot"></div>
+                        <div class="tl-year">2020</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- UC Davis logo (right, 25% wide) -->
+            <div class="col-md-3 text-left">
+                <div class="seal">
+                    <img align="middle" src="image/UCDavis.png" width="60%" alt="UC Davis Wordmark">
                 </div>
             </div>
         </div>
 
     </div><!-- /.container-fluid -->
 
+    <!-- ── Data files ────────────────────────────────────────────────
+         These three scripts each define a JavaScript array (papers, courses, services).
+         They must be loaded before the inline script below, which reads from those arrays. -->
     <script src="research-data.js"></script>
     <script src="teaching-data.js"></script>
     <script src="service-data.js"></script>
 
     <script>
+    // Human-readable display names for each topic tag key.
+    // The keys match what is stored in the data files; the values are shown in the UI.
     var topicLabels = {
         learning: 'Learning', computational: 'Computational',
         experimental: 'Experimental', theoretical: 'Theoretical',
         cogsci: 'Ling &amp; Cog Sci', semantics: 'Semantics', syntax: 'Syntax',
-        undergrad: 'Undergrad', grad: 'Grad', department: 'Department', college: 'College'
+        undergrad: 'Undergrad', grad: 'Grad', department: 'Department', college: 'College-University', profession: 'Profession-Field'
     };
 
+    // Safety function: converts special characters (like < > & ") into their HTML-safe equivalents
+    // so that data values are never accidentally interpreted as HTML code.
     function esc(s) {
         return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
     }
 
+    // Builds and returns the HTML string for a single publication card.
+    // p = one publication object from research-data.js
     function buildPubCard(p) {
-        var topicsAttr = p.topics.join(' ');
+        var topicsAttr = p.topics.join(' ');  // e.g. "learning computational"
         var hasAbstract = p.abstract && p.abstract.length > 0;
+
+        // Build the row of link buttons (PDF, DOI, GitHub) — only add a button if the link exists
         var linksHtml = '';
         if (p.links.pdf)    linksHtml += '<a href="' + esc(p.links.pdf) + '" class="btn-pub btn-pdf" target="_blank" rel="noopener" onclick="event.stopPropagation()">PDF</a>';
         if (p.links.doi)    linksHtml += '<a href="' + esc(p.links.doi) + '" class="btn-pub btn-doi" target="_blank" rel="noopener" onclick="event.stopPropagation()">DOI</a>';
         if (p.links.github) linksHtml += '<a href="' + esc(p.links.github) + '" class="btn-pub btn-github" target="_blank" rel="noopener" onclick="event.stopPropagation()">GitHub</a>';
-        var venueHtml    = p.venue   ? '<div class="pub-venue">' + p.venue + '</div>' : '';
+
+        // Venue is appended inline after the authors, separated by " · " and italicized
+        var authorsAndVenue = esc(p.authors) + (p.venue ? ' &nbsp;·&nbsp; <em>' + p.venue + '</em>' : '');
         var abstractHtml = hasAbstract ? '<div class="pub-abstract" style="display:none">' + esc(p.abstract) + '</div>' : '';
+
         var bibtexEscaped = esc(p.bibtex);
         var apaEscaped    = esc(p.apa);
+
+        // Build the card as an array of HTML lines, then join them into one string
         return [
             '<div class="pub-card' + (hasAbstract ? ' has-abstract' : '') + '" data-topics="' + topicsAttr + '">',
             '  <div class="pub-card-main"' + (hasAbstract ? ' role="button" tabindex="0" aria-expanded="false"' : '') + '>',
@@ -233,10 +371,10 @@
             '      <div class="pub-title">' + esc(p.title) + '</div>',
             '      <div class="pub-links">' + linksHtml + '<button class="btn-cite" aria-expanded="false">Cite</button></div>',
             '    </div>',
-            '    <div class="pub-authors">' + esc(p.authors) + '</div>',
-            venueHtml,
+            '    <div class="pub-authors">' + authorsAndVenue + '</div>',
             abstractHtml,
             '  </div>',
+            // Citation panel: hidden by default, toggled by the Cite button
             '  <div class="pub-cite-panel" style="display:none">',
             '    <div class="cite-label">APA</div>',
             '    <div class="cite-apa">' + apaEscaped + '</div>',
@@ -247,19 +385,24 @@
         ].join('\n');
     }
 
+    // Builds and returns the HTML string for a single course card.
+    // c = one course object from teaching-data.js
     function buildCourseCard(c) {
         var topicsAttr = c.topics.join(' ');
+        // Combine year and quarter (e.g. "2023 Fall") if a quarter is specified
         var yearLine = c.year + (c.quarter ? ' ' + c.quarter : '');
         var inner = [
             '  <div class="course-card-body">',
             '    <div class="course-card-left">',
-            '      <div class="course-title">' + esc(c.code) + ': ' + esc(c.title) + '</div>',
-            '      <div class="course-year">' + yearLine + '</div>',
+            '      <div style="display:flex; justify-content:space-between; align-items:baseline;">',
+            '        <div class="course-title">' + esc(c.code) + ': ' + esc(c.title) + '</div>',
+            '        <div class="course-year" style="flex-shrink:0; margin-left:12px;">' + yearLine + '</div>',
+            '      </div>',
             '      <div class="course-desc">'  + esc(c.desc)  + '</div>',
             '    </div>',
-            '    <div class="course-logo"><img src="' + esc(c.logo) + '" width="' + c.logoWidth + '" alt="' + esc(c.logoAlt) + '"></div>',
             '  </div>'
         ].join('\n');
+        // If the course has a link, wrap it in an <a> tag so the whole card is clickable
         if (c.link) {
             return '<a href="' + esc(c.link) + '" class="course-card" data-topics="' + topicsAttr + '">\n' + inner + '\n</a>';
         } else {
@@ -267,6 +410,8 @@
         }
     }
 
+    // Builds and returns the HTML string for a single service card.
+    // s = one service object from service-data.js
     function buildServiceCard(s) {
         var topicsAttr = s.topics.join(' ');
         var inner = [
@@ -276,28 +421,39 @@
             '      <div class="service-years">' + esc(s.years) + '</div>',
             '      <div class="service-desc">'  + esc(s.desc)  + '</div>',
             '    </div>',
-            '    <div class="service-logo"><img src="' + esc(s.logo) + '" width="' + s.logoWidth + '" alt="' + esc(s.logoAlt) + '"></div>',
             '  </div>'
         ].join('\n');
-        return '<div class="service-card" data-topics="' + topicsAttr + '">\n' + inner + '\n</div>';
+        // If the service has a link, wrap the whole card in an <a> tag so it's clickable
+        if (s.link) {
+            return '<a href="' + esc(s.link) + '" class="service-card" data-topics="' + topicsAttr + '" target="_blank" rel="noopener">\n' + inner + '\n</a>';
+        } else {
+            return '<div class="service-card" data-topics="' + topicsAttr + '">\n' + inner + '\n</div>';
+        }
     }
 
+    // Attaches click handlers to publication cards after they have been inserted into the page.
+    // Must be called after the cards exist in the DOM.
     function attachPubHandlers() {
+        // Abstract toggle: clicking a pub card's main area shows/hides the abstract text
         document.querySelectorAll('.pub-card.has-abstract .pub-card-main').forEach(function(main) {
             main.addEventListener('click', function(e) {
+                // Don't toggle the abstract if the user clicked a button (PDF, DOI, Cite, etc.)
                 if (e.target.closest('.pub-links')) return;
                 var abstract = main.querySelector('.pub-abstract');
                 var open = abstract.style.display !== 'none';
                 abstract.style.display = open ? 'none' : 'block';
                 main.setAttribute('aria-expanded', String(!open));
             });
+            // Allow keyboard users to toggle the abstract with Enter or Space
             main.addEventListener('keydown', function(e) {
                 if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); main.click(); }
             });
         });
+
+        // Cite button toggle: clicking "Cite" shows/hides the APA + BibTeX panel
         document.querySelectorAll('.btn-cite').forEach(function(btn) {
             btn.addEventListener('click', function(e) {
-                e.stopPropagation();
+                e.stopPropagation(); // Prevent the click from also toggling the abstract
                 var panel = btn.closest('.pub-card').querySelector('.pub-cite-panel');
                 var open = panel.style.display !== 'none';
                 panel.style.display = open ? 'none' : 'block';
@@ -306,14 +462,20 @@
         });
     }
 
+    // DOMContentLoaded fires once the page's HTML is fully parsed and ready to be modified.
+    // We wait for this before trying to inject card HTML into the page.
     document.addEventListener('DOMContentLoaded', function() {
+
+        // Build research cards: only include entries where firstPage === true
         var researchHtml = '';
         papers.forEach(function(p) {
             if (p.firstPage === true) researchHtml += buildPubCard(p);
         });
         document.getElementById('research-cards').innerHTML = researchHtml;
+        // Hide the entire section if no papers are marked for the front page
         document.getElementById('research-section').style.display = researchHtml ? '' : 'none';
 
+        // Build teaching cards: only include entries where firstPage === true
         var teachingHtml = '';
         courses.forEach(function(c) {
             if (c.firstPage === true) teachingHtml += buildCourseCard(c);
@@ -321,6 +483,7 @@
         document.getElementById('teaching-cards').innerHTML = teachingHtml;
         document.getElementById('teaching-section').style.display = teachingHtml ? '' : 'none';
 
+        // Build service cards: only include entries where firstPage === true
         var serviceHtml = '';
         services.forEach(function(s) {
             if (s.firstPage === true) serviceHtml += buildServiceCard(s);
@@ -328,15 +491,17 @@
         document.getElementById('service-cards').innerHTML = serviceHtml;
         document.getElementById('service-section').style.display = serviceHtml ? '' : 'none';
 
+        // Now that cards exist in the DOM, wire up all the click/keyboard interactions
         attachPubHandlers();
     });
     </script>
 
-    <!-- jQuery library -->
+    <!-- JavaScript libraries loaded at the end of the page so they don't delay page rendering -->
+    <!-- jQuery: a utility library required by Bootstrap's interactive components -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <!-- Popper -->
+    <!-- Popper: handles tooltip and dropdown positioning, also required by Bootstrap -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <!-- Bootstrap JS -->
+    <!-- Bootstrap JS: powers the collapsible navbar and other interactive Bootstrap components -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 </body>

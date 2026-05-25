@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Character encoding and responsive viewport -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap 4: grid system, navbar, and responsive layout -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- Custom website styles -->
   <link rel="stylesheet" href="masoud-style.css">
+  <!-- Browser tab icon -->
   <link rel="shortcut icon" href="image/ucdfavicon.png">
+  <!-- SEO keywords -->
   <meta name="keywords" content="Masoud, Jasbi, Masoud Jasbi, Masoud Jafarali Jasbi, Masoud Jasbi linguistics, Masoud Jasbi stanford, Masoud Jasbi Stanford linguistics, Persian, language acquisition, semantics, pragmatics"/>
   <title>Masoud Jasbi &ndash; Publications</title>
+
+  <!-- Page-specific CSS styles -->
   <style>
+    /* Padding around the whole publications page */
     .pub-page { padding: 10px 5px 40px; }
 
+    /* ── Intro box ──────────────────────────────────────────────── */
+    /* The gray rounded box at the top describing the research program */
     .intro-box {
       background: #e8e8e8; border: 1.5px solid #ccc; border-radius: 8px;
       padding: 20px 22px 32px; margin-bottom: 0;
@@ -19,6 +29,9 @@
     .intro-subtitle { font-weight: 600; color: #555; font-size: 16px; margin-bottom: 10px; }
     .intro-text     { font-size: 15px; color: #444; margin: 0; line-height: 1.6; }
 
+    /* ── Filter buttons ─────────────────────────────────────────── */
+    /* The row of topic filter buttons below the intro box.
+       Negative margin-top pulls them up to overlap the intro box slightly. */
     .filter-section {
       display: flex; justify-content: center;
       position: relative; z-index: 2;
@@ -27,6 +40,8 @@
     .filter-grid {
       display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
     }
+    /* Base style for each filter button.
+       Uses CSS custom properties (--color, --bg) so each topic can have its own colors. */
     .filter-btn {
       padding: 9px 14px; border-radius: 6px; cursor: pointer;
       font-weight: 700; font-size: 14px; border: 2px solid var(--color);
@@ -34,77 +49,91 @@
       text-align: left;
     }
     .filter-btn:hover { opacity: 0.85; }
+    /* When a filter is active (clicked), fill it with the topic color */
     .filter-btn.active { background: var(--color); color: #fff; }
-    .filter-btn[data-topic="learning"]          { --bg: #E1F5EE; --color: #085041; }
-    .filter-btn[data-topic="computational"]        { --bg: #e7dddd; --color: #be0303; }
-    .filter-btn[data-topic="experimental"] { --bg: #E6F1FB; --color: #0C447C; }
-    .filter-btn[data-topic="theoretical"]         { --bg: #FAEEDA; --color: #633806; }
+    /* Color definitions for each topic filter button */
+    .filter-btn[data-topic="learning"]      { --bg: #E1F5EE; --color: #085041; }
+    .filter-btn[data-topic="computational"] { --bg: #e7dddd; --color: #be0303; }
+    .filter-btn[data-topic="experimental"]  { --bg: #E6F1FB; --color: #0C447C; }
+    .filter-btn[data-topic="theoretical"]   { --bg: #FAEEDA; --color: #633806; }
 
+    /* ── Publication sections ───────────────────────────────────── */
+    /* Each section groups papers by status: In Prep, In Press, Published */
     .pub-section { margin-bottom: 28px; }
+    /* The yellow section header label — display: block makes it span the full width */
     .pub-section-title {
       background: #f5dc90; padding: 7px 14px;
       font-weight: 700; border-radius: 5px; margin-bottom: 12px; font-size: 15px;
-      display: inline-block;
+      display: block;
     }
 
+    /* ── Publication cards ──────────────────────────────────────── */
+    /* The white rounded box for each individual paper */
     .pub-card {
       background: #fff; border: 1.5px solid #d0d0d0; border-radius: 8px;
       padding: 14px 16px; margin-bottom: 10px; transition: border-color 0.15s;
     }
     .pub-card:hover { border-color: #888; }
+    /* Show a pointer cursor on cards that have an abstract to expand */
     .pub-card.has-abstract .pub-card-main { cursor: pointer; }
-
+    /* Top row: paper title on the left, action buttons on the right */
     .pub-card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
     .pub-title { font-weight: 700; font-size: 16px; flex: 1; line-height: 1.4; }
+    /* Container for PDF/DOI/GitHub/Cite buttons */
     .pub-links { display: flex; gap: 5px; flex-shrink: 0; flex-wrap: wrap; justify-content: flex-end; }
-
+    /* Base style shared by all small action buttons */
     .btn-pub {
       display: inline-block; padding: 2px 9px; border-radius: 4px;
       font-size: 12px; font-weight: 600; text-decoration: none;
       border: 1px solid; cursor: pointer; white-space: nowrap;
     }
     .btn-pub:hover { text-decoration: none; opacity: 0.8; }
+    /* Color variants for each button type */
     .btn-pdf    { background: #E6F1FB; color: #0C447C; border-color: #0C447C; }
     .btn-doi    { background: #f0f0f0; color: #444; border-color: #888; }
     .btn-github { background: #EEEDFE; color: #3C3489; border-color: #3C3489; }
-
+    /* Authors and venue lines below the title */
     .pub-authors { margin-top: 6px; font-size: 16px; color: #333; }
     .pub-venue   { font-size: 14px; color: #555; margin-top: 2px; }
-
+    /* Expandable abstract (hidden by default, shown when card is clicked) */
     .pub-abstract {
       margin-top: 10px; font-size: 14px; line-height: 1.55;
       padding: 10px 12px; background: #f8f8f8;
       border-left: 3px solid #ccc; border-radius: 0 4px 4px 0;
     }
-
+    /* Bottom row of the card: topic tags on the left, Cite button on the right */
     .pub-card-footer {
       display: flex; justify-content: space-between; align-items: center;
       margin-top: 10px; padding-top: 8px; border-top: 1px solid #eee;
     }
     .pub-tags { display: flex; gap: 5px; flex-wrap: wrap; }
+    /* Small colored pill-shaped topic labels */
     .topic-tag {
       padding: 2px 9px; border-radius: 20px; font-size: 11px;
       font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em;
     }
-    .topic-tag.learning          { background: #E1F5EE; color: #085041; }
-    .topic-tag.computational        { background: #e7dddd; color: #be0303; }
-    .topic-tag.experimental { background: #E6F1FB; color: #0C447C; }
-    .topic-tag.theoretical         { background: #FAEEDA; color: #633806; }
-
+    /* Topic color definitions */
+    .topic-tag.learning      { background: #E1F5EE; color: #085041; }
+    .topic-tag.computational { background: #e7dddd; color: #be0303; }
+    .topic-tag.experimental  { background: #E6F1FB; color: #0C447C; }
+    .topic-tag.theoretical   { background: #FAEEDA; color: #633806; }
+    /* The "Cite" button that reveals the citation panel */
     .btn-cite {
       padding: 3px 11px; background: #f4f4f4; border: 1px solid #aaa;
       border-radius: 4px; font-size: 12px; font-weight: 600; cursor: pointer; color: #333;
     }
     .btn-cite:hover { background: #e8e8e8; }
-
+    /* The citation panel (hidden by default): shows APA and BibTeX when Cite is clicked */
     .pub-cite-panel {
       margin-top: 10px; background: #f5f5f5; border-radius: 5px; padding: 12px 14px; font-size: 13px;
     }
+    /* Small uppercase labels ("APA", "BIBTEX") inside the citation panel */
     .cite-label {
       font-weight: 700; color: #555; margin-bottom: 4px;
       font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em;
     }
     .cite-apa { margin-bottom: 12px; line-height: 1.5; }
+    /* Monospace code block for BibTeX text */
     .cite-bibtex {
       background: #eee; border-radius: 4px; padding: 10px; font-size: 12px;
       white-space: pre-wrap; font-family: monospace; margin: 0; overflow-x: auto;
@@ -113,17 +142,39 @@
 </head>
 
 <body>
+  <!-- Skip link for keyboard/screen reader accessibility -->
   <a class="skip-link" href="#main-content">Skip to main content</a>
   <div class="container-fluid">
 
+    <!-- Inject the shared navigation bar -->
     <script src="nav.js"></script>
 
-    <div id="main-content" class="pub-page">
-      <div class="intro-box">
-        <div class="intro-title">Research Program</div>
-        <div class="intro-subtitle">How are logical meanings in natural languages learned, processed, and understood?</div>
-        <p class="intro-text">My research lies at the intersection of language learning and acquisition, semantics and pragmatics, computational modeling and machine learning, as well as formal and theoretical linguistics.</p>
+    <!-- Intro box: directly in container-fluid, matching teaching/service page structure -->
+    <div id="main-content" class="intro-box" onclick="toggleIntro()" style="cursor:pointer">
+        <!-- Always-visible header row: title, subtitle, and ▾ expand caret -->
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:12px;">
+          <div style="flex:1;">
+            <div class="intro-title">Research Program</div>
+            <div class="intro-subtitle">How are logical concepts <i>encoded in natural languages</i> and how are they <i>learned</i>, <i>processed</i>, and <i>understood</i> by humans and machines?</div>
+          </div>
+          <span id="intro-caret" style="font-size:18px; color:#999; flex-shrink:0; margin-top:3px;" title="Click to expand">▾</span>
+        </div>
+        <!-- Expandable body: hidden until the box is clicked -->
+        <div id="intro-expandable" style="display:none; margin-top:10px;">
+          <p class="intro-text">Human reasoning and communication relies on a handful of words that encode logical concepts such as <i>and</i>, <i>or</i>, <i>no</i>, <i>if</i>, <i>some</i>, <i>all</i>, <i>the</i>, <i>a</i>... . Each language has a relatively small set of such words and systematically uses them to communicate human ideas and thoughts.
+          My research engages with three foundational questions regarding <i>logical words</i>:
+          <ol>
+            <li><b>Learning</b>: how are logical words learned and how do abstract logical concepts associated with these words emerge in humans and computational models such as LLMs?</li>
+            <li><b>Understanding and Processing</b>: how are logical words understood and proceessed in the human mind and in computational models such as LLMs?</li>
+            <li><b>Crosslinguistic Representation</b>: what are the universal and variable patterns in how logical concepts are encoded across different languages?</li>
+          </ol>
+          To address these questions I use a combination of methods including computational modeling, experimental research with human participants, and crosslinguistic formal analysis of linguistic data.
+          </p>
+        </div>
       </div>
+
+      <!-- Filter buttons: clicking a topic filters the publications list below.
+           Multiple buttons can be active at once (intersection filter). -->
       <div class="filter-section">
         <div class="filter-grid">
           <button class="filter-btn" data-topic="learning">Language Learning and Acquisition</button>
@@ -133,6 +184,10 @@
         </div>
       </div>
 
+      <!-- Publication sections wrapped in pub-page for padding -->
+      <div class="pub-page">
+
+      <!-- Publication sections: cards are injected here by JavaScript below -->
       <div class="pub-section" id="section-inprep">
         <div class="pub-section-title">In Prep or Under Review</div>
         <div id="cards-inprep"></div>
@@ -149,9 +204,11 @@
 
   </div><!-- /.container-fluid -->
 
+  <!-- Load the publications data array (var papers = [...]) from the external data file -->
   <script src="research-data.js"></script>
   <script>
 
+  // Safety function: escapes special HTML characters so data values can't break the page layout
   function esc(s) {
     return String(s)
       .replace(/&/g, '&amp;')
@@ -160,27 +217,34 @@
       .replace(/"/g, '&quot;');
   }
 
+  // Human-readable display names for each topic key
   var topicLabels = { learning: 'Learning', computational: 'Computational', experimental: 'Experimental', theoretical: 'Theoretical' };
 
+  // Builds and returns the HTML string for one publication card.
+  // p = one paper object from research-data.js
   function buildCard(p) {
-    var topicsAttr = p.topics.join(' ');
+    var topicsAttr = p.topics.join(' ');  // stored as a data attribute for filter lookups
     var hasAbstract = p.abstract && p.abstract.length > 0;
 
+    // Build colored topic tag pills
     var tagsHtml = p.topics.map(function(t) {
       return '<span class="topic-tag ' + t + '">' + (topicLabels[t] || t) + '</span>';
     }).join('');
 
+    // Build action buttons — only include each button if the corresponding link exists
     var linksHtml = '';
     if (p.links.pdf)    linksHtml += '<a href="' + esc(p.links.pdf) + '" class="btn-pub btn-pdf" target="_blank" rel="noopener" onclick="event.stopPropagation()">PDF</a>';
     if (p.links.doi)    linksHtml += '<a href="' + esc(p.links.doi) + '" class="btn-pub btn-doi" target="_blank" rel="noopener" onclick="event.stopPropagation()">DOI</a>';
     if (p.links.github) linksHtml += '<a href="' + esc(p.links.github) + '" class="btn-pub btn-github" target="_blank" rel="noopener" onclick="event.stopPropagation()">GitHub</a>';
 
+    // Only render the venue and abstract if that data exists
     var venueHtml = p.venue ? '<div class="pub-venue">' + p.venue + '</div>' : '';
     var abstractHtml = hasAbstract ? '<div class="pub-abstract" style="display:none">' + esc(p.abstract) + '</div>' : '';
 
     var bibtexEscaped = esc(p.bibtex);
     var apaEscaped    = esc(p.apa);
 
+    // Assemble all pieces into the final card HTML
     return [
       '<div class="pub-card' + (hasAbstract ? ' has-abstract' : '') + '" data-topics="' + topicsAttr + '">',
       '  <div class="pub-card-main"' + (hasAbstract ? ' role="button" tabindex="0" aria-expanded="false"' : '') + '>',
@@ -196,6 +260,7 @@
       '    <div class="pub-tags">' + tagsHtml + '</div>',
       '    <button class="btn-cite" aria-expanded="false">Cite</button>',
       '  </div>',
+      // Citation panel: hidden until the Cite button is clicked
       '  <div class="pub-cite-panel" style="display:none">',
       '    <div class="cite-label">APA</div>',
       '    <div class="cite-apa">' + apaEscaped + '</div>',
@@ -206,38 +271,46 @@
     ].join('\n');
   }
 
+  // Renders all cards into their respective section containers,
+  // then sets up click interactions.
   function render() {
+    // Collect HTML for each section separately
     var sections = { inprep: '', inpress: '', published: '' };
     papers.forEach(function(p) {
       if (sections[p.section] !== undefined) {
         sections[p.section] += buildCard(p);
       }
     });
+    // Insert the built HTML into the page
     document.getElementById('cards-inprep').innerHTML    = sections.inprep;
     document.getElementById('cards-inpress').innerHTML   = sections.inpress;
     document.getElementById('cards-published').innerHTML = sections.published;
     attachHandlers();
   }
 
+  // Wires up all click and keyboard interactions after cards are in the DOM.
   function attachHandlers() {
-    // Abstract toggle
+
+    // Abstract toggle: clicking a card's main area expands/collapses the abstract text
     document.querySelectorAll('.pub-card.has-abstract .pub-card-main').forEach(function(main) {
       main.addEventListener('click', function(e) {
+        // Ignore clicks on the buttons row (PDF, DOI, etc.)
         if (e.target.closest('.pub-links')) return;
         var abstract = main.querySelector('.pub-abstract');
         var open = abstract.style.display !== 'none';
         abstract.style.display = open ? 'none' : 'block';
         main.setAttribute('aria-expanded', String(!open));
       });
+      // Keyboard support: Enter or Space also toggles the abstract
       main.addEventListener('keydown', function(e) {
         if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); main.click(); }
       });
     });
 
-    // Cite toggle
+    // Cite button toggle: shows/hides the APA + BibTeX citation panel
     document.querySelectorAll('.btn-cite').forEach(function(btn) {
       btn.addEventListener('click', function(e) {
-        e.stopPropagation();
+        e.stopPropagation(); // Prevent triggering the abstract toggle on the parent card
         var panel = btn.closest('.pub-card').querySelector('.pub-cite-panel');
         var open = panel.style.display !== 'none';
         panel.style.display = open ? 'none' : 'block';
@@ -245,15 +318,18 @@
       });
     });
 
-    // Filter buttons
+    // Filter button toggle: clicking a topic button filters which cards are visible
     document.querySelectorAll('.filter-btn').forEach(function(btn) {
       btn.addEventListener('click', function() {
-        btn.classList.toggle('active');
+        btn.classList.toggle('active'); // Toggle the highlighted state of the button
         applyFilter();
       });
     });
   }
 
+  // Hides/shows cards based on which filter buttons are currently active.
+  // If no filters are active, all cards are shown.
+  // If multiple filters are active, only cards matching ALL active topics are shown.
   function applyFilter() {
     var active = [];
     document.querySelectorAll('.filter-btn.active').forEach(function(b) { active.push(b.dataset.topic); });
@@ -263,17 +339,30 @@
       var hasVisible = false;
       section.querySelectorAll('.pub-card').forEach(function(card) {
         var cardTopics = card.dataset.topics.split(' ');
+        // Show card if no filters active, or if it has ALL the active topic tags
         var show = active.length === 0 || active.every(function(t) { return cardTopics.indexOf(t) !== -1; });
         card.style.display = show ? '' : 'none';
         if (show) hasVisible = true;
       });
+      // Hide the section header too if all its cards are filtered out
       section.style.display = hasVisible ? '' : 'none';
     });
   }
 
+  // Toggles the intro box between collapsed (title+subtitle only) and expanded (full text)
+  function toggleIntro() {
+    var expandable = document.getElementById('intro-expandable');
+    var caret = document.getElementById('intro-caret');
+    var open = expandable.style.display !== 'none';
+    expandable.style.display = open ? 'none' : 'block';
+    caret.textContent = open ? '▾' : '▴';
+  }
+
+  // Wait for the page to fully load before rendering cards into the DOM
   document.addEventListener('DOMContentLoaded', render);
   </script>
 
+  <!-- JavaScript libraries: jQuery, Popper, and Bootstrap JS (required for the navbar toggle) -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

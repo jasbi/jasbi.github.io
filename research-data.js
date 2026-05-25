@@ -10,7 +10,7 @@ var papers = [
       topics: ['computational'],
       links: {},
       abstract: 'Large language models (LLMs) exhibit significant failures in logical reasoning tasks, yet the underlying causes remain unclear. A key challenge is that existing evaluations conflate logical operations with non-logical factors such as representational format and task demands, making it difficult to isolate the sources of failure. In this study, we disentangle logical and non-logical contributions to LLM reasoning failures by constructing a controlled evaluation dataset grounded in Boolean linguistic reasoning. We systematically vary three dimensions: (1) logical construction, comprising 12 constructions built from negation, conjunction, and disjunction; (2) non-logical representation, using letters in words, digits in numbers, and words in sentences as targets of reasoning; and (3) task type, comparing a Truth Value Judgment Task (TVJT) and an Object Selection Task (OST). While TVJT may allow for success through chance performance and shallow heuristics due its limited response options, the OST requires a deeper understanding of the compositional combination of logical concepts. We tested five LLMs (Llama-3.1 8B, Qwen3 4B, Mistral v0.3 7B, GPT-5.1, and  Claude Opus 4.6) and found that both logical operations and nonlogical representations affect model performance. Almost all models showed lower accuracy in the OST (compared to TVJT) suggesting that the models\' successes are often due to shallow heuristics and not compositional logical-linguistic reasoning.',
-      apa: 'Chiem, C., Bhat, D., & Jasbi, M. (in preparation). Boolean linguistic reasoning in large language models. Manuscript in preparation.',
+      apa: 'Chiem, C. & Jasbi, M. (in preparation). Boolean linguistic reasoning in large language models. Manuscript in preparation.',
       bibtex: '@unpublished{ChiemBhatJasbi,\n  author = {Chiem, C. and Bhat, D. and Jasbi, M.},\n  title  = {Boolean Linguistic Reasoning in Large Language Models},\n  note   = {Manuscript in preparation}\n}',
       firstPage: false
     },
@@ -164,7 +164,10 @@ var papers = [
       authors: 'Liu, Z., & Jasbi, M. (2025)',
       venue: '<em>Language Learning and Development</em>, 1–35',
       topics: ['learning'],
-      links: { doi: 'https://doi.org/10.1080/15475441.2025.2468335' },
+      links: { 
+        doi: 'https://doi.org/10.1080/15475441.2025.2468335',
+        github: 'https://github.com/zoeyliu18/Negative_Constructions' 
+      },
       abstract: 'How does linguistic negation develop in early child language? Prior research has suggested that abstract and context-general negation develops from concrete and context-specific communicative functions such as rejection, prohibition, or nonexistence in fixed and ordered stages. The evidence for the emergence of these functions in stages is mixed, however, leaving the possibility that negation starts as an abstract concept that can serve multiple specific functions from the beginning, and that the development of the different functions starts more or less simultaneously depending on the early communicative environment. Leveraging automatic annotations of large-scale child speech corpora in English and growth-curve modeling, we examine children’s production of seven negative constructions that tend to convey communicative functions previously discussed in the literature. We also investigate children’s discourse-level negative responses (saying no) to parents’ utterances with the same constructions as a proxy for children’s comprehension. We do not find strong evidence for population-level stages in children’s development of negation. Instead, the results of our growth-curve modeling suggest that for our measures of comprehension and production, children’s ability to negate different constructions likely emerges around 18–22 months of age. Our results complement and confirm recent findings in experimental studies on children’s comprehension of negation.',
       apa: 'Liu, Z., & Jasbi, M. (2025). The development of English negative constructions and communicative functions. Language Learning and Development, 1–35. https://doi.org/10.1080/15475441.2025.2468335',
       bibtex: '@article{LiuJasbi2025_LLD,\n  author  = {Liu, Z. and Jasbi, M.},\n  title   = {The Development of English Negative Constructions and Communicative Functions},\n  journal = {Language Learning and Development},\n  year    = {2025},\n  pages   = {1--35},\n  doi     = {10.1080/15475441.2025.2468335}\n}',
@@ -251,7 +254,10 @@ var papers = [
       authors: 'Jasbi, M., Jaggi, A., Clark, E. V., & Frank, M. C. (2022)',
       venue: '<em>Journal of Child Language</em>, 51(1), 1–36',
       topics: ['learning', 'computational'],
-      links: { doi: 'https://doi.org/10.1017/S0305000922000502' },
+      links: { 
+        doi: 'https://doi.org/10.1017/S0305000922000502',
+        github: 'https://github.com/jasbi/disjunction_learning' 
+      },
       abstract: 'What are the constraints, cues, and mechanisms that help learners create successful word-meaning mappings? This study takes up linguistic disjunction and looks at cues and mechanisms that can help children learn the meaning of or. We first used a large corpus of parent-child interactions to collect statistics on or uses. Children started producing or between 18-30 months and by 42 months, their rate of production reached a plateau. Second, we annotated for the interpretation of disjunction in child-directed speech. Parents used or mostly as exclusive disjunction, typically accompanied by rise-fall intonation and logically inconsistent disjuncts. But when these two cues were absent, disjunction was generally not exclusive. Our computational modeling suggests that an ideal learner could successfully interpret an English disjunction (as exclusive or not) by mapping forms to meanings after partitioning the input according to the intonational and logical cues available in child-directed speech.',
       apa: 'Jasbi, M., Jaggi, A., Clark, E. V., & Frank, M. C. (2022). Context-dependent learning of linguistic disjunction. Journal of Child Language, 51(1), 1–36. https://doi.org/10.1017/S0305000922000502',
       bibtex: '@article{JasbiEtAl2022_JCL,\n  author  = {Jasbi, M. and Jaggi, A. and Clark, E. V. and Frank, M. C.},\n  title   = {Context-Dependent Learning of Linguistic Disjunction},\n  journal = {Journal of Child Language},\n  year    = {2022},\n  volume  = {51},\n  number  = {1},\n  pages   = {1--36},\n  doi     = {10.1017/S0305000922000502}\n}',
@@ -308,7 +314,10 @@ var papers = [
       authors: 'Alstott, J., & Jasbi, M. (2020)',
       venue: '<em>Proceedings of the Annual Meeting of the Cognitive Science Society</em>, 42',
       topics: ['theoretical', 'experimental'],
-      links: { doi: 'https://escholarship.org/uc/item/2p908196' },
+      links: { 
+        doi: 'https://escholarship.org/uc/item/2p908196', 
+        github: 'https://github.com/jasbi/adverbial-nominal-quantification'
+      },
       abstract: 'Which quantificational forces do languages encode lexically?When a language features multiple quantificational scales(e.g. determiner and adverbial quantification), does the pat-tern of lexicalization of quantificational forces we discoverfor one scale correlate with those of other scales? We useEnglish as a first test case for examining these questions,adapting the basic ideas of Lewis (1975) into the hypothesisthat English lexical quantifiers unrelated to cardinal numbersor definite descriptions, determiner and adverbial alike, haveone of six quantificational forces. To begin to test this claimempirically, we elicited speaker interpretations of a range ofquantifiers in a web-based study. Dividing participants into anadverbial condition and a determiner condition, we gave acontext specifying a 100-day period and asked participants tojudge the quantificational force of quantified sentences denot-ing an individual’s daily activities during this period. Wefound evidence of cross-scale correspondences but fewerquantificational forces than expected. These results providepreliminary evidence for parts of our hypothesis but suggest aneed for future research that covers more lexical items, lan-guages, and quantificational scales.',
       apa: 'Alstott, J., & Jasbi, M. (2020). Lexicalization of quantificational forces in adverbial and determiner domains. Proceedings of the Annual Meeting of the Cognitive Science Society, 42.',
       bibtex: '@inproceedings{AlstottJasbi2020,\n  author    = {Alstott, J. and Jasbi, M.},\n  title     = {Lexicalization of Quantificational Forces in Adverbial and Determiner Domains},\n  booktitle = {Proceedings of the Annual Meeting of the Cognitive Science Society},\n  year      = {2020},\n  volume    = {42}\n}',
@@ -320,7 +329,11 @@ var papers = [
       authors: 'Deutsch, T., Jasbi, M., & Shieber, S. (2020)',
       venue: '<em>Proceedings of the 15th Workshop on Innovative Use of NLP for Building Educational Applications (BEA 2020)</em>, pages 1–17. ACL',
       topics: ['computational'],
-      links: { doi: 'https://aclanthology.org/2020.bea-1.1' },
+      links: { 
+        doi: 'https://aclanthology.org/2020.bea-1.1',
+        pdf: 'https://aclanthology.org/2020.bea-1.1.pdf',
+        github:'https://github.com/TovlyDeutsch/Linguistic-Features-for-Readability' 
+      },
       abstract: 'Readability assessment aims to automatically classify text by the level appropriate for learning readers. Traditional approaches to this task utilize a variety of linguistically motivated features paired with simple machine learning models. More recent methods have improved performance by discarding these features and utilizing deep learning models. However, it is unknown whether augmenting deep learning models with linguistically motivated features would improve performance further. This paper combines these two approaches with the goal of improving overall model performance and addressing this question. Evaluating on two large readability corpora, we find that, given sufficient training data, augmenting deep learning models with linguistically motivated features does not improve state-of-the-art performance. Our results provide preliminary evidence for the hypothesis that the state-of-the-art deep learning models represent linguistic features of the text related to readability. Future research on the nature of representations formed in these models can shed light on the learned features and their relations to linguistically motivated ones hypothesized in traditional approaches.',
       apa: 'Deutsch, T., Jasbi, M., & Shieber, S. (2020). Linguistic features for readability assessment. Proceedings of the 15th Workshop on Innovative Use of NLP for Building Educational Applications (BEA 2020), pages 1–17. Association for Computational Linguistics.',
       bibtex: '@inproceedings{DeutschJasbiShieber2020,\n  author    = {Deutsch, T. and Jasbi, M. and Shieber, S.},\n  title     = {Linguistic Features for Readability Assessment},\n  booktitle = {Proceedings of the 15th Workshop on Innovative Use of NLP for Building Educational Applications},\n  year      = {2020},\n  pages     = {1--17},\n  publisher = {Association for Computational Linguistics}\n}',
@@ -332,7 +345,10 @@ var papers = [
       authors: 'Jasbi, M. (2020)',
       venue: 'In Larson, R. K., Moradi, S., & Samiian, V. (Eds.), <em>Advances in Iranian Linguistics</em> (pp. 107–118). John Benjamins',
       topics: ['theoretical'],
-      links: { doi: 'https://doi.org/10.1075/cilt.351.06jas' },
+      links: { 
+        doi: 'https://doi.org/10.1075/cilt.351.06jas',
+        pdf: 'research/Jasbi_nacil_e.pdf'
+      },
       abstract: 'Although it is widely acknowledged that Tehrani Persian (often broadly labeled as Persian) has no dedicated marker of definiteness, the nominal suffix -e has been analyzed as a colloquial definiteness marker. Here I show that -e can mark bare nominals to ensure a definite interpretation, but it can also appear on indefinites marked by the indefinite determiner ye. I show that indefinites marked by -e are scopally inert. To unify the effect of -e on definites and indefinites, I propose that -e introduces a uniqueness implication on the nominal it modifies. More specifically, N-e denotes a singleton set of objects. On a bare nominal, this uniqueness implication ensures a definite interpretation. On an indefinite, it restricts the domain of quantification to a singleton, making the indefinite scopally inert. I present a compositional account of definite and indefinite constructions with -e in Tehrani Persian.',
       apa: 'Jasbi, M. (2020). The suffix that makes Farsi nouns unique. In R. K. Larson, S. Moradi, & V. Samiian (Eds.), Advances in Iranian Linguistics (pp. 107–118). John Benjamins. https://doi.org/10.1075/cilt.351.06jas',
       bibtex: '@incollection{Jasbi2020_suffix,\n  author    = {Jasbi, M.},\n  title     = {The Suffix That Makes Farsi Nouns Unique},\n  booktitle = {Advances in Iranian Linguistics},\n  editor    = {Larson, R. K. and Moradi, S. and Samiian, V.},\n  publisher = {John Benjamins},\n  year      = {2020},\n  pages     = {107--118},\n  doi       = {10.1075/cilt.351.06jas}\n}',
@@ -344,7 +360,10 @@ var papers = [
       authors: 'Jasbi, M. (2020)',
       venue: 'In Larson, R. K., Moradi, S., & Samiian, V. (Eds.), <em>Advances in Iranian Linguistics</em>. John Benjamins',
       topics: ['theoretical'],
-      links: { doi: 'https://doi.org/10.1075/cilt.351.07jas' },
+      links: { 
+        doi: 'https://doi.org/10.1075/cilt.351.07jas',
+        pdf: 'research/Jasbi_nacilProceedings_ra.pdf' 
+      },
       abstract: 'The Persian object marker rā is called many things, among them: marker of specificity (Karimi 1990), definiteness (Mahootian 1997), secondary topics (Dabir-Moghaddam 1992), and presuppositions (Ghomeshi 1996). These accounts capture the core of what rā is, yet also include a lot of what rā is not. I report novel examples that show rā is not an (exclusive) marker of specific or definite referents. It is also not an (exclusive) marker of (secondary) topics. Instead, rā’s core contribution is something shared by all these accounts: old or presupposed information. I show that the information presupposed by rā is an existence implication. A marked object like sandali-ro (“chair”-rā) implies that there is one or more chairs in the conversational context. This account captures several novel observations on the distribution of rā such as its optional presence on proper names in some contexts. I provide a formal and compositional analysis of simple Persian sentences with definite and indefinite objects.',
       apa: 'Jasbi, M. (2020). The meaning of the Farsi object marker “ra.” In R. K. Larson, S. Moradi, & V. Samiian (Eds.), Advances in Iranian Linguistics. John Benjamins. https://doi.org/10.1075/cilt.351.07jas',
       bibtex: '@incollection{Jasbi2020_ra,\n  author    = {Jasbi, M.},\n  title     = {The Meaning of the Farsi Object Marker "ra"},\n  booktitle = {Advances in Iranian Linguistics},\n  editor    = {Larson, R. K. and Moradi, S. and Samiian, V.},\n  publisher = {John Benjamins},\n  year      = {2020},\n  doi       = {10.1075/cilt.351.07jas}\n}',
@@ -356,7 +375,9 @@ var papers = [
       authors: 'Jasbi, M. (2020)',
       venue: 'In Shabani-Jadidi, P. (Ed.), <em>The Routledge Handbook of Second Language Acquisition and Pedagogy of Persian</em>. Routledge',
       topics: ['theoretical'],
-      links: {},
+      links: {
+        pdf: 'research/jasbi2020_PersianSLA.pdf',
+      },
       abstract: '',
       apa: 'Jasbi, M. (2020). Some unique semantic properties of Persian. In P. Shabani-Jadidi (Ed.), The Routledge Handbook of Second Language Acquisition and Pedagogy of Persian. Routledge.',
       bibtex: '@incollection{Jasbi2020_Persian,\n  author    = {Jasbi, M.},\n  title     = {Some Unique Semantic Properties of Persian},\n  booktitle = {The Routledge Handbook of Second Language Acquisition and Pedagogy of Persian},\n  editor    = {Shabani-Jadidi, P.},\n  publisher = {Routledge},\n  year      = {2020}\n}',

@@ -1,116 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="masoud-style.css">
-    <link rel="shortcut icon" href="image/ucdfavicon.png">
-    <meta name="keywords" content="Masoud, Jasbi, Masoud Jasbi, Masoud Jafarali Jasbi, Masoud Jasbi linguistics, Masoud Jasbi stanford, Masoud Jasbi Stanford linguistics, Persian, language acquisition, semantics, pragmatics"/>
-    <title>Masoud Jasbi</title>
-    <style>
-        .intro-box {
-            background: #e8e8e8; border: 1.5px solid #ccc; border-radius: 8px;
-            padding: 20px 22px 32px; margin-bottom: 0;
-        }
-        .intro-title    { font-weight: 700; font-size: 18px; margin-bottom: 4px; }
-        .intro-subtitle { font-weight: 600; color: #555; font-size: 16px; margin-bottom: 10px; }
-        .intro-text     { font-size: 15px; color: #444; margin: 0; line-height: 1.6; }
+  <!-- Character encoding and responsive viewport -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap 4: grid system, navbar, and responsive layout -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- Custom website styles -->
+  <link rel="stylesheet" href="masoud-style.css">
+  <!-- Browser tab icon -->
+  <link rel="shortcut icon" href="image/ucdfavicon.png">
+  <!-- SEO keywords -->
+  <meta name="keywords" content="Masoud, Jasbi, Masoud Jasbi, Masoud Jafarali Jasbi, Masoud Jasbi linguistics, Masoud Jasbi stanford, Masoud Jasbi Stanford linguistics, Persian, language acquisition, semantics, pragmatics"/>
+  <title>Masoud Jasbi</title>
 
-        .filter-section {
-            display: flex; justify-content: center;
-            position: relative; z-index: 2;
-            margin-top: -22px; margin-bottom: 24px;
-        }
-        .filter-grid {
-            display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
-        }
-        .filter-btn {
-            padding: 9px 14px; border-radius: 6px; cursor: pointer;
-            font-weight: 700; font-size: 14px; border: 2px solid var(--color);
-            background: var(--bg); color: var(--color); transition: background 0.15s, color 0.15s;
-        }
-        .filter-btn:hover  { opacity: 0.85; }
-        .filter-btn.active { background: var(--color); color: #fff; }
-        .filter-btn[data-topic="undergrad"]  { --bg: #ebebeb; --color: #444; }
-        .filter-btn[data-topic="grad"]       { --bg: #ebebeb; --color: #444; }
-        .filter-btn[data-topic="department"] { --bg: #ebebeb; --color: #444; }
-        .filter-btn[data-topic="college"]    { --bg: #ebebeb; --color: #444; }
+  <!-- Page-specific CSS styles -->
+  <style>
+    /* ── Intro box ──────────────────────────────────────────────── */
+    /* The gray rounded box at the top with a brief service statement.
+       Negative bottom padding combined with the filter section's negative margin
+       creates the overlapping button effect. */
+    .intro-box {
+        background: #e8e8e8; border: 1.5px solid #ccc; border-radius: 8px;
+        padding: 20px 22px 32px; margin-bottom: 0;
+    }
+    .intro-title    { font-weight: 700; font-size: 18px; margin-bottom: 4px; }
+    .intro-subtitle { font-weight: 600; color: #555; font-size: 16px; margin-bottom: 10px; }
+    .intro-text     { font-size: 15px; color: #444; margin: 0; line-height: 1.6; }
 
-        .service-card {
-            display: block; background: #fff; border: 1.5px solid #d0d0d0; border-radius: 8px;
-            padding: 14px 16px; margin-bottom: 10px; transition: border-color 0.15s;
-            text-decoration: none; color: inherit;
-        }
-        .service-card:hover { border-color: #888; text-decoration: none; color: inherit; }
-        .service-card-body  { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
-        .service-card-left  { flex: 1; }
-        .service-title      { font-weight: 700; font-size: 18px; line-height: 1.4; color: #111; }
-        .service-years      { font-size: 15px; color: #666; margin-top: 4px; }
-        .service-desc       { font-size: 14px; color: #444; margin-top: 6px; line-height: 1.55; }
-        .service-logo       { flex-shrink: 0; display: flex; align-items: center; }
-        .service-card-footer {
-            display: flex; justify-content: flex-start; align-items: center;
-            margin-top: 10px; padding-top: 8px; border-top: 1px solid #eee;
-        }
-        .service-tags { display: flex; gap: 5px; flex-wrap: wrap; }
-        .topic-tag {
-            padding: 2px 9px; border-radius: 20px; font-size: 11px;
-            font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; display: inline-block;
-        }
-        .topic-tag.undergrad   { background: #ebebeb; color: #444; }
-        .topic-tag.grad        { background: #ebebeb; color: #444; }
-        .topic-tag.department  { background: #ebebeb; color: #444; }
-        .topic-tag.college     { background: #ebebeb; color: #444; }
+    /* ── Filter buttons ─────────────────────────────────────────── */
+    /* Row of topic filter buttons — negative margin-top overlaps the intro box */
+    .filter-section {
+        display: flex; justify-content: center;
+        position: relative; z-index: 2;
+        margin-top: -22px; margin-bottom: 24px;
+    }
+    .filter-grid {
+        display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
+    }
+    /* Base style for filter buttons; colors are set per-topic using CSS custom properties */
+    .filter-btn {
+        padding: 9px 14px; border-radius: 6px; cursor: pointer;
+        font-weight: 700; font-size: 14px; border: 2px solid var(--color);
+        background: var(--bg); color: var(--color); transition: background 0.15s, color 0.15s;
+    }
+    .filter-btn:hover  { opacity: 0.85; }
+    /* Filled-in appearance when a filter is active */
+    .filter-btn.active { background: var(--color); color: #fff; }
+    /* Color definitions for each service topic */
+    .filter-btn[data-topic="undergrad"]   { --bg: #ebebeb; --color: #444; }
+    .filter-btn[data-topic="grad"]        { --bg: #ebebeb; --color: #444; }
+    .filter-btn[data-topic="department"]  { --bg: #ebebeb; --color: #444; }
+    .filter-btn[data-topic="college"]     { --bg: #ebebeb; --color: #444; }
+    .filter-btn[data-topic="profession"]  { --bg: #ebebeb; --color: #444; }
 
-    </style>
+    /* ── Service cards ──────────────────────────────────────────── */
+    /* The white rounded box for each service entry */
+    .service-card {
+        display: block; background: #fff; border: 1.5px solid #d0d0d0; border-radius: 8px;
+        padding: 14px 16px; margin-bottom: 10px; transition: border-color 0.15s;
+        text-decoration: none; color: inherit;
+    }
+    .service-card:hover { border-color: #888; text-decoration: none; color: inherit; }
+    /* Inner layout: service info on the left, logo on the right */
+    .service-card-body  { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+    .service-card-left  { flex: 1; }
+    .service-title      { font-weight: 700; font-size: 18px; line-height: 1.4; color: #111; }
+    .service-years      { font-size: 15px; color: #666; margin-top: 4px; }
+    .service-desc       { font-size: 14px; color: #444; margin-top: 6px; line-height: 1.55; }
+    /* The logo image container on the right side of each card */
+    .service-logo       { flex-shrink: 0; display: flex; align-items: center; }
+    /* Bottom row: topic tag pills aligned to the left */
+    .service-card-footer {
+        display: flex; justify-content: flex-start; align-items: center;
+        margin-top: 10px; padding-top: 8px; border-top: 1px solid #eee;
+    }
+    .service-tags { display: flex; gap: 5px; flex-wrap: wrap; }
+    /* Topic tag pills */
+    .topic-tag {
+        padding: 2px 9px; border-radius: 20px; font-size: 11px;
+        font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; display: inline-block;
+    }
+    .topic-tag.undergrad   { background: #ebebeb; color: #444; }
+    .topic-tag.grad        { background: #ebebeb; color: #444; }
+    .topic-tag.department  { background: #ebebeb; color: #444; }
+    .topic-tag.college     { background: #ebebeb; color: #444; }
+    .topic-tag.profession  { background: #ebebeb; color: #444; }
+  </style>
 </head>
 
 <body>
+    <!-- Skip link for keyboard/screen reader accessibility -->
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <div class="container-fluid">
 
+        <!-- Inject the shared navigation bar -->
         <script src="nav.js"></script>
 
-        <div id="main-content" class="intro-box">
-            <div class="intro-title">Service Title</div>
-            <div class="intro-subtitle">Subtitle</div>
-            <p class="intro-text">Aligning the linguistics program with the future careers</p>
+        <!-- Intro box: shows only title+subtitle by default; click to expand full text -->
+        <div id="main-content" class="intro-box" onclick="toggleIntro()" style="cursor:pointer">
+            <!-- Always-visible header row: title, subtitle, and ▾ expand caret -->
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:12px;">
+                <div style="flex:1;">
+                    <div class="intro-title">Service</div>
+                    <div class="intro-subtitle">How should academics, especially linguists and cognitive scientists, serve the academic community and the society at large?</div>
+                </div>
+                <span id="intro-caret" style="font-size:18px; color:#999; flex-shrink:0; margin-top:3px;" title="Click to expand">▾</span>
+            </div>
+            <!-- Expandable body: hidden until the box is clicked -->
+            <div id="intro-expandable" style="display:none; margin-top:10px;">
+                <p class="intro-text">At the department and college/university levels, my service has mainly focused on aligning the undergraduate education with the future careers for our students. 
+                    <ol> <li>At the <b>department level</b>, I helped create the Bachelor of Science program in Language Science with 3 concentrations that prepares undergraduate students for careers in natural language processing, speech-language therapy, and user experience (UX/UI). </li> 
+                        <li>At the <b>college-university level</b>, I have developed the planning phase for a summit to bring the alumni, faculty, and industry partners to discuss curriculum development and future careers. </li> 
+                    </ol>
+                    Beyond the university, I have worked on communicating the findings in the field of semantics and pragmatics, to the legal profession. With a group of linguists, we filed an amicus brief to the Supreme Court of the United States to explain how legal language that contains logical words can be interpreted using current empirical and theoretical evidence in linguistics. I have also helped organize the North American Conference in Iranian Linguistics (NACIL) to bring together linguists working on Iranian languages and provide a platform for sharing research and fostering collaborations.
+                </p>
+            </div>
         </div>
 
+        <!-- Filter buttons: clicking a topic filters which service cards are visible -->
         <div class="filter-section">
             <div class="filter-grid">
                 <button class="filter-btn" data-topic="undergrad">Undergraduate Education</button>
                 <button class="filter-btn" data-topic="grad">Graduate Education</button>
                 <button class="filter-btn" data-topic="department">Department</button>
-                <button class="filter-btn" data-topic="college">College</button>
+                <button class="filter-btn" data-topic="college">College-University</button>
+                <button class="filter-btn" data-topic="profession">Profession-Field</button>
             </div>
         </div>
 
+        <!-- Service cards are dynamically injected here by the render() function below -->
         <div id="services-container"></div>
 
     </div>
 
+    <!-- Load the services data array (var services = [...]) from the external data file -->
     <script src="service-data.js"></script>
     <script>
 
+    // Human-readable display names for each topic key
     var topicLabels = {
         undergrad: 'Undergrad',
         grad: 'Grad',
         department: 'Department',
-        college: 'College'
+        college: 'College-University',
+        profession: 'Profession-Field'
     };
 
+    // Safety function: escapes special HTML characters so data values can't break the layout
     function esc(s) {
         return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
     }
 
+    // Builds and returns the HTML string for one service card.
+    // s = one service object from service-data.js
     function buildCard(s) {
-        var topicsAttr = s.topics.join(' ');
+        var topicsAttr = s.topics.join(' ');  // stored as a data attribute for filter lookups
+
+        // Build the topic tag pills for the card footer
         var tagsHtml = s.topics.map(function(t) {
             return '<span class="topic-tag ' + t + '">' + (topicLabels[t] || t) + '</span>';
         }).join('');
+
         var inner = [
             '  <div class="service-card-body">',
             '    <div class="service-card-left">',
@@ -124,9 +175,16 @@
             '    <div class="service-tags">' + tagsHtml + '</div>',
             '  </div>'
         ].join('\n');
-        return '<div class="service-card" data-topics="' + topicsAttr + '">\n' + inner + '\n</div>';
+
+        // If the service has a link, wrap the whole card in an <a> tag so it's clickable
+        if (s.link) {
+            return '<a href="' + esc(s.link) + '" class="service-card" data-topics="' + topicsAttr + '" target="_blank" rel="noopener">\n' + inner + '\n</a>';
+        } else {
+            return '<div class="service-card" data-topics="' + topicsAttr + '">\n' + inner + '\n</div>';
+        }
     }
 
+    // Renders all service cards into the page, then sets up filter interactions
     function render() {
         var html = '';
         services.forEach(function(s) { html += buildCard(s); });
@@ -134,34 +192,49 @@
         attachFilters();
     }
 
+    // Wires up click handlers for the filter buttons
     function attachFilters() {
         document.querySelectorAll('.filter-btn').forEach(function(btn) {
             btn.addEventListener('click', function() {
-                btn.classList.toggle('active');
+                btn.classList.toggle('active'); // Toggle the highlighted state
                 applyFilter();
             });
         });
     }
 
+    // Shows or hides service cards based on which filter buttons are currently active.
+    // If no filters are active, all cards are shown.
     function applyFilter() {
         var active = [];
         document.querySelectorAll('.filter-btn.active').forEach(function(b) { active.push(b.dataset.topic); });
         document.querySelectorAll('.service-card').forEach(function(card) {
             var cardTopics = card.dataset.topics ? card.dataset.topics.split(' ').filter(Boolean) : [];
+            // Show if no filters active, or if card matches ALL active topics
             var show = active.length === 0 || active.every(function(t) { return cardTopics.indexOf(t) !== -1; });
             card.style.display = show ? '' : 'none';
         });
     }
 
+    // Toggles the intro box between collapsed (title+subtitle only) and expanded (full text)
+    function toggleIntro() {
+        var expandable = document.getElementById('intro-expandable');
+        var caret = document.getElementById('intro-caret');
+        var open = expandable.style.display !== 'none';
+        expandable.style.display = open ? 'none' : 'block';
+        caret.textContent = open ? '▾' : '▴';
+    }
+
+    // Wait for the page HTML to be ready before rendering cards into the DOM
     document.addEventListener('DOMContentLoaded', render);
     </script>
 
+    <!-- JavaScript libraries: jQuery, Popper, and Bootstrap JS (required for the navbar toggle) -->
     <!-- JavaScript: placed at the end of the document so the pages load faster -->
     <!-- jQuery library -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <!-- Popper -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <!-- Latest compiled and minified Bootstrap JavaScript -->
+    <!-- Bootstrap JS -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
