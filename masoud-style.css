@@ -38,6 +38,17 @@ body {
    Suppress the browser's default focus outline since <main> is not an interactive element. */
 main:focus { outline: none; }
 
+/* ── Navbar home/brand button ─────────────────────────────────────── */
+/* Desktop: absolutely positioned so it sits above the 25% profile column */
+.navbar-home-btn {
+    position: absolute;
+    right: 0;
+    width: 25%;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
 /* Decorative nav brackets via CSS so the Unicode chars are absent from the DOM */
 .nav-bracket::before {
     content: "\301a" / "";
@@ -104,6 +115,16 @@ td {
 
     /* Reduce the top padding since the navbar is the same height on mobile */
     body { padding-top: 70px; }
+
+    /* Brand button: drop out of absolute positioning and flow naturally in the navbar.
+       flex:1 fills the remaining space after the hamburger, centering the text. */
+    .navbar-home-btn {
+        position: static;
+        width: auto;
+        flex: 1;
+        text-align: center;
+        padding: 4px 8px;
+    }
 
     /* Profile photo: cap at 200px on mobile so it doesn't dominate the screen */
     .col-md-3 img[alt="Masoud Jasbi"] { max-width: 200px; width: 60% !important; }

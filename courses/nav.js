@@ -12,5 +12,5 @@ document.write(`<nav class="navbar fixed-top navbar-expand-md navbar-dark bg-fad
             <li class="nav-item"><a class="nav-link nav-bracket" href="https://functionworddashboard.com/" target="_blank" rel="noopener">FUNCTION WORD DASHBOARD<span class="sr-only"> (opens in new tab)</span></a></li>
         </ul>
     </div>
-    <a class="navbar-brand nav-bracket" href="../index.html" style="position:absolute; right:0; width:25%; text-align:center; margin:0; padding:0;">MASOUD JASBI</a>
+    <a class="navbar-brand nav-bracket navbar-home-btn" href="../index.html">MASOUD JASBI</a>
 </nav>`);
