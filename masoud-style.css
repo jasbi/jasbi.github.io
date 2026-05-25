@@ -5,34 +5,38 @@ body {
     padding-top: 80px;
 }
 
-/* Skip-to-main-content link: visually hidden until focused, no off-screen overflow */
+/* Skip-to-main-content link: moved far off-screen so Chrome never renders a visible pixel */
 .skip-link {
     position: absolute;
+    left: -9999px;
+    top: auto;
     width: 1px;
     height: 1px;
-    padding: 0;
-    margin: -1px;
     overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-    text-decoration: none;
 }
+/* When focused (keyboard Tab), snap it to the top of the viewport */
 .skip-link:focus {
-    position: static;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
     width: auto;
     height: auto;
-    margin: 0;
     overflow: visible;
-    clip: auto;
-    white-space: normal;
-    padding: 4px 8px;
+    z-index: 9999;
+    padding: 6px 14px;
     background: #fff;
     color: rgb(2,40,81);
     border: 2px solid rgb(2,40,81);
+    border-top: none;
+    border-radius: 0 0 6px 6px;
     font-weight: bold;
-    z-index: 9999;
+    text-decoration: none;
 }
+
+/* <main> receives programmatic focus from the skip link (tabindex="-1").
+   Suppress the browser's default focus outline since <main> is not an interactive element. */
+main:focus { outline: none; }
 
 /* Decorative nav brackets via CSS so the Unicode chars are absent from the DOM */
 .nav-bracket::before {

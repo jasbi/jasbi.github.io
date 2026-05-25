@@ -2,7 +2,7 @@
 // Using document.write() here means the navbar is inserted exactly where this script tag appears,
 // before the rest of the page finishes loading — so there is no flash of missing navigation.
 
-document.write(`<nav class="navbar fixed-top navbar-expand-md navbar-dark bg-faded" style="background: rgb(2,40,81)">
+document.write(`<nav class="navbar fixed-top navbar-expand-md navbar-dark bg-faded" aria-label="Main navigation" style="background: rgb(2,40,81)">
 
     <!-- Hamburger button: only visible on small screens (phones/tablets).
          Clicking it shows/hides the nav links below. -->
@@ -19,8 +19,8 @@ document.write(`<nav class="navbar fixed-top navbar-expand-md navbar-dark bg-fad
             <li class="nav-item"><a class="nav-link nav-bracket" href="service.html">SERVICE</a></li>
             <li class="nav-item"><a class="nav-link nav-bracket" href="jasbi-cv.pdf">CV (PDF)</a></li>
             <!-- target="_blank" makes these external links open in a new browser tab -->
-            <li class="nav-item"><a class="nav-link nav-bracket" href="https://l3lab.ucdavis.edu/" target="_blank" rel="noopener">L3 LAB</a></li>
-            <li class="nav-item"><a class="nav-link nav-bracket" href="https://bxz9n7-masoud-jasbi.shinyapps.io/childes-function-words/" target="_blank" rel="noopener">FUNCTION WORD DASHBOARD</a></li>
+            <li class="nav-item"><a class="nav-link nav-bracket" href="https://l3lab.ucdavis.edu/" target="_blank" rel="noopener">L3 LAB<span class="sr-only"> (opens in new tab)</span></a></li>
+            <li class="nav-item"><a class="nav-link nav-bracket" href="https://functionworddashboard.com" target="_blank" rel="noopener">FUNCTION WORD DASHBOARD<span class="sr-only"> (opens in new tab)</span></a></li>
         </ul>
     </div>
 

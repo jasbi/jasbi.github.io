@@ -149,8 +149,13 @@
     <!-- Inject the shared navigation bar -->
     <script src="nav.js"></script>
 
-    <!-- Intro box: directly in container-fluid, matching teaching/service page structure -->
-    <div id="main-content" class="intro-box" onclick="toggleIntro()" style="cursor:pointer">
+    <!-- <main> landmark: lets screen reader users jump directly here via landmark navigation.
+         tabindex="-1" allows the skip link to move focus here programmatically. -->
+    <main id="main-content" tabindex="-1">
+
+    <!-- Intro box: role="button" + aria-expanded tell screen readers it is a toggle control.
+         tabindex="0" puts it in the keyboard Tab order; keydown handler enables Enter/Space. -->
+    <div class="intro-box" role="button" tabindex="0" aria-expanded="false" aria-controls="intro-expandable" onclick="toggleIntro()" style="cursor:pointer">
         <!-- Always-visible header row: title, subtitle, and ▾ expand caret -->
         <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:12px;">
           <div style="flex:1;">
@@ -177,10 +182,10 @@
            Multiple buttons can be active at once (intersection filter). -->
       <div class="filter-section">
         <div class="filter-grid">
-          <button class="filter-btn" data-topic="learning">Language Learning and Acquisition</button>
-          <button class="filter-btn" data-topic="computational">Computational Models and Machine Learning</button>
-          <button class="filter-btn" data-topic="experimental">Experimental Research and Methods</button>
-          <button class="filter-btn" data-topic="theoretical">Theoretical and Formal Linguistics</button>
+          <button class="filter-btn" data-topic="learning" aria-pressed="false">Language Learning and Acquisition</button>
+          <button class="filter-btn" data-topic="computational" aria-pressed="false">Computational Models and Machine Learning</button>
+          <button class="filter-btn" data-topic="experimental" aria-pressed="false">Experimental Research and Methods</button>
+          <button class="filter-btn" data-topic="theoretical" aria-pressed="false">Theoretical and Formal Linguistics</button>
         </div>
       </div>
 
@@ -189,19 +194,20 @@
 
       <!-- Publication sections: cards are injected here by JavaScript below -->
       <div class="pub-section" id="section-inprep">
-        <div class="pub-section-title">In Prep or Under Review</div>
+        <h2 class="pub-section-title">In Prep or Under Review</h2>
         <div id="cards-inprep"></div>
       </div>
       <div class="pub-section" id="section-inpress">
-        <div class="pub-section-title">In Press</div>
+        <h2 class="pub-section-title">In Press</h2>
         <div id="cards-inpress"></div>
       </div>
       <div class="pub-section" id="section-published">
-        <div class="pub-section-title">Published</div>
+        <h2 class="pub-section-title">Published</h2>
         <div id="cards-published"></div>
       </div>
     </div>
 
+    </main><!-- /#main-content -->
   </div><!-- /.container-fluid -->
 
   <!-- Load the publications data array (var papers = [...]) from the external data file -->
@@ -318,10 +324,12 @@
       });
     });
 
-    // Filter button toggle: clicking a topic button filters which cards are visible
+    // Filter button toggle: clicking a topic button filters which cards are visible.
+    // aria-pressed is updated so screen readers announce the on/off state.
     document.querySelectorAll('.filter-btn').forEach(function(btn) {
       btn.addEventListener('click', function() {
-        btn.classList.toggle('active'); // Toggle the highlighted state of the button
+        btn.classList.toggle('active');
+        btn.setAttribute('aria-pressed', btn.classList.contains('active') ? 'true' : 'false');
         applyFilter();
       });
     });
@@ -349,14 +357,25 @@
     });
   }
 
-  // Toggles the intro box between collapsed (title+subtitle only) and expanded (full text)
+  // Toggles the intro box between collapsed and expanded.
+  // Also updates aria-expanded so screen readers announce the state change.
   function toggleIntro() {
+    var box = document.querySelector('.intro-box');
     var expandable = document.getElementById('intro-expandable');
     var caret = document.getElementById('intro-caret');
     var open = expandable.style.display !== 'none';
     expandable.style.display = open ? 'none' : 'block';
     caret.textContent = open ? '▾' : '▴';
+    box.setAttribute('aria-expanded', String(!open));
   }
+
+  // Allow keyboard users to toggle the intro box with Enter or Space
+  document.addEventListener('DOMContentLoaded', function() {
+    var box = document.querySelector('.intro-box');
+    box.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleIntro(); }
+    });
+  });
 
   // Wait for the page to fully load before rendering cards into the DOM
   document.addEventListener('DOMContentLoaded', render);

@@ -12,7 +12,7 @@
   <link rel="shortcut icon" href="image/ucdfavicon.png">
   <!-- SEO keywords -->
   <meta name="keywords" content="Masoud, Jasbi, Masoud Jasbi, Masoud Jafarali Jasbi, Masoud Jasbi linguistics, Masoud Jasbi stanford, Masoud Jasbi Stanford linguistics, Persian, language acquisition, semantics, pragmatics"/>
-  <title>Masoud Jasbi</title>
+  <title>Masoud Jasbi &ndash; Service</title>
 
   <!-- Page-specific CSS styles -->
   <style>
@@ -97,8 +97,11 @@
         <!-- Inject the shared navigation bar -->
         <script src="nav.js"></script>
 
-        <!-- Intro box: shows only title+subtitle by default; click to expand full text -->
-        <div id="main-content" class="intro-box" onclick="toggleIntro()" style="cursor:pointer">
+        <main id="main-content" tabindex="-1">
+
+        <!-- Intro box: role="button" + aria-expanded communicate toggle state to screen readers.
+             tabindex="0" puts it in the Tab order; keydown enables Enter/Space activation. -->
+        <div class="intro-box" role="button" tabindex="0" aria-expanded="false" aria-controls="intro-expandable" onclick="toggleIntro()" style="cursor:pointer">
             <!-- Always-visible header row: title, subtitle, and ▾ expand caret -->
             <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:12px;">
                 <div style="flex:1;">
@@ -121,17 +124,18 @@
         <!-- Filter buttons: clicking a topic filters which service cards are visible -->
         <div class="filter-section">
             <div class="filter-grid">
-                <button class="filter-btn" data-topic="undergrad">Undergraduate Education</button>
-                <button class="filter-btn" data-topic="grad">Graduate Education</button>
-                <button class="filter-btn" data-topic="department">Department</button>
-                <button class="filter-btn" data-topic="college">College-University</button>
-                <button class="filter-btn" data-topic="profession">Profession-Field</button>
+                <button class="filter-btn" data-topic="undergrad" aria-pressed="false">Undergraduate Education</button>
+                <button class="filter-btn" data-topic="grad" aria-pressed="false">Graduate Education</button>
+                <button class="filter-btn" data-topic="department" aria-pressed="false">Department</button>
+                <button class="filter-btn" data-topic="college" aria-pressed="false">College-University</button>
+                <button class="filter-btn" data-topic="profession" aria-pressed="false">Profession-Field</button>
             </div>
         </div>
 
         <!-- Service cards are dynamically injected here by the render() function below -->
         <div id="services-container"></div>
 
+        </main><!-- /#main-content -->
     </div>
 
     <!-- Load the services data array (var services = [...]) from the external data file -->
@@ -192,11 +196,13 @@
         attachFilters();
     }
 
-    // Wires up click handlers for the filter buttons
+    // Wires up click handlers for the filter buttons.
+    // aria-pressed is updated so screen readers announce the on/off state.
     function attachFilters() {
         document.querySelectorAll('.filter-btn').forEach(function(btn) {
             btn.addEventListener('click', function() {
-                btn.classList.toggle('active'); // Toggle the highlighted state
+                btn.classList.toggle('active');
+                btn.setAttribute('aria-pressed', btn.classList.contains('active') ? 'true' : 'false');
                 applyFilter();
             });
         });
@@ -215,17 +221,27 @@
         });
     }
 
-    // Toggles the intro box between collapsed (title+subtitle only) and expanded (full text)
+    // Toggles the intro box between collapsed and expanded.
+    // Also updates aria-expanded so screen readers announce the state change.
     function toggleIntro() {
+        var box = document.querySelector('.intro-box');
         var expandable = document.getElementById('intro-expandable');
         var caret = document.getElementById('intro-caret');
         var open = expandable.style.display !== 'none';
         expandable.style.display = open ? 'none' : 'block';
         caret.textContent = open ? '▾' : '▴';
+        box.setAttribute('aria-expanded', String(!open));
     }
 
     // Wait for the page HTML to be ready before rendering cards into the DOM
-    document.addEventListener('DOMContentLoaded', render);
+    document.addEventListener('DOMContentLoaded', function() {
+        render();
+        // Allow keyboard users to toggle the intro box with Enter or Space
+        var box = document.querySelector('.intro-box');
+        box.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleIntro(); }
+        });
+    });
     </script>
 
     <!-- JavaScript libraries: jQuery, Popper, and Bootstrap JS (required for the navbar toggle) -->

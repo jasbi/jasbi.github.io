@@ -225,7 +225,7 @@
              col-md-9 = 9/12 (75%) wide on medium+ screens → card sections
              col-md-3 = 3/12 (25%) wide on medium+ screens → sidebar
              On small screens both columns stack vertically. -->
-        <div id="main-content" class="row">
+        <main id="main-content" class="row" tabindex="-1">
 
             <!-- LEFT COLUMN: publication, teaching, and service card sections -->
             <div class="col-md-9">
@@ -233,28 +233,28 @@
                 <!-- Representative Publications section.
                      The card HTML is injected here by JavaScript below. -->
                 <div id="research-section" class="index-section">
-                    <div class="index-section-header">
+                    <h2 class="index-section-header">
                         Representative Publications
                         <a href="research.html" class="section-more">More →</a>
-                    </div>
+                    </h2>
                     <div id="research-cards"></div>
                 </div>
 
                 <!-- Recent Teaching section -->
                 <div id="teaching-section" class="index-section">
-                    <div class="index-section-header">
+                    <h2 class="index-section-header">
                         Recent Teaching
                         <a href="teaching.html" class="section-more">More →</a>
-                    </div>
+                    </h2>
                     <div id="teaching-cards"></div>
                 </div>
 
                 <!-- Recent Service section -->
                 <div id="service-section" class="index-section">
-                    <div class="index-section-header">
+                    <h2 class="index-section-header">
                         Recent Service
                         <a href="service.html" class="section-more">More →</a>
-                    </div>
+                    </h2>
                     <div id="service-cards"></div>
                 </div>
 
@@ -264,16 +264,16 @@
             <div class="col-md-3 text-center">
                 <img width="80%" src="image/main_image.jpg" alt="Masoud Jasbi">
                 <p class="lead"><br>Assistant Professor,<br> Linguistics and Cognitive Science<br> University of California, Davis<br></p>
-                <!-- Contact and profile links with emoji icons -->
+                <!-- Contact and profile links; emoji are decorative so hidden from screen readers -->
                 <div class="address">
-                    <p><a href="mailto:jasbi@ucdavis.edu">&#x1f4e7; jasbi@ucdavis.edu</a></p>
-                    <p><a href="https://scholar.google.com/citations?hl=en&user=cMjcFL4AAAAJ">&#x1f4da; Google Scholar</a></p>
-                    <p><a href="https://github.com/jasbi">&#x1f4bb; https://github.com/jasbi</a></p>
-                    <p><a href="https://l3lab.ucdavis.edu">&#128300; https://l3lab.ucdavis.edu</a></p>
-                    <p><a href="https://functionworddashboard.com/" target="_blank" rel="noopener">  The Function Word Dashboard</a></p>
+                    <p><a href="mailto:jasbi@ucdavis.edu"><span aria-hidden="true">&#x1f4e7;</span> jasbi@ucdavis.edu</a></p>
+                    <p><a href="https://scholar.google.com/citations?hl=en&user=cMjcFL4AAAAJ"><span aria-hidden="true">&#x1f4da;</span> Google Scholar</a></p>
+                    <p><a href="https://github.com/jasbi"><span aria-hidden="true">&#x1f4bb;</span> https://github.com/jasbi</a></p>
+                    <p><a href="https://l3lab.ucdavis.edu"><span aria-hidden="true">&#128300;</span> https://l3lab.ucdavis.edu</a></p>
+                    <p><a href="https://functionworddashboard.com/" target="_blank" rel="noopener">The Function Word Dashboard<span class="sr-only"> (opens in new tab)</span></a></p>
                 </div>
             </div>
-        </div>
+        </main>
 
         <!-- ── Footer row ────────────────────────────────────────────
              Same 9/3 split: timeline on the left, UC Davis logo on the right. -->
@@ -281,30 +281,28 @@
 
             <!-- Career timeline (left, 75% wide) -->
             <div class="col-md-9 text-left">
-                <div class="tl-wrap">
-                    <!-- The horizontal line across the full width -->
-                    <div class="tl-line"></div>
+                <!-- role="img" with aria-label gives screen readers a single readable summary
+                     of the whole timeline instead of fragmented positioned text -->
+                <div class="tl-wrap" role="img" aria-label="Career timeline: B.A. First Class Honours, University of Manchester, 2012. Ph.D. in Linguistics with Cognitive Science Designation, Stanford University, 2018. Postdoctoral Fellow in Linguistics and Psychology, Harvard University. Assistant Professor in Linguistics, UC Davis, 2020.">
+                    <!-- All children are hidden from screen readers since aria-label covers them -->
+                    <div class="tl-line" aria-hidden="true"></div>
 
-                    <!-- 2012 milestone: B.A. at Manchester -->
-                    <div class="tl-lbl-above" style="left:10%">B.A. in Linguistics <br>First Class Honours<br><b>University of Manchester</b></div>
-                    <div class="tl-tick" style="left:10%">
+                    <div class="tl-lbl-above" style="left:10%" aria-hidden="true">B.A. in Linguistics <br>First Class Honours<br><b>University of Manchester</b></div>
+                    <div class="tl-tick" style="left:10%" aria-hidden="true">
                         <div class="tl-dot"></div>
                         <div class="tl-year">2012</div>
                     </div>
 
-                    <!-- 2018 milestone: Ph.D. at Stanford -->
-                    <div class="tl-lbl-above" style="left:50%">Ph.D. in Linguistics <br> Cognitive Science Designation<br><b>Stanford University</b></div>
-                    <div class="tl-tick" style="left:50%">
+                    <div class="tl-lbl-above" style="left:50%" aria-hidden="true">Ph.D. in Linguistics <br> Cognitive Science Designation<br><b>Stanford University</b></div>
+                    <div class="tl-tick" style="left:50%" aria-hidden="true">
                         <div class="tl-dot"></div>
                         <div class="tl-year">2018</div>
                     </div>
 
-                    <!-- Period label between 2018 and 2020: Postdoc at Harvard (no tick dot, just a label) -->
-                    <div class="tl-period" style="left:66%">Postdoctoral Fellow <br> Linguistics &amp; Psychology<br><b>Harvard University</b></div>
+                    <div class="tl-period" style="left:66%" aria-hidden="true">Postdoctoral Fellow <br> Linguistics &amp; Psychology<br><b>Harvard University</b></div>
 
-                    <!-- 2020 milestone: Assistant Professor at UC Davis -->
-                    <div class="tl-lbl-above" style="left:79%">Assistant Professor <br> Linguistics<br><b>UC Davis</b></div>
-                    <div class="tl-tick" style="left:79%">
+                    <div class="tl-lbl-above" style="left:79%" aria-hidden="true">Assistant Professor <br> Linguistics<br><b>UC Davis</b></div>
+                    <div class="tl-tick" style="left:79%" aria-hidden="true">
                         <div class="tl-dot"></div>
                         <div class="tl-year">2020</div>
                     </div>
