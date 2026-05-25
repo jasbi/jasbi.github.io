@@ -227,8 +227,10 @@
              On small screens both columns stack vertically. -->
         <main id="main-content" class="row" tabindex="-1">
 
-            <!-- LEFT COLUMN: publication, teaching, and service card sections -->
-            <div class="col-md-9">
+            <!-- LEFT COLUMN: publication, teaching, and service card sections.
+                 order-2 / order-md-1: on mobile this column moves below the photo;
+                 on md+ it returns to the left (first) position. -->
+            <div class="col-md-9 order-2 order-md-1">
 
                 <!-- Representative Publications section.
                      The card HTML is injected here by JavaScript below. -->
@@ -260,8 +262,10 @@
 
             </div>
 
-            <!-- RIGHT COLUMN: profile photo, title, and contact links -->
-            <div class="col-md-3 text-center">
+            <!-- RIGHT COLUMN: profile photo, title, and contact links.
+                 order-1 / order-md-2: on mobile this column floats to the top;
+                 on md+ it moves back to the right (second) position. -->
+            <div class="col-md-3 text-center order-1 order-md-2">
                 <img width="80%" src="image/main_image.jpg" alt="Masoud Jasbi">
                 <p class="lead"><br>Assistant Professor,<br> Linguistics and Cognitive Science<br> University of California, Davis<br></p>
                 <!-- Contact and profile links; emoji are decorative so hidden from screen readers -->
@@ -279,8 +283,9 @@
              Same 9/3 split: timeline on the left, UC Davis logo on the right. -->
         <div class="row align-items-center footer">
 
-            <!-- Career timeline (left, 75% wide) -->
-            <div class="col-md-9 text-left">
+            <!-- Career timeline: hidden on small screens (d-none d-md-block) because the
+                 absolute-positioned labels collide at narrow widths. -->
+            <div class="col-md-9 text-left d-none d-md-block">
                 <!-- role="img" with aria-label gives screen readers a single readable summary
                      of the whole timeline instead of fragmented positioned text -->
                 <div class="tl-wrap" role="img" aria-label="Career timeline: B.A. First Class Honours, University of Manchester, 2012. Ph.D. in Linguistics with Cognitive Science Designation, Stanford University, 2018. Postdoctoral Fellow in Linguistics and Psychology, Harvard University. Assistant Professor in Linguistics, UC Davis, 2020.">
@@ -309,8 +314,8 @@
                 </div>
             </div>
 
-            <!-- UC Davis logo (right, 25% wide) -->
-            <div class="col-md-3 text-left">
+            <!-- UC Davis logo: full-width and centered on mobile, 25% right-column on desktop -->
+            <div class="col-12 col-md-3 text-center text-md-left">
                 <div class="seal">
                     <img align="middle" src="image/UCDavis.png" width="60%" alt="UC Davis Wordmark">
                 </div>

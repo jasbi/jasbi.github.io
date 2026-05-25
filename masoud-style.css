@@ -99,6 +99,26 @@ td {
     word-wrap: break-word;
 }
 
+/* ── Mobile / small-screen adjustments ───────────────────────────── */
+@media (max-width: 767px) {
+
+    /* Reduce the top padding since the navbar is the same height on mobile */
+    body { padding-top: 70px; }
+
+    /* Profile photo: cap at 200px on mobile so it doesn't dominate the screen */
+    .col-md-3 img[alt="Masoud Jasbi"] { max-width: 200px; width: 60% !important; }
+
+    /* Give the profile sidebar some vertical breathing room when stacked */
+    .col-md-3.text-center { padding-top: 12px; padding-bottom: 8px; }
+
+    /* Intro boxes on research/service pages: add a little side padding */
+    .intro-box { padding: 16px 14px 28px; }
+
+    /* Publication card header: let the title and buttons wrap on very narrow screens */
+    .pub-card-header { flex-wrap: wrap; }
+    .pub-links { margin-top: 6px; }
+}
+
 /* hierarchical list*/
 
 ul, #hierarchy {
