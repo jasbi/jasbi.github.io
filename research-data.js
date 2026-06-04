@@ -105,6 +105,20 @@ var papers = [
     },
     {
       section: 'inpress',
+      title: 'Experimental Evidence for an Interactive Role of the Light Verb and the Non-verbal Element in Assigning Thematic Roles',
+      authors: 'Aria Rastegar, Gianluca E. Lebani, and Masoud Jasbi',
+      venue: 'In Jasbi, M., Mirrazi, Z., & Samiian, V. (Eds.), <em>Advances in Iranian Linguistics III</em>. John Benjamins',
+      topics: ['theoretical', 'experimental'],
+      links: {
+        pdf: ''
+      },
+      abstract: 'Complex Predicates (CPs) are among the most frequently used constructions in Persian and have become controversial concepts for linguists specializing in Iranian languages. This paper reviews the literature on Persian complex predicates and discusses their various elements, focusing on how these theories model the roles of the non-verbal element (NVE) and the light verb (LV) in assigning thematic roles. Following this review, we examine approaches to thematic roles from theoretical and psycholinguistic perspectives. Ultimately, we explain our choice of Dowty (1991) approach for this study. Utilizing White et al. (2016) dataset, we compiled a list of entities with the lexical properties of Dowty’s proto-roles. These entities were presented as options in a questionnaire featuring Persian CP constructions, including those with meaningful and nonce NVEs. By analyzing empirical data, this study reveals an interactive trend among the studied LVs. We argue that LVs generally predict the assignment of the role of the subject in these constructions; however, in some cases, this trend may be significantly affected by the NVEs.',
+      apa: 'Rastegar, A., Lebani, G.E., and Jasbi, M. (in press). Experimental Evidence for an Interactive Role of the Light Verb and the Non-verbal Element in Assigning Thematic Roles. In M. Jasbi, Z. Mirrazi, & V. Samiian (Eds.), Advances in Iranian Linguistics III. John Benjamins.',
+      bibtex: '@incollection{Rastegar2026,\n  author    = {Aria Rastegar and Gianluca E. Lebani and Masoud Jasbi},\n  title     = {Experimental Evidence for an Interactive Role of the Light Verb and the Non-verbal Element in Assigning Thematic Roles},\n  booktitle = {Advances in Iranian Linguistics III},\n  editor    = {Jasbi, M. and Mirrazi, Z. and Samiian, V.},\n  publisher = {John Benjamins},\n  note      = {in press}\n}',
+      firstPage: false
+    },
+    {
+      section: 'inpress',
       title: 'Advances in Iranian Linguistics III',
       authors: 'Jasbi, M., Mirrazi, Z., & Samiian, V. (Eds.)',
       venue: '<em>John Benjamins</em>',
@@ -130,7 +144,7 @@ var papers = [
       },
       abstract: 'In mid-20th century, the linguist Noam Chomsky established generative linguistics, and made significant contributions to linguistics, computer science, and cognitive science by developing the computational and philosophical foundations for a theory that defined language as a formal system, instantiated in human minds or artificial machines. These developments in turn ushered a wave of research on symbolic Artificial Intelligence (AI). More recently, a new wave of non-symbolic AI has emerged with neural Language Models (LMs) that exhibit impressive linguistic performance, leading many to question the older approach and wonder about the the compatibility of generative AI and generative linguistics. In this paper, we argue that generative AI is compatible with generative linguistics and reinforces its basic tenets in at least three ways. First, we argue that LMs are formal generative models as intended originally in Chomsky\'s work on formal language theory. Second, LMs can help develop a program for discovery procedures as defined by Chomsky\'s "Syntactic Structures". Third, LMs can be a major asset for Chomsky\'s minimalist approach to Universal Grammar and language acquisition. In turn, generative linguistics can provide the foundation for evaluating and improving LMs as well as other generative computational models of language.',
       apa: 'Portelance, E., & Jasbi, M. (2025). On the compatibility of generative AI and generative linguistics. Nature Computational Science. https://doi.org/10.1038/s43588-025-00861-2',
-      bibtex: '@article{PortelanceJasbi2025_NCS,\n  author  = {Portelance, E. and Jasbi, M.},\n  title   = {On the Compatibility of Generative AI and Generative Linguistics},\n  journal = {Nature Computational Science},\n  year    = {2025},\n  doi     = {10.1038/s43588-025-00861-2}\n}',
+      bibtex: '@article{PortelanceJasbi2025,\n  author  = {Portelance, E. and Jasbi, M.},\n  title   = {On the Compatibility of Generative AI and Generative Linguistics},\n  journal = {Nature Computational Science},\n  year = {2025},\n  doi = {10.1038/s43588-025-00861-2},\n pages = {745–753},\n volume = {5}}',
       firstPage: true
     },
     {
