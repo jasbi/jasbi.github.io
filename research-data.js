@@ -2,18 +2,18 @@ var papers = [
 
     // ── IN PREP ──────────────────────────────────────────────────────────────
 
-    {
-      section: 'inprep',
-      title: 'Boolean Linguistic Reasoning in Large Language Models',
-      authors: 'Chiem, C. & Jasbi, M.',
-      venue: 'Manuscript in preparation',
-      topics: ['computational'],
-      links: {},
-      abstract: 'Large language models (LLMs) exhibit significant failures in logical reasoning tasks, yet the underlying causes remain unclear. A key challenge is that existing evaluations conflate logical operations with non-logical factors such as representational format and task demands, making it difficult to isolate the sources of failure. In this study, we disentangle logical and non-logical contributions to LLM reasoning failures by constructing a controlled evaluation dataset grounded in Boolean linguistic reasoning. We systematically vary three dimensions: (1) logical construction, comprising 12 constructions built from negation, conjunction, and disjunction; (2) non-logical representation, using letters in words, digits in numbers, and words in sentences as targets of reasoning; and (3) task type, comparing a Truth Value Judgment Task (TVJT) and an Object Selection Task (OST). While TVJT may allow for success through chance performance and shallow heuristics due its limited response options, the OST requires a deeper understanding of the compositional combination of logical concepts. We tested five LLMs (Llama-3.1 8B, Qwen3 4B, Mistral v0.3 7B, GPT-5.1, and  Claude Opus 4.6) and found that both logical operations and nonlogical representations affect model performance. Almost all models showed lower accuracy in the OST (compared to TVJT) suggesting that the models\' successes are often due to shallow heuristics and not compositional logical-linguistic reasoning.',
-      apa: 'Chiem, C. & Jasbi, M. (in preparation). Boolean linguistic reasoning in large language models. Manuscript in preparation.',
-      bibtex: '@unpublished{ChiemBhatJasbi,\n  author = {Chiem, C. and Bhat, D. and Jasbi, M.},\n  title  = {Boolean Linguistic Reasoning in Large Language Models},\n  note   = {Manuscript in preparation}\n}',
-      firstPage: false
-    },
+    // {
+    //   section: 'inprep',
+    //   title: 'Boolean Linguistic Reasoning in Large Language Models',
+    //   authors: 'Chiem, C. & Jasbi, M.',
+    //   venue: 'Manuscript in preparation',
+    //   topics: ['computational'],
+    //   links: {},
+    //   abstract: 'Large language models (LLMs) exhibit significant failures in logical reasoning tasks, yet the underlying causes remain unclear. A key challenge is that existing evaluations conflate logical operations with non-logical factors such as representational format and task demands, making it difficult to isolate the sources of failure. In this study, we disentangle logical and non-logical contributions to LLM reasoning failures by constructing a controlled evaluation dataset grounded in Boolean linguistic reasoning. We systematically vary three dimensions: (1) logical construction, comprising 12 constructions built from negation, conjunction, and disjunction; (2) non-logical representation, using letters in words, digits in numbers, and words in sentences as targets of reasoning; and (3) task type, comparing a Truth Value Judgment Task (TVJT) and an Object Selection Task (OST). While TVJT may allow for success through chance performance and shallow heuristics due its limited response options, the OST requires a deeper understanding of the compositional combination of logical concepts. We tested five LLMs (Llama-3.1 8B, Qwen3 4B, Mistral v0.3 7B, GPT-5.1, and  Claude Opus 4.6) and found that both logical operations and nonlogical representations affect model performance. Almost all models showed lower accuracy in the OST (compared to TVJT) suggesting that the models\' successes are often due to shallow heuristics and not compositional logical-linguistic reasoning.',
+    //   apa: 'Chiem, C. & Jasbi, M. (in preparation). Boolean linguistic reasoning in large language models. Manuscript in preparation.',
+    //   bibtex: '@unpublished{ChiemBhatJasbi,\n  author = {Chiem, C. and Bhat, D. and Jasbi, M.},\n  title  = {Boolean Linguistic Reasoning in Large Language Models},\n  note   = {Manuscript in preparation}\n}',
+    //   firstPage: false
+    // },
     {
       section: 'inprep',
       title: 'The Validity and Reliability of Offline Experimental Measures for Scalar Implicatures',
@@ -53,42 +53,6 @@ var papers = [
 
     // ── IN PRESS ─────────────────────────────────────────────────────────────
 
-    {
-      section: 'inpress',
-      title: 'Resolving the Vagueness of Quantifiers with Explicit Expectations',
-      authors: 'Reese, S., Jasbi, M., & Morgan, E.',
-      venue: '<em>Open Mind</em>',
-      topics: ['experimental', 'computational', 'theoretical'],
-      links: {},
-      abstract: 'Vague quantifiers like many, few, and several may vary considerably with respect to the quantity they denote. Depending on the context, many may indicate different quantities in “many students” versus “many cups of coffee.” The vagueness and context sensitivity of such quantifiers pose a challenge for semantic theories that aim to formally characterize quantifier meaning. We address this challenge by extending and experimentally testing a Bayesian model proposed by Schöller and Franke (2017), which represents quantifiers as cumulative density thresholds over probability distributions of expected values. We hypothesized that each quantifier has a stable semantic threshold, with contextual variability arising from differences in expected value distributions. To test this, we conducted two experiments: one eliciting contextual expectations, and another collecting cardinality judgments for quantified utterances. We then fit five hierarchical Bayesian models and used model comparison (via WAIC and DIC) to evaluate whether thresholds generalize across contexts. Our results reveal conflicting evidence. While estimated thresholds are highly overlapping across contexts—suggesting some stability—models with individualized thresholds consistently outperform the context-stable alternative. Moreover, semantically motivated bounds do appear more stable than pragmatically motivated ones, as expected.',
-      apa: 'Reese, S., Jasbi, M., & Morgan, E. (in press). Resolving the Vagueness of Quantifiers with Explicit Expectations. Open Mind.',
-      bibtex: '@article{ReeseJasbiMorgan_inpress,\n  author  = {Reese, S. and Jasbi, M. and Morgan, E.},\n  title   = {Resolving the Vagueness of Quantifiers with Explicit Expectations},\n  journal = {Open Mind},\n  note    = {in press}\n}',
-      firstPage: false
-    },
-    {
-      section: 'inpress',
-      title: 'Corpus-based Population-level Estimates of Onset Age-of-Acquisition for English Function Words',
-      authors: 'Jasbi, M., Pilapil, A., & Odufuwa, D.',
-      venue: '<em>Proceedings of the 50th Boston University Conference on Language Development (BUCLD 2025)</em>',
-      topics: ['learning', 'computational'],
-      links: {},
-      abstract: 'Previous research has shown that content words are acquired earlier than function words, but the exact trajectory and order of function word acquisition has remained relatively understudied. In this study, we use the largest available child language corpora as well as Bayesian growth curve modeling to estimate the population level onset of production for more than 100 English function words. Our estimates suggest that for the large majority of function words, the earliest age of production lies between 12-24 months. A linear regression found longer function words as measured by the number of phonemes and function words with higher Mean Length of Utterance (MLU) have later estimated onset age of production. We did not find a significant effect of frequency in child directed-speech on onset age of production for function words. Overall these results point to early emergence of abstract functional morphemes with production limitations as the main bottleneck.',
-      apa: 'Jasbi, M., Pilapil, A., & Odufuwa, D. (2026). Corpus-based population-level estimates of onset age-of-acquisition for English function words. Proceedings of the 50th Boston University Conference on Language Development.',
-      bibtex: '@inproceedings{JasbiPilapilOdufuwa2026,\n  author    = {Jasbi, M. and Pilapil, A. and Odufuwa, D.},\n  title     = {Corpus-based Population-level Estimates of Onset Age-of-Acquisition for English Function Words},\n  booktitle = {Proceedings of the 50th Boston University Conference on Language Development (BUCLD 2025)},\n  year      = {2026}\n}',
-      firstPage: false
-    },
-    {
-      section: 'inpress',
-      title: 'Moving Beyond Forced-Choice: A Fresh Perspective on Children’s Disjunction Comprehension',
-      authors: 'Bhaumik, M., & Jasbi, M.',
-      venue: '<em>Proceedings of the 50th Boston University Conference on Language Development (BUCLD 2025)</em>',
-      topics: ['learning', 'experimental'],
-      links: {},
-      abstract: 'Prior research has shown that preschool children sometimes interpret a positive disjunction (e.g., P or Q) similar to a positive conjunction (e.g., P and Q). The literature has considered three possible explanations: 1. Non-adult-like pragmatic strengthening; 2. task artefacts; and 3. non-linguistic default interpretation of unknown connectives. More specifically, Truth Value Judgment Tasks (TVJTs) with two alternatives and trivially true disjunctions have been shown to increase children’s conjunctive interpretations. We tested Bengali-speaking children on their interpretation of positive conjunction and disjunction in a novel give-item task that avoids previously discussed experimental artefacts. We find that some children still interpret positive disjunctions similar to a conjunction. Our study provides support for the hypothesis that conjunctive interpretations of disjunction are due to default biases on the interpretation of an unknown or difficult-to-comprehend coordination, potentially exacerbated by task demands.',
-      apa: 'Bhaumik, M., & Jasbi, M. (2026). Moving beyond forced-choice: A fresh perspective on children’s disjunction comprehension. Proceedings of the 50th Boston University Conference on Language Development.',
-      bibtex: '@inproceedings{BhaumikJasbi2026,\n  author    = {Bhaumik, M. and Jasbi, M.},\n  title     = {Moving Beyond Forced-Choice: A Fresh Perspective on Children\'s Disjunction Comprehension},\n  booktitle = {Proceedings of the 50th Boston University Conference on Language Development (BUCLD 2025)},\n  year      = {2026}\n}',
-      firstPage: false
-    },
     {
       section: 'inpress',
       title: 'A Formal Semantic Analysis of Plurality and Definiteness in Modern Colloquial Persian',
@@ -131,7 +95,48 @@ var papers = [
     },
 
     // ── PUBLISHED ────────────────────────────────────────────────────────────
-
+    {
+      section: 'published',
+      title: 'Resolving the Vagueness of Quantifiers with Explicit Expectations',
+      authors: 'Reese, S., Jasbi, M., & Morgan, E. (2026)',
+      venue: '<em>Open Mind</em>',
+      topics: ['experimental', 'computational', 'theoretical'],
+      links: {
+        pdf: 'https://doi.org/10.1162/OPMI.a.356'
+      },
+      abstract: 'Vague quantifiers like many, few, and several may vary considerably with respect to the quantity they denote. Depending on the context, many may indicate different quantities in “many students” versus “many cups of coffee.” The vagueness and context sensitivity of such quantifiers pose a challenge for semantic theories that aim to formally characterize quantifier meaning. We address this challenge by extending and experimentally testing a Bayesian model proposed by Schöller and Franke (2017), which represents quantifiers as cumulative density thresholds over probability distributions of expected values. We hypothesized that each quantifier has a stable semantic threshold, with contextual variability arising from differences in expected value distributions. To test this, we conducted two experiments: one eliciting contextual expectations, and another collecting cardinality judgments for quantified utterances. We then fit five hierarchical Bayesian models and used model comparison (via WAIC and DIC) to evaluate whether thresholds generalize across contexts. Our results reveal conflicting evidence. While estimated thresholds are highly overlapping across contexts—suggesting some stability—models with individualized thresholds consistently outperform the context-stable alternative. Moreover, semantically motivated bounds do appear more stable than pragmatically motivated ones, as expected.',
+      apa: 'Reese, S., Jasbi, M., & Morgan, E. (in press). Resolving the Vagueness of Quantifiers with Explicit Expectations. Open Mind.',
+      bibtex: '@article{10.1162/OPMI.a.356,\n author = {Reese, Skyler Jove and Jasbi, Masoud and Morgan, Emily},\n title = {Resolving the Vagueness of Quantifiers With Explicit Expectations},\n journal = {Open Mind},\n volume = {10},\n pages = {754-786},\n year = {2026},\n month = {06},\n issn = {2470-2986},\n doi = {10.1162/OPMI.a.356},\n url = {https://doi.org/10.1162/OPMI.a.356},\n eprint = {https://direct.mit.edu/opmi/article-pdf/doi/10.1162/OPMI.a.356/2604988/opmi.a.356.pdf}',
+      firstPage: false
+    },
+    {
+      section: 'published',
+      title: 'Corpus-based Population-level Estimates of Onset Age-of-Acquisition for English Function Words',
+      authors: 'Jasbi, M., Pilapil, A., & Odufuwa, D. (2026)',
+      venue: '<em>Proceedings of the 50th Boston University Conference on Language Development (BUCLD 2025)</em>',
+      topics: ['learning', 'computational'],
+      links: {
+        pdf: 'https://www.cascadilla.com/bucld50toc.html'
+        },
+      abstract: 'Previous research has shown that content words are acquired earlier than function words, but the exact trajectory and order of function word acquisition has remained relatively understudied. In this study, we use the largest available child language corpora as well as Bayesian growth curve modeling to estimate the population level onset of production for more than 100 English function words. Our estimates suggest that for the large majority of function words, the earliest age of production lies between 12-24 months. A linear regression found longer function words as measured by the number of phonemes and function words with higher Mean Length of Utterance (MLU) have later estimated onset age of production. We did not find a significant effect of frequency in child directed-speech on onset age of production for function words. Overall these results point to early emergence of abstract functional morphemes with production limitations as the main bottleneck.',
+      apa: 'Jasbi, M., Pilapil, A., & Odufuwa, D. (2026). Corpus-based population-level estimates of onset age-of-acquisition for English function words. Proceedings of the 50th Boston University Conference on Language Development.',
+      bibtex: '@inproceedings{JasbiPilapilOdufuwa2026,\n  author    = {Jasbi, M. and Pilapil, A. and Odufuwa, D.},\n  title     = {Corpus-based Population-level Estimates of Onset Age-of-Acquisition for English Function Words},\n  booktitle = {Proceedings of the 50th Boston University Conference on Language Development (BUCLD 2025)},\n  year      = {2026}\n}',
+      firstPage: false
+    },
+    {
+      section: 'published',
+      title: 'Moving Beyond Forced-Choice: A Fresh Perspective on Children’s Disjunction Comprehension',
+      authors: 'Bhaumik, M., & Jasbi, M. (2026)',
+      venue: '<em>Proceedings of the 50th Boston University Conference on Language Development (BUCLD 2025)</em>',
+      topics: ['learning', 'experimental'],
+      links: {
+        pdf: 'https://www.cascadilla.com/bucld50toc.html'
+        },
+      abstract: 'Prior research has shown that preschool children sometimes interpret a positive disjunction (e.g., P or Q) similar to a positive conjunction (e.g., P and Q). The literature has considered three possible explanations: 1. Non-adult-like pragmatic strengthening; 2. task artefacts; and 3. non-linguistic default interpretation of unknown connectives. More specifically, Truth Value Judgment Tasks (TVJTs) with two alternatives and trivially true disjunctions have been shown to increase children’s conjunctive interpretations. We tested Bengali-speaking children on their interpretation of positive conjunction and disjunction in a novel give-item task that avoids previously discussed experimental artefacts. We find that some children still interpret positive disjunctions similar to a conjunction. Our study provides support for the hypothesis that conjunctive interpretations of disjunction are due to default biases on the interpretation of an unknown or difficult-to-comprehend coordination, potentially exacerbated by task demands.',
+      apa: 'Bhaumik, M., & Jasbi, M. (2026). Moving beyond forced-choice: A fresh perspective on children’s disjunction comprehension. Proceedings of the 50th Boston University Conference on Language Development.',
+      bibtex: '@inproceedings{BhaumikJasbi2026,\n  author    = {Bhaumik, M. and Jasbi, M.},\n  title     = {Moving Beyond Forced-Choice: A Fresh Perspective on Children\'s Disjunction Comprehension},\n  booktitle = {Proceedings of the 50th Boston University Conference on Language Development (BUCLD 2025)},\n  year      = {2026}\n}',
+      firstPage: false
+    },
     {
       section: 'published',
       title: 'On the compatibility of generative AI and generative linguistics',
@@ -195,7 +200,10 @@ var papers = [
       authors: 'Felton, C., & Jasbi, M. (2025)',
       venue: '<em>Proceedings of Experiments in Linguistic Meaning (ELM 3)</em>, 163–175',
       topics: ['experimental'],
-      links: { pdf: 'https://journals.linguisticsociety.org/proceedings/index.php/ELM/article/view/5806/5608' },
+      links: { 
+        pdf: 'https://journals.linguisticsociety.org/proceedings/index.php/ELM/article/view/5806/5608',
+        doi: 'https://doi.org/10.3765/elm.3.5806'
+      },
       abstract: 'Disjunction in natural language alternates between an inclusive reading (A or B or Both) and an exclusive  reading (A or B but not Both). Traditional accounts of this ambiguity focus on scalar implicature as the source of disjunction exclusivity, a process whereby Gricean reasoning over Horn scales strengthens the baseline inclu-sive  reading  to  an  implied  exclusive  reading  (Grice,  1978;  Horn,  1972;  Gazdar, 1980). Despite nearly all theories acknowledging that other factors likely play a role in  the  generation  of  exclusivity  implications,  non-implicature  factors  have  received comparatively  little  attention. Across  four  experiments  we  tested  two  such  non  im-plicature factors, prior compatibility and syntactic category, finding that both play a role in speaker interpretations of disjunctive sentences. Additionally, by drawing our stimuli in the first two experiments from the prior literature, we found evidence that previous  research  on  disjunction,  while  accurately  identifying  the  key  role  of  scalar implicatures, may be overestimating the effect size thereof due to a failure to control for non-implicature factors.',
       apa: 'Felton, C., & Jasbi, M. (2025). Quantifying non-implicature sources of disjunction exclusivity. Proceedings of Experiments in Linguistic Meaning (ELM 3), 163–175.',
       bibtex: '@inproceedings{FeltonJasbi2025_ELM3,\n  author    = {Felton, C. and Jasbi, M.},\n  title     = {Quantifying Non-Implicature Sources of Disjunction Exclusivity},\n  booktitle = {Proceedings of Experiments in Linguistic Meaning (ELM 3)},\n  year      = {2025},\n  pages     = {163--175}\n}',
@@ -207,7 +215,10 @@ var papers = [
       authors: 'Qiu, H., Felton, C., Houghton, Z., & Jasbi, M. (2025)',
       venue: '<em>Proceedings of Experiments in Linguistic Meaning (ELM 3)</em>, 308–318',
       topics: ['experimental'],
-      links: { pdf: 'https://journals.linguisticsociety.org/proceedings/index.php/ELM/article/view/5807/5620' },
+      links: { 
+        pdf: 'https://journals.linguisticsociety.org/proceedings/index.php/ELM/article/view/5807/5620',
+        doi: 'https://doi.org/10.3765/elm.3.5807' 
+      },
       abstract: 'Experimental research on the processing of Scalar Implicatures (SIs) relies on behavioral tasks that purport to measure the rate at which scalar implicatures are computed within an experimental paradigm. Two paradigms, the Truth Value Judg-ment  Task  (TVJT)  (Gordon,  1998,Crain  &  Thornton,  2000)  and  the  Picture Selection  Task  (PST)  (Gerken  &  Shady,  1998)  have  dominated  the  experimental pragmatics literature; yet the effects of task choice on implicature rate have remained underexplored. Here we report the results of three studies testing participants in aTVJT and aPST using three different linguistic scales in English:“or-and”, “some-all”, and“ad-hoc”.We varied the task (TVJT vs. PST) within subjects in the first ex-periment  and  between  subjects  in  the  second.  The  third  experiment  examined  a variant of the PST called the Hidden Card Task (HCT) which is increasingly used in the context of priming research (Bott & Chemla, 2016). We found that the estimated rate of scalar implicature computation varied noticeably between different tasksas well as scales. This suggests that the experimental paradigm itself has a significant impact on our estimates of the implicature rate for a given linguistic scale, and thus, researchers studying scalar implicatures need to carefully consider the pragmatics of the task itself when designing experimental studies and interpreting their results.',
       apa: 'Qiu, H., Felton, C., Houghton, Z., & Jasbi, M. (2025). Experimental paradigms on scalar implicature estimation. Proceedings of Experiments in Linguistic Meaning (ELM 3), 308–318.',
       bibtex: '@inproceedings{QiuEtAl2025_ELM3,\n  author    = {Qiu, H. and Felton, C. and Houghton, Z. and Jasbi, M.},\n  title     = {Experimental Paradigms on Scalar Implicature Estimation},\n  booktitle = {Proceedings of Experiments in Linguistic Meaning (ELM 3)},\n  year      = {2025},\n  pages     = {308--318}\n}',
@@ -258,7 +269,10 @@ var papers = [
       authors: 'Jasbi, M., Bermudez, N., & Davidson, K. (2023)',
       venue: 'In Knowlton, T., Schwarz, F., & Papafragou, A. (Eds.), <em>Proceedings of Experiments in Linguistic Meaning (ELM 2)</em>, Vol. 2 (pp. 129–141)',
       topics: ['experimental'],
-      links: { doi: 'https://doi.org/10.3765/elm.2.5382' },
+      links: { 
+        doi: 'https://doi.org/10.3765/elm.2.5382', 
+        pdf: 'https://journals.linguisticsociety.org/proceedings/index.php/ELM/article/view/5382/5086'
+      },
       abstract: 'Previous research has hypothesized default interpretive biases for three types of ambiguities with English logical words and, or, and not. First, disjunction (A or B) is hypothesized to be biased towards an exclusive interpretation in upward-entailing environments and an inclusive interpretation in downward-entailing environments (Levinson 2000, Chierchia 2004, Breheny et al. 2005). A negated disjunction (not A or B) is claimed to be biased towards a “neither-nor” interpretation (i.e. wide scope negation: ¬[A ∨ B]) and a negated conjunction is said to be biased towards an “either-not” interpretation (i.e. wide-scope negation: ¬[A ∧ B]) (Szabolcsi 2002, Szabolcsi & Haddican 2004). We tested these hypotheses within the same experimental paradigm with 149 English-speaking participants and found disjunction to be biased towards an inclusive interpretation across three different entailment environments: episodic declaratives, questions, and conditional antecedents. Our results also confirmed that English negated disjunction is biased towards a “neither-nor” (wide scope negation) interpretation but the results did not show an “either-not” bias (wide scope negation) for negated conjunction.',
       apa: 'Jasbi, M., Bermudez, N., & Davidson, K. (2023). Default biases in the interpretation of English negation, conjunction, and disjunction. In T. Knowlton, F. Schwarz, & A. Papafragou (Eds.), Proceedings of Experiments in Linguistic Meaning (ELM 2), Vol. 2 (pp. 129–141). https://doi.org/10.3765/elm.2.5382',
       bibtex: '@inproceedings{JasbiBermudezDavidson2023,\n  author    = {Jasbi, M. and Bermudez, N. and Davidson, K.},\n  title     = {Default Biases in the Interpretation of English Negation, Conjunction, and Disjunction},\n  booktitle = {Proceedings of Experiments in Linguistic Meaning (ELM 2)},\n  editor    = {Knowlton, T. and Schwarz, F. and Papafragou, A.},\n  year      = {2023},\n  volume    = {2},\n  pages     = {129--141},\n  doi       = {10.3765/elm.2.5382}\n}',
@@ -316,7 +330,7 @@ var papers = [
       venue: 'In Dionne, D. & Vidal Covas, L. (Eds.), <em>Proceedings of the 45th Annual Boston University Conference on Language Development</em> (pp. 360–373). Cascadilla Press',
       topics: ['learning', 'experimental'],
       links: {
-        doi: 'https://www.lingref.com/bucld/45/BUCLD45-28.pdf',
+        pdf: 'https://www.lingref.com/bucld/45/BUCLD45-28.pdf',
         github: 'https://github.com/jasbi/negation_production/tree/master/BUCLD2020'
       },
       abstract: 'Previous research has proposed several stages for children’s production of negative morphemes. For example, Cameron-Faulkner, Lieven, and Theakston (2007) proposed that English negative morphemes appear with a no>not>n’t order in children’s speech. Klima and Bellugi (1966) proposed that negation first appears outside the sentence and later moves inside between the subject and the verb. They also proposed that can’t and don’t are learned as unanalyzed wholes before their positive auxiliary variants. However, comprehension studies have not provided evidence for such stages yet (Austin et al. 2014; Feiman et al. 2017; Reuter, Feiman, and Snedeker 2018). This discrepancy can be explained in two ways. First, the lack of evidence may be due to limitations in comprehension studies. Second, the proposed stages may be limited to production and not generalizable to comprehension. This paper presents two exploratory corpus studies that support the second possibility. The results suggest that some previous stage hypotheses do not hold generally and may be limited to a few children. Furthermore, stages that do hold across children may be limited to production only.',
@@ -346,7 +360,7 @@ var papers = [
       venue: '<em>Proceedings of the 15th Workshop on Innovative Use of NLP for Building Educational Applications (BEA 2020)</em>, pages 1–17. ACL',
       topics: ['computational'],
       links: { 
-        doi: 'https://aclanthology.org/2020.bea-1.1',
+        doi: 'https://doi.org/10.18653/v1/2020.bea-1.1',
         pdf: 'https://aclanthology.org/2020.bea-1.1.pdf',
         github:'https://github.com/TovlyDeutsch/Linguistic-Features-for-Readability' 
       },
