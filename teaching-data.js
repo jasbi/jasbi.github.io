@@ -1,4 +1,12 @@
 var courses = [
+    { section: '2026-27', year: 2026, quarter: 'Fall', code: 'LIN 2', title: 'Language, the Mind, and Computers',
+      link: 'courses/lin002_2026.html', topics: ['cogsci', 'computational'],
+      desc: 'An introduction to the computational theory of the mind and major computational models that contribute to the study of language. An introduction to the basics of neural network models, information theory, and symbolic rule-based computation and their application to the study of language.',
+      logo: 'image/UCDavis.png', logoAlt: 'UC Davis logo', logoWidth: 90, students: 250, firstPage: false },
+    { section: '2026-27', year: 2026, quarter: 'Fall', code: 'LIN 141', title: 'Semantics',
+      link: 'courses/lin141_2026.html', topics: ['semantics'],
+      desc: 'In this course we study how language conveys meaning and build models that mimic this process for better understanding its nature. We look at the meaning of sentences and how they are made from the contribution of individual words that make up the sentence. We also study how meaning is born in conversation and how each speaker\'s assumptions and conversational moves creates novel meaning. The course ends by discussing the role of social knowledge in creating meaning.',
+      logo: 'image/UCDavis.png', logoAlt: 'UC Davis logo', logoWidth: 90, students: 38, firstPage: true },
     { section: '2025-26', year: 2026, quarter: 'Winter', code: 'LIN 103B', title: 'Linguistic Analysis II',
       link: 'courses/lin103B_2026.html', topics: ['syntax'],
       desc: 'This course introduces students to the basic theoretical and mathematic foundations of natural language syntax. It covers the formal language theory and the Chomsky Hierarchy. Then we use the NLTK package in Python to create feature-based phrase structure grammars. The course only assumes some introductory background in linguistics.',
